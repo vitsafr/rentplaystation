@@ -900,33 +900,6 @@
     z-index:5;
   }
   .game-card.is-active::before{opacity:1}
-  .game-card.is-entering{
-    animation:gameActivePass .34s cubic-bezier(.2,.8,.2,1);
-  }
-  .game-card.is-entering::after{
-    animation:gameActiveFlash .34s cubic-bezier(.2,.8,.2,1);
-  }
-  .coverflow.is-dragging .game-card.is-entering{
-    animation:gameActiveDragPass .30s cubic-bezier(.16,.84,.28,1);
-  }
-  .coverflow.is-dragging .game-card.is-entering::after{
-    animation:gameActiveFlash .30s cubic-bezier(.16,.84,.28,1);
-  }
-  @keyframes gameActivePass{
-    0%{box-shadow:0 10px 28px rgba(7,17,40,.16),0 0 0 1px rgba(87,151,255,0)}
-    48%{box-shadow:0 20px 48px rgba(7,84,217,.38),0 0 0 2px rgba(113,170,255,.50),0 0 58px rgba(7,84,217,.38)}
-    100%{box-shadow:0 16px 34px rgba(7,17,40,.18),0 0 0 1px rgba(87,151,255,.34),0 0 42px rgba(7,84,217,.30)}
-  }
-  @keyframes gameActiveDragPass{
-    0%{box-shadow:0 10px 28px rgba(7,17,40,.16),0 0 0 1px rgba(87,151,255,0)}
-    42%{box-shadow:0 22px 54px rgba(7,84,217,.44),0 0 0 2px rgba(113,170,255,.58),0 0 66px rgba(7,84,217,.44)}
-    100%{box-shadow:0 16px 34px rgba(7,17,40,.18),0 0 0 1px rgba(87,151,255,.34),0 0 42px rgba(7,84,217,.30)}
-  }
-  @keyframes gameActiveFlash{
-    0%{opacity:0}
-    34%{opacity:1}
-    100%{opacity:0}
-  }
   .game-card image-slot, .game-card img{position:relative;z-index:0;width:100%;height:100%;display:block;object-fit:cover;border-radius:inherit;pointer-events:none;overflow:hidden}
   .game-card .game-cover{display:none}
   .game-card .game-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 55%);pointer-events:none}
@@ -2780,27 +2753,21 @@
       return clamp(Math.round(position), 0, cards.length - 1);
     }
 
-    function render(animateEntry = true){
+    function render(){
       const { cardW, step, containerW } = metrics();
       const x = containerW / 2 - position * step - cardW / 2;
       trackEl.style.transform = `translate3d(${x}px,-50%,0)`;
 
       const nextActive = nearest();
       if (nextActive !== activeIndex) {
-        const previousNumber = activeIndex === null ? null : originalNumber(activeIndex);
         const nextNumber = originalNumber(nextActive);
         activeIndex = nextActive;
         const card = cards[activeIndex];
         if (activeCard && activeCard !== card) {
-          activeCard.classList.remove('is-active', 'is-entering');
+          activeCard.classList.remove('is-active');
         }
         activeCard = card;
         if (card) card.classList.add('is-active');
-        if (card && animateEntry && previousNumber !== nextNumber) {
-          card.classList.remove('is-entering');
-          if (!dragging) void card.offsetWidth;
-          card.classList.add('is-entering');
-        }
         if (curEl) curEl.textContent = String(nextNumber);
       }
     }
@@ -2816,7 +2783,7 @@
       }
       if (shifted) {
         root.classList.add('is-normalizing');
-        render(false);
+        render();
         void trackEl.offsetHeight;
         requestAnimationFrame(() => root.classList.remove('is-normalizing'));
       }
@@ -2931,7 +2898,6 @@
 
       dragging = false;
       pointerDown = false;
-      if (activeCard) activeCard.classList.remove('is-entering');
       root.classList.add('is-settling');
       root.classList.remove('is-dragging');
       ignoreClick = Math.abs(dx) > 6 || Math.abs(velocity) >= .05;
@@ -2946,11 +2912,6 @@
     if (next) next.addEventListener('click', () => go(1));
 
     cards.forEach((card, i) => {
-      card.addEventListener('animationend', event => {
-        if (event.animationName === 'gameActivePass' || event.animationName === 'gameActiveDragPass') {
-          card.classList.remove('is-entering');
-        }
-      });
       card.addEventListener('click', event => {
         if (ignoreClick) {
           event.preventDefault();
@@ -3004,7 +2965,7 @@
     document.addEventListener('visibilitychange', () => { paused = document.hidden; });
     window.addEventListener('resize', () => {
       measure();
-      render(false);
+      render();
     });
 
     timer = setInterval(() => {
@@ -3013,7 +2974,7 @@
 
     requestAnimationFrame(() => {
       measure();
-      render(false);
+      render();
     });
   })();
 </script>
