@@ -1,0 +1,2741 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Аренда PS4 Slim в Тамбове от 500 ₽ в день — PlayStation с играми</title>
+<meta name="description" content="Аренда PlayStation 4 Slim в Тамбове от 500 ₽ в день. В комплекте PS4, 2 геймпада, кабели и игры по запросу. Поможем подключить консоль, возможна доставка.">
+<meta name="keywords" content="аренда PS4 Тамбов, аренда PlayStation Тамбов, PS4 Slim напрокат, прокат приставки Тамбов, аренда приставки, аренда джойстика, игры PS4 Тамбов, PS4 с играми, прокат игровых приставок Тамбов, PS4 на дом">
+<meta name="robots" content="index,follow,max-image-preview:large">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="ru_RU">
+<meta property="og:title" content="Аренда PS4 Slim в Тамбове от 500 ₽ в день">
+<meta property="og:description" content="PlayStation 4 Slim напрокат: 2 геймпада, кабели и игры по запросу в комплекте. Помощь с подключением, договор, залог, доставка по договоренности.">
+<meta property="og:image" content="assets/ps4-hero.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    /* Palette */
+    --bg:#f7faff;
+    --surface:#ffffff;
+    --surface-soft:#f2f6ff;
+
+    --text:#07112b;
+    --muted:#5f6b83;
+    --muted-2:#8a94aa;
+
+    --blue:#0754d9;
+    --blue-2:#0b65ff;
+    --blue-3:#eaf2ff;
+    --line:#dce5f6;
+
+    /* Radii */
+    --radius-sm:10px;
+    --radius-md:14px;
+    --radius-lg:18px;
+    --radius-xl:28px;
+
+    --shadow: 0 10px 30px rgba(14,42,87,.08);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth;scroll-padding-top:92px}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  body{padding-top:72px}
+  a{color:inherit;text-decoration:none}
+  button{font-family:inherit;cursor:pointer;border:none;background:none}
+
+  .container{
+    max-width:1180px;
+    width:calc(100% - 40px);
+    margin:0 auto;
+  }
+
+  /* ---------- Header ---------- */
+  .header{
+    position:fixed;top:0;left:0;right:0;z-index:50;
+    background:var(--surface);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    height:72px;
+    display:flex;align-items:center;gap:40px;
+  }
+  .brand{display:flex;align-items:center;gap:14px}
+  .logo{
+    width:38px;height:38px;border-radius:50%;
+    background:var(--blue);
+    display:grid;place-items:center;color:#fff;flex:none;
+    font-weight:800;font-size:15px;letter-spacing:.02em;
+    font-family:'Manrope',system-ui,sans-serif;
+  }
+  .brand-name{font-size:22px;font-weight:800;letter-spacing:-.015em;color:var(--text)}
+  .nav{display:flex;gap:30px;margin-left:18px}
+  .nav a{font-size:15px;color:#33405b;font-weight:600}
+  .nav a:hover{color:var(--blue)}
+  .header-cta{margin-left:auto}
+  .menu-toggle{
+    display:none;
+    width:44px;
+    height:44px;
+    border-radius:12px;
+    border:1px solid var(--line);
+    background:#fff;
+    color:var(--text);
+    align-items:center;
+    justify-content:center;
+    flex:none;
+    transition:background .18s ease, border-color .18s ease, color .18s ease;
+  }
+  .menu-toggle:hover,
+  .menu-toggle[aria-expanded="true"]{
+    background:var(--blue-3);
+    border-color:rgba(7,84,217,.35);
+    color:var(--blue);
+  }
+  .menu-toggle-lines{
+    position:relative;
+    width:20px;
+    height:14px;
+  }
+  .menu-toggle-lines::before,
+  .menu-toggle-lines::after,
+  .menu-toggle-lines span{
+    content:"";
+    position:absolute;
+    left:0;
+    width:20px;
+    height:2px;
+    border-radius:2px;
+    background:currentColor;
+    transition:transform .18s ease, opacity .18s ease, top .18s ease;
+  }
+  .menu-toggle-lines::before{top:0}
+  .menu-toggle-lines span{top:6px}
+  .menu-toggle-lines::after{top:12px}
+  .menu-toggle[aria-expanded="true"] .menu-toggle-lines::before{top:6px;transform:rotate(45deg)}
+  .menu-toggle[aria-expanded="true"] .menu-toggle-lines span{opacity:0}
+  .menu-toggle[aria-expanded="true"] .menu-toggle-lines::after{top:6px;transform:rotate(-45deg)}
+
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;
+    min-height:48px;padding:0 28px;border-radius:var(--radius-sm);
+    font-weight:800;font-size:14.5px;letter-spacing:.01em;white-space:nowrap;
+    transition:transform .15s ease, box-shadow .2s ease, background .2s ease, color .15s ease;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,#0754d9,#0b65ff);
+    color:#fff;
+    box-shadow:0 6px 18px rgba(7,84,217,.25);
+  }
+  .btn-primary:hover{box-shadow:0 10px 24px rgba(7,84,217,.35);transform:translateY(-1px)}
+  .btn-outline{
+    background:#fff;color:var(--blue);
+    border:1px solid rgba(7,84,217,.35);
+  }
+  .btn-outline:hover{background:var(--blue-3)}
+  .header-cta .btn{min-height:48px}
+  .anchor-focus-overlay{
+    position:fixed;
+    inset:0;
+    z-index:60;
+    background:rgba(247,250,255,.34);
+    backdrop-filter:blur(5px);
+    -webkit-backdrop-filter:blur(5px);
+    opacity:0;
+    pointer-events:none;
+    transition:opacity .22s ease;
+  }
+  .anchor-focus-overlay.active{
+    opacity:1;
+    pointer-events:auto;
+  }
+  .anchor-focus-target{
+    position:relative;
+    z-index:70;
+  }
+
+  /* ---------- Hero ---------- */
+  .hero{padding:34px 0 22px}
+  .hero-grid{
+    display:grid;
+    grid-template-columns: 46% 54%;
+    gap:10px;
+    min-height:438px;
+    align-items:center;
+  }
+  .hero h1{
+    font-size:clamp(48px,6vw,72px);
+    line-height:.95;
+    letter-spacing:-.045em;
+    font-weight:800;
+    margin:0 0 16px;
+  }
+  .hero-lead{
+    font-size:18px;line-height:1.45;
+    color:#3a4356;font-weight:500;
+    max-width:530px;
+    margin:0 0 22px;
+  }
+  .hero-list{
+    list-style:none;margin:0 0 24px;padding:0;
+    display:flex;flex-direction:column;gap:13px;
+  }
+  .hero-list li{display:flex;align-items:center;gap:14px;font-size:16px;font-weight:500;color:#222d44}
+  .feat-ico{
+    width:34px;height:34px;border-radius:50%;
+    background:var(--blue-3);color:var(--blue);
+    display:grid;place-items:center;flex:none;
+  }
+  .feat-ico svg{width:18px;height:18px}
+
+  .hero-price{
+    display:flex;align-items:baseline;gap:12px;
+    margin-bottom:18px;
+  }
+  .price-from{font-size:14px;color:var(--muted);font-weight:600;text-transform:lowercase;letter-spacing:.04em}
+  .amount{font-size:clamp(48px,6vw,62px);font-weight:900;color:var(--blue);letter-spacing:-.025em;line-height:1}
+  .price-suffix{font-size:20px;color:var(--muted);font-weight:600}
+
+  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-actions .btn{min-width:190px}
+
+  /* Hero visual */
+  .product-stage{
+    position:relative;min-height:438px;
+    display:grid;place-items:center;
+    overflow:hidden;
+  }
+  .stage-deco{position:absolute;inset:-10px -40px -10px 0;pointer-events:none;z-index:0;overflow:hidden;border-radius:18px}
+  .stage-deco svg{position:absolute;right:-60px;top:0;width:760px;height:520px;opacity:.85}
+  .product-image{position:relative;z-index:1;width:100%;height:438px;display:flex;align-items:center;justify-content:center}
+  .product-image img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
+
+  /* ---------- Offer cards ---------- */
+  .offer-grid{
+    display:grid;grid-template-columns:1fr 1fr;gap:28px;
+    margin-top:6px;
+  }
+  .offer-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius-lg);
+    min-height:144px;
+    padding:22px 30px;
+    display:flex;gap:20px;align-items:center;
+    box-shadow:var(--shadow);
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .offer-card:hover{box-shadow:0 16px 36px rgba(7,84,217,.12);transform:translateY(-2px)}
+  .offer-ico{
+    width:96px;height:96px;border-radius:50%;
+    background:var(--blue-3);color:var(--blue);
+    display:grid;place-items:center;flex:none;
+  }
+  .offer-ico svg{width:36px;height:36px}
+  .offer-ico .ico-mask{
+    width:72px;height:72px;
+    background:var(--blue);
+    -webkit-mask-position:center;mask-position:center;
+    -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
+    -webkit-mask-size:contain;mask-size:contain;
+  }
+  .offer-ico .ico-img{
+    width:56px;height:56px;
+    object-fit:contain;display:block;
+  }
+  .ico-console{-webkit-mask-image:url('assets/icon-ps4.svg');mask-image:url('assets/icon-ps4.svg')}
+  .ico-controller{-webkit-mask-image:url('assets/icon-gamepad.svg');mask-image:url('assets/icon-gamepad.svg')}
+  .offer-tag{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:2px}
+  .offer-title{font-size:25px;font-weight:800;letter-spacing:-.015em;color:var(--text);line-height:1.1;margin-bottom:4px}
+  .offer-desc{font-size:14.5px;color:var(--muted);margin-bottom:8px;line-height:1.45}
+  .offer-price{display:flex;align-items:baseline;gap:12px}
+  .offer-price-main{font-size:22px;font-weight:800;color:var(--blue);letter-spacing:-.01em}
+  .offer-price-note{font-size:13.5px;color:var(--muted-2);font-weight:500}
+
+  /* ---------- Section heads ---------- */
+  .section-head{margin-bottom:18px}
+  .section-title{
+    margin:0;
+    color:var(--text);
+    font-size:clamp(30px,4vw,42px);
+    font-weight:900;
+    line-height:1.05;
+    letter-spacing:-.035em;
+  }
+
+  /* ---------- FAQ ---------- */
+  .faq-section{padding:24px 0 34px}
+  .faq-head{margin-bottom:16px}
+  .faq-list{display:block;position:relative}
+  .faq-list::before,
+  .faq-item::after{
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    height:1px;
+    background:linear-gradient(90deg,rgba(220,229,246,0),rgba(220,229,246,.94) 10%,rgba(220,229,246,.94) 90%,rgba(220,229,246,0));
+  }
+  .faq-list::before{top:0}
+  .faq-item{position:relative}
+  .faq-item::after{bottom:0}
+  .faq-trigger{
+    width:100%;
+    min-height:74px;
+    padding:18px 0;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:20px;
+    color:var(--text);
+    text-align:left;
+  }
+  .faq-question{
+    font-size:20px;
+    line-height:1.35;
+    font-weight:800;
+    letter-spacing:-.018em;
+  }
+  .faq-action{
+    width:42px;height:42px;border-radius:50%;
+    flex:none;
+    display:grid;place-items:center;
+    color:#fff;
+    background:linear-gradient(135deg,#0754d9,#0b65ff);
+    box-shadow:0 8px 20px rgba(7,84,217,.20);
+    transition:transform .2s ease, box-shadow .2s ease, filter .2s ease, background .2s ease;
+  }
+  .faq-action svg{width:20px;height:20px;display:block;stroke-width:2.2}
+  .faq-action .faq-circle{display:none}
+  .faq-trigger:hover .faq-action{
+    transform:translateY(-1px);
+    box-shadow:0 12px 26px rgba(7,84,217,.26);
+    filter:brightness(1.03);
+  }
+  .faq-panel{
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+    transform:translateY(-4px);
+    transition:max-height .28s ease, opacity .2s ease, transform .22s ease;
+  }
+  .faq-answer{
+    max-width:780px;
+    padding:0 72px 22px 0;
+    color:var(--muted);
+    font-size:15.5px;
+    line-height:1.65;
+  }
+  .faq-answer p{margin:0}
+  .faq-item.open .faq-panel{max-height:260px;opacity:1;transform:none}
+  .faq-item.open .faq-action{
+    background:#fff;
+    color:var(--blue);
+    border:1px solid rgba(7,84,217,.32);
+    box-shadow:0 8px 18px rgba(7,17,43,.08);
+  }
+  .faq-item.open .faq-action .faq-triangle{display:none}
+  .faq-item.open .faq-action .faq-circle{display:block}
+  .faq-item-contact .faq-trigger-contact{
+    width:100%;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    flex-wrap:wrap;
+    gap:20px;
+    padding:20px 0;
+  }
+  .faq-item-contact .faq-question{flex:1 1 260px}
+  .faq-contact-btn{min-height:46px;padding:0 22px;flex:none}
+
+  /* ---------- Pricing tiles ---------- */
+  .pricing{padding:20px 0 16px}
+  .price-grid{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+  }
+  .price-card{
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    min-height:102px;
+    padding:18px 22px;
+    display:flex;align-items:center;gap:16px;
+    box-shadow:var(--shadow);
+    transition:box-shadow .2s ease, transform .2s ease;
+  }
+  .price-card:hover{box-shadow:0 16px 36px rgba(7,84,217,.12);transform:translateY(-2px)}
+  .price-ico{
+    width:52px;height:52px;border-radius:50%;
+    background:var(--blue-3);color:var(--blue);
+    display:grid;place-items:center;flex:none;
+  }
+  .price-ico svg{width:24px;height:24px}
+  .days{font-size:22px;font-weight:800;color:var(--text);line-height:1.05;margin-bottom:4px;letter-spacing:-.01em}
+  .rub{font-size:32px;font-weight:900;color:var(--blue);letter-spacing:-.02em;line-height:1}
+
+  /* ---------- Info strip ---------- */
+  .info-strip{
+    margin-top:16px;
+    display:grid;
+    grid-template-columns:.86fr 1.32fr 1.05fr .96fr;
+    background:var(--surface);
+    border:1px solid var(--line);
+    border-radius:var(--radius-md);
+    box-shadow:var(--shadow);
+    overflow:hidden;
+  }
+  .info-item{
+    min-height:78px;
+    padding:14px 22px;
+    display:flex;align-items:center;gap:14px;
+    border-right:1px solid var(--line);
+  }
+  .info-item:last-child{border-right:none}
+  .info-icon{
+    width:auto;height:auto;border-radius:0;
+    background:transparent;color:var(--blue);
+    display:grid;place-items:center;flex:none;
+  }
+  .info-icon svg{width:38px;height:38px;stroke-width:1.7}
+  .info-label{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:2px}
+  .info-text{font-size:13.5px;color:var(--muted);line-height:1.4}
+
+  /* ---------- CTA ---------- */
+  .cta-section{padding:16px 0 36px}
+  .cta{
+    position:relative;overflow:hidden;
+    min-height:124px;padding:24px 32px;
+    border-radius:15px;
+    display:grid;grid-template-columns:84px 1fr auto;gap:26px;align-items:center;
+    color:#fff;
+    background:linear-gradient(135deg,#06276f 0%,#0754d9 55%,#096bff 100%);
+    box-shadow:0 18px 40px rgba(7,84,217,.30);
+  }
+  .cta::after{
+    content:"";position:absolute;right:24px;top:50%;transform:translateY(-50%);
+    width:320px;height:200px;pointer-events:none;
+    background:
+      url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><g fill='none' stroke='%23ffffff' stroke-width='1.4' opacity='.32'><circle cx='40' cy='40' r='6'/><circle cx='90' cy='140' r='4'/><circle cx='200' cy='30' r='5'/><circle cx='260' cy='160' r='8'/><polygon points='160,80 170,98 150,98'/><polygon points='230,110 240,128 220,128'/><path d='M50 100 l8 8 l-8 8 l-8 -8 z'/><path d='M280 70 l6 6 l-6 6 l-6 -6 z'/><path d='M110 50 l7 7 l-7 7 l-7 -7 z'/></g></svg>") no-repeat center / contain;
+  }
+  .cta-ico{
+    width:84px;height:84px;border-radius:50%;
+    background:rgba(255,255,255,.12);
+    display:grid;place-items:center;position:relative;z-index:1;
+  }
+  .cta-ico svg{width:36px;height:36px;color:#fff}
+  .cta-body{position:relative;z-index:1}
+  .cta-title{font-size:30px;font-weight:800;letter-spacing:-.015em;margin-bottom:4px;line-height:1.1}
+  .cta-sub{font-size:15px;color:rgba(255,255,255,.85);font-weight:500}
+  .cta .btn{position:relative;z-index:1;background:#fff;color:var(--blue);min-height:54px;padding:0 36px;font-size:15px;border-radius:12px;box-shadow:none}
+  .cta .btn:hover{background:#f1f5fd}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width: 980px){
+    .header-inner{position:relative}
+    .hero-grid{grid-template-columns:1fr;gap:20px}
+    .product-stage{order:-1;min-height:340px}
+    .product-image{height:340px}
+    .offer-grid{grid-template-columns:1fr}
+    .price-grid{grid-template-columns:repeat(2,1fr)}
+    .info-strip{grid-template-columns:1fr 1fr}
+    .info-item{border-right:none;border-bottom:1px solid var(--line)}
+    .info-item:nth-child(3),.info-item:nth-child(4){border-bottom:none}
+    .info-item:nth-child(1),.info-item:nth-child(3){border-right:1px solid var(--line)}
+    .nav{
+      position:absolute;
+      top:calc(100% + 10px);
+      right:0;
+      width:min(320px, calc(100vw - 40px));
+      margin-left:0;
+      padding:8px;
+      display:grid;
+      gap:4px;
+      background:rgba(255,255,255,.94);
+      border:1px solid var(--line);
+      border-radius:16px;
+      box-shadow:0 18px 48px rgba(7,17,43,.14);
+      backdrop-filter:blur(12px);
+      -webkit-backdrop-filter:blur(12px);
+      opacity:0;
+      pointer-events:none;
+      transform:translateY(-8px) scale(.98);
+      transform-origin:top right;
+      transition:opacity .18s ease, transform .18s ease;
+    }
+    .nav.open{
+      opacity:1;
+      pointer-events:auto;
+      transform:none;
+    }
+    .nav a{
+      min-height:44px;
+      padding:0 14px;
+      border-radius:10px;
+      display:flex;
+      align-items:center;
+      font-size:15px;
+    }
+    .nav a:hover{background:var(--blue-3)}
+    .menu-toggle{display:flex}
+    .cta{grid-template-columns:64px 1fr;gap:18px}
+    .cta .btn{grid-column:1 / -1;justify-self:start}
+  }
+  @media (max-width: 720px){
+    html{scroll-padding-top:80px}
+    body{padding-top:64px}
+    /* Header tighter */
+    .header-inner{height:64px;gap:10px}
+    .brand{min-width:0;flex:1 1 auto}
+    .brand-name{font-size:15.5px;line-height:1.15;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .logo{width:34px;height:34px;flex:none}
+    .header-cta{flex:none}
+    .header-cta .btn{min-height:42px;padding:0 16px;font-size:13px}
+    .menu-toggle{display:flex}
+
+    /* Hero */
+    .hero{padding:22px 0 16px}
+    .hero-grid{gap:14px}
+    .hero h1{font-size:44px;letter-spacing:-.035em;margin-bottom:12px}
+    .hero-lead{font-size:15.5px;margin-bottom:18px}
+    .hero-list li{font-size:14.5px;gap:12px}
+    .feat-ico{width:30px;height:30px}
+    .feat-ico svg{width:16px;height:16px}
+    .amount{font-size:42px}
+    .price-suffix{font-size:17px}
+    .product-stage{min-height:260px}
+    .product-image{height:260px}
+    .stage-deco{inset:0}
+    .stage-deco svg{right:-20px;width:120%;height:100%}
+
+    /* Offer cards */
+    .offer-card{padding:18px 18px;gap:14px;min-height:0}
+    .offer-ico{width:72px;height:72px}
+    .offer-ico svg{width:30px;height:30px}
+    .offer-ico .ico-mask{width:54px;height:54px}
+    .offer-ico .ico-img{width:42px;height:42px}
+    .offer-title{font-size:20px}
+    .offer-desc{font-size:13.5px}
+    .offer-price-main{font-size:18px}
+    .section-title{font-size:30px}
+    .faq-section{padding:18px 0 28px}
+    .faq-trigger{min-height:64px;padding:15px 0;gap:14px}
+    .faq-question{font-size:16px;line-height:1.42}
+    .faq-action{width:36px;height:36px}
+    .faq-action svg{width:18px;height:18px}
+    .faq-answer{padding:0 0 18px 0;font-size:14px;line-height:1.6}
+    .faq-item-contact .faq-trigger-contact{align-items:center;flex-direction:row;padding:16px 0;gap:14px}
+    .faq-contact-btn{width:auto;min-width:154px;padding:0 20px}
+
+    /* Pricing */
+    .pricing{padding:14px 0 10px}
+    .price-grid{gap:12px}
+    .price-card{padding:14px 16px;gap:12px;min-height:0}
+    .price-ico{width:44px;height:44px}
+    .price-ico svg{width:20px;height:20px}
+    .days{font-size:18px}
+    .rub{font-size:26px}
+
+    /* Info strip — keep 2 cols, tighten */
+    .info-item{padding:12px 14px;gap:12px;min-height:0}
+    .info-icon svg{width:30px;height:30px}
+    .info-label{font-size:13.5px}
+    .info-text{font-size:12.5px}
+
+    /* CTA — stack vertically, kill bg decoration */
+    .cta{
+      grid-template-columns:1fr;gap:14px;
+      padding:22px;min-height:0;
+    }
+    .cta::after{display:none}
+    .cta-ico{width:56px;height:56px}
+    .cta-ico svg{width:26px;height:26px}
+    .cta-title{font-size:22px}
+    .cta-sub{font-size:13.5px}
+    .cta .btn{min-height:48px;padding:0 26px;font-size:14px;width:100%;justify-content:center}
+  }
+  @media (max-width: 480px){
+    .container{width:calc(100% - 24px)}
+    .price-grid{grid-template-columns:1fr}
+    .info-strip{grid-template-columns:1fr}
+    .info-item{border-right:none !important;border-bottom:1px solid var(--line)}
+    .info-item:last-child{border-bottom:none}
+    .hero h1{font-size:38px}
+    .amount{font-size:36px}
+    .hero-actions{flex-direction:column}
+    .hero-actions .btn{width:100%}
+    .faq-item-contact .faq-trigger-contact{align-items:center;flex-direction:row}
+    .faq-contact-btn{width:100%}
+
+    /* Header — abbreviate CTA on tiny screens */
+    .header-cta{display:none}
+    .brand-name{font-size:15px}
+    .nav{left:0;right:0;width:auto}
+  }
+
+  /* ---------- Contact Modal ---------- */
+  .modal-backdrop{
+    position:fixed;inset:0;z-index:100;
+    background:rgba(7,17,40,.55);
+    backdrop-filter:blur(6px);
+    -webkit-backdrop-filter:blur(6px);
+    display:none;align-items:center;justify-content:center;
+    padding:20px;
+    opacity:0;transition:opacity .2s ease;
+  }
+  .modal-backdrop.open{display:flex;opacity:1}
+  .modal{
+    width:100%;max-width:440px;
+    background:#fff;border-radius:20px;
+    padding:32px 32px 28px;
+    box-shadow:0 30px 80px rgba(7,84,217,.25);
+    position:relative;
+    transform:translateY(8px) scale(.98);
+    transition:transform .2s ease;
+  }
+  .modal-backdrop.open .modal{transform:none}
+  .modal-close{
+    position:absolute;top:14px;right:14px;
+    width:36px;height:36px;border-radius:50%;
+    display:grid;place-items:center;
+    color:#7c8aa8;background:transparent;
+    transition:background .15s ease, color .15s ease;
+  }
+  .modal-close:hover{background:var(--blue-3);color:var(--blue)}
+  .modal-close svg{width:18px;height:18px}
+  .modal-icon{
+    width:64px;height:64px;border-radius:50%;
+    background:var(--blue-3);color:var(--blue);
+    display:grid;place-items:center;margin:0 auto 16px;
+  }
+  .modal-icon svg{width:30px;height:30px}
+  .modal-title{
+    font-size:24px;font-weight:800;letter-spacing:-.015em;
+    color:var(--text);text-align:center;margin:0 0 6px;
+  }
+  .modal-sub{
+    font-size:14.5px;color:var(--muted);text-align:center;
+    margin:0 0 22px;line-height:1.45;
+  }
+  .contact-list{display:flex;flex-direction:column;gap:10px}
+  .contact-row{
+    display:flex;align-items:center;gap:14px;
+    padding:14px 18px;border-radius:14px;
+    border:1px solid var(--line);
+    background:#fff;
+    transition:border-color .15s ease, background .15s ease, transform .15s ease;
+  }
+  .contact-row:hover{border-color:var(--blue);background:var(--blue-3);transform:translateY(-1px)}
+  .contact-icon{
+    width:42px;height:42px;border-radius:12px;
+    display:grid;place-items:center;flex:none;color:#fff;
+  }
+  .contact-icon.tg{background:#229ED9}
+  .contact-icon.wa{background:#25D366}
+  .contact-icon.av{background:#fff;color:#fff;border:1px solid var(--line);overflow:hidden;padding:5px}
+  .contact-icon.av svg{width:100%;height:100%;display:block}
+  .contact-icon.phone{background:var(--blue)}
+  .contact-icon svg{width:22px;height:22px}
+  .contact-meta{flex:1;min-width:0}
+  .contact-label{font-size:12.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+  .contact-value{font-size:16px;color:var(--text);font-weight:700;letter-spacing:-.005em}
+  .contact-arrow{color:var(--muted-2);flex:none}
+  .contact-arrow svg{width:18px;height:18px}
+  @media (max-width:480px){
+    .modal{padding:26px 22px 22px;border-radius:18px}
+    .modal-title{font-size:20px}
+    .contact-value{font-size:15px}
+  }
+
+  /* ---------- Games coverflow ---------- */
+  .games-section{padding:48px 0 24px;overflow:visible}
+  .games-head{text-align:center;margin-bottom:32px}
+  .games-eyebrow{font-size:14px;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+  .games-title{font-size:38px;font-weight:800;letter-spacing:-.02em;color:var(--text);margin:0 0 8px;line-height:1.1}
+  .games-sub{font-size:16px;color:var(--muted);margin:0;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.5}
+
+  .coverflow-wrap{
+    position:relative;
+    max-width:1000px;
+    margin:0 auto;
+    padding:0 70px;
+  }
+  .coverflow{
+    --cf-height:500px;
+    --cf-pad-top:80px;
+    --cf-pad-bottom:96px;
+    --cf-mid:236px;
+    position:relative;
+    max-width:820px;
+    height:var(--cf-height);
+    padding:var(--cf-pad-top) 0 var(--cf-pad-bottom);
+    margin:calc(-1 * var(--cf-pad-top)) auto 0;
+    overflow:hidden;
+    isolation:isolate;
+    touch-action:pan-y;
+    cursor:grab;
+  }
+  .coverflow.is-dragging{cursor:grabbing}
+  .coverflow.is-dragging .game-card{transition:none}
+  .coverflow::before,
+  .coverflow::after{
+    content:"";
+    position:absolute;
+    top:0;
+    bottom:0;
+    width:84px;
+    z-index:30;
+    pointer-events:none;
+  }
+  .coverflow::before{
+    left:0;
+    background:linear-gradient(90deg,var(--bg) 0%,rgba(247,250,255,.92) 28%,rgba(247,250,255,0) 100%);
+  }
+  .coverflow::after{
+    right:0;
+    background:linear-gradient(270deg,var(--bg) 0%,rgba(247,250,255,.92) 28%,rgba(247,250,255,0) 100%);
+  }
+  .coverflow-track{
+    position:absolute;top:var(--cf-mid);left:0;
+    display:flex;align-items:center;gap:24px;
+    transform:translate3d(0,-50%,0);
+    will-change:transform;
+  }
+  .game-card{
+    position:relative;flex:0 0 200px;width:200px;height:284px;
+    border-radius:14px;overflow:hidden;cursor:pointer;
+    background:linear-gradient(135deg,#1849ab 0%,#0754d9 100%);
+    box-shadow:0 10px 28px rgba(7,17,40,.16);
+    transition:transform .5s cubic-bezier(.4,.2,.2,1), box-shadow .5s ease, filter .5s ease;
+    user-select:none;-webkit-user-drag:none;
+  }
+  .game-card::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:0;
+    border-radius:inherit;
+    background:
+      radial-gradient(ellipse at 50% 100%,rgba(43,119,255,.38),rgba(43,119,255,.12) 42%,rgba(43,119,255,0) 70%),
+      linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,0) 32%);
+    opacity:0;
+    transition:opacity .5s ease;
+    pointer-events:none;
+  }
+  .game-card.is-active{
+    transform:scale(1.12);
+    box-shadow:
+      0 16px 34px rgba(7,17,40,.18),
+      0 0 0 1px rgba(87,151,255,.34),
+      0 0 42px rgba(7,84,217,.30);
+    filter:drop-shadow(0 18px 28px rgba(7,84,217,.18));
+    z-index:5;
+  }
+  .game-card.is-active::before{opacity:1}
+  .game-card:not(.is-active){filter:saturate(.92) brightness(.96)}
+  .game-card image-slot, .game-card img{position:relative;z-index:0;width:100%;height:100%;display:block;object-fit:cover;border-radius:inherit;pointer-events:none;overflow:hidden}
+  .game-card .game-cover{display:none}
+  .game-card .game-shade{position:absolute;inset:0;background:linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 55%);pointer-events:none}
+  .game-card .game-title{position:absolute;left:0;right:0;bottom:0;color:#fff;padding:14px 12px 12px;font-size:13.5px;font-weight:700;text-align:center;letter-spacing:-.005em;line-height:1.2;text-shadow:0 1px 3px rgba(0,0,0,.5);pointer-events:none}
+
+  .cf-nav{
+    position:absolute;top:50%;transform:translateY(-50%);
+    width:48px;height:48px;border-radius:50%;
+    background:#fff;color:var(--blue);
+    border:1px solid var(--line);
+    display:grid;place-items:center;cursor:pointer;
+    z-index:100;
+    box-shadow:0 8px 22px rgba(7,84,217,.18);
+    transition:transform .15s ease, background .15s ease, color .15s ease;
+  }
+  .cf-nav:hover{background:var(--blue);color:#fff;transform:translateY(-50%) scale(1.06)}
+  .cf-nav:active{transform:translateY(-50%) scale(.96)}
+  .cf-nav.left{left:6px}
+  .cf-nav.right{right:6px}
+  .cf-nav svg{width:22px;height:22px}
+
+  .cf-counter{
+    display:flex;align-items:center;justify-content:center;gap:14px;
+    margin-top:-46px;color:var(--muted);font-weight:600;font-size:14px;
+  }
+  .cf-counter-current{color:var(--blue);font-weight:800;font-size:18px;font-variant-numeric:tabular-nums}
+  .cf-counter-total{font-variant-numeric:tabular-nums}
+
+  @media (max-width: 720px){
+    .games-section{padding:32px 0 16px}
+    .games-title{font-size:26px}
+    .games-sub{font-size:14.5px}
+    .cf-nav{display:none}
+    .coverflow-wrap{max-width:100%;padding:0 18px}
+    .coverflow{
+      --cf-height:380px;
+      --cf-pad-top:64px;
+      --cf-pad-bottom:74px;
+      --cf-mid:188px;
+      max-width:520px;
+    }
+    .coverflow::before,
+    .coverflow::after{width:44px}
+    .coverflow-track{gap:16px}
+    .game-card{flex-basis:150px;width:150px;height:212px;border-radius:12px}
+    .game-card .game-title{font-size:12px;padding:12px 10px 10px}
+    .cf-counter{margin-top:-26px}
+    .cf-nav{width:38px;height:38px}
+    .cf-nav svg{width:18px;height:18px}
+  }
+  @media (max-width: 480px){
+    .coverflow-wrap{padding:0 12px}
+  }
+</style>
+<script>
+/**
+ * <image-slot> — user-fillable image placeholder.
+ *
+ * Drop this into a deck, mockup, or page wherever you want the user to
+ * supply an image. You control the slot's shape and size; the user fills it
+ * by dragging an image file onto it (or clicking to browse). The dropped
+ * image persists across reloads via a .image-slots.state.json sidecar —
+ * same read-via-fetch / write-via-window.omelette pattern as
+ * design_canvas.jsx, so the filled slot shows on share links, downloaded
+ * zips, and PPTX export. Outside the omelette runtime the slot is read-only.
+ *
+ * The host bridge only allows sidecar writes at the project root, so the
+ * HTML that uses this component is assumed to live at the project root too
+ * (same constraint as design_canvas.jsx).
+ *
+ * Attributes:
+ *   id           Persistence key. REQUIRED for the drop to survive reload —
+ *                every slot on the page needs a distinct id.
+ *   shape        'rect' | 'rounded' | 'circle' | 'pill'   (default 'rounded')
+ *                'circle' applies 50% border-radius; on a non-square slot
+ *                that's an ellipse — set equal width and height for a true
+ *                circle.
+ *   radius       Corner radius in px for 'rounded'.       (default 12)
+ *   mask         Any CSS clip-path value. Overrides `shape` — use this for
+ *                hexagons, blobs, arbitrary polygons.
+ *   fit          object-fit: cover | contain | fill.       (default 'cover')
+ *                With cover (the default) double-clicking the filled slot
+ *                enters a reframe mode: the whole image spills past the mask
+ *                (translucent outside, opaque inside), drag to reposition,
+ *                corner-drag to scale. The crop persists alongside the image
+ *                in the sidecar. contain/fill stay static.
+ *   position     object-position for fit=contain|fill.     (default '50% 50%')
+ *   placeholder  Empty-state caption.                      (default 'Drop an image')
+ *   src          Optional initial/fallback image URL. A user drop overrides
+ *                it; clearing the drop reveals src again.
+ *
+ * Size and layout come from ordinary CSS on the element — width/height
+ * inline or from a parent grid — so it composes with any layout.
+ *
+ * Usage:
+ *   <script src="image-slot.js"><\/script>
+ *   <image-slot id="hero"   style="width:800px;height:450px" shape="rounded" radius="20"
+ *               placeholder="Drop a hero image"></image-slot>
+ *   <image-slot id="avatar" style="width:120px;height:120px" shape="circle"></image-slot>
+ *   <image-slot id="kite"   style="width:300px;height:300px"
+ *               mask="polygon(50% 0, 100% 50%, 50% 100%, 0 50%)"></image-slot>
+ */
+
+(() => {
+  const STATE_FILE = '.image-slots.state.json';
+  // 2× a ~600px slot in a 1920-wide deck — retina-sharp without making the
+  // sidecar enormous. A 1200px WebP at q=0.85 is ~150-300KB.
+  const MAX_DIM = 1200;
+  // Raster formats only. SVG is excluded (can carry script; createImageBitmap
+  // on SVG blobs is inconsistent). GIF is excluded because the canvas
+  // re-encode keeps only the first frame, so an animated GIF would silently
+  // go still — better to reject than surprise.
+  const ACCEPT = ['image/png', 'image/jpeg', 'image/webp', 'image/avif'];
+
+  // ── Shared sidecar store ────────────────────────────────────────────────
+  // One fetch + immediate write-on-change for every <image-slot> on the
+  // page. Reads via fetch() so viewing works anywhere the HTML and sidecar
+  // are served together; writes go through window.omelette.writeFile, which
+  // the host allowlists to *.state.json basenames only.
+  const subs = new Set();
+  let slots = {};
+  // ids explicitly cleared before the sidecar fetch resolved — otherwise
+  // the merge below can't tell "never set" from "just deleted" and would
+  // resurrect the sidecar's stale value.
+  const tombstones = new Set();
+  let loaded = false;
+  let loadP = null;
+
+  function load() {
+    if (loadP) return loadP;
+    loadP = fetch(STATE_FILE)
+      .then((r) => (r.ok ? r.json() : null))
+      .then((j) => {
+        // Merge: sidecar loses to any in-memory change that raced ahead of
+        // the fetch (drop or clear) so neither is clobbered by hydration.
+        if (j && typeof j === 'object') {
+          const merged = Object.assign({}, j, slots);
+          // A framing-only write that raced ahead of hydration must not
+          // drop a user image that's only on disk — inherit u from the
+          // sidecar for any in-memory entry that lacks one.
+          for (const k in slots) {
+            if (merged[k] && !merged[k].u && j[k]) {
+              merged[k].u = typeof j[k] === 'string' ? j[k] : j[k].u;
+            }
+          }
+          for (const id of tombstones) delete merged[id];
+          slots = merged;
+        }
+        tombstones.clear();
+      })
+      .catch(() => {})
+      .then(() => { loaded = true; subs.forEach((fn) => fn()); });
+    return loadP;
+  }
+
+  // Serialize writes so two near-simultaneous drops on different slots
+  // can't reorder at the backend and leave the sidecar with only the
+  // first. A save requested mid-flight just marks dirty and re-fires on
+  // completion with the then-current slots.
+  let saving = false;
+  let saveDirty = false;
+  function save() {
+    if (saving) { saveDirty = true; return; }
+    const w = window.omelette && window.omelette.writeFile;
+    if (!w) return;
+    saving = true;
+    Promise.resolve(w(STATE_FILE, JSON.stringify(slots)))
+      .catch(() => {})
+      .then(() => { saving = false; if (saveDirty) { saveDirty = false; save(); } });
+  }
+
+  const S_MAX = 5;
+  const clampS = (s) => Math.max(1, Math.min(S_MAX, s));
+
+  // Normalize a stored slot value. Pre-reframe sidecars stored a bare
+  // data-URL string; newer ones store {u, s, x, y}. Either shape is valid.
+  function getSlot(id) {
+    const v = slots[id];
+    if (!v) return null;
+    return typeof v === 'string' ? { u: v, s: 1, x: 0, y: 0 } : v;
+  }
+
+  function setSlot(id, val) {
+    if (!id) return;
+    if (val) { slots[id] = val; tombstones.delete(id); }
+    else { delete slots[id]; if (!loaded) tombstones.add(id); }
+    subs.forEach((fn) => fn());
+    // A drop is rare + high-value — write immediately so nav-away can't lose
+    // it. Gate on the initial read so we don't overwrite a sidecar we haven't
+    // merged yet; the merge in load() keeps this change once the read lands.
+    if (loaded) save(); else load().then(save);
+  }
+
+  // ── Image downscale ─────────────────────────────────────────────────────
+  // Encode through a canvas so the sidecar carries resized bytes, not the
+  // raw upload. Longest side is capped at 2× the slot's rendered width
+  // (retina) and at MAX_DIM. WebP keeps alpha and is ~10× smaller than PNG
+  // for photos, so there's no need for per-image format picking.
+  async function toDataUrl(file, targetW) {
+    const bitmap = await createImageBitmap(file);
+    try {
+      const cap = Math.min(MAX_DIM, Math.max(1, Math.round(targetW * 2)) || MAX_DIM);
+      const scale = Math.min(1, cap / Math.max(bitmap.width, bitmap.height));
+      const w = Math.max(1, Math.round(bitmap.width * scale));
+      const h = Math.max(1, Math.round(bitmap.height * scale));
+      const canvas = document.createElement('canvas');
+      canvas.width = w; canvas.height = h;
+      canvas.getContext('2d').drawImage(bitmap, 0, 0, w, h);
+      return canvas.toDataURL('image/webp', 0.85);
+    } finally {
+      bitmap.close && bitmap.close();
+    }
+  }
+
+  // ── Custom element ──────────────────────────────────────────────────────
+  const stylesheet =
+    ':host{display:inline-block;position:relative;vertical-align:top;' +
+    '  font:13px/1.3 system-ui,-apple-system,sans-serif;color:rgba(0,0,0,.55);width:240px;height:160px}' +
+    '.frame{position:absolute;inset:0;overflow:hidden;background:rgba(0,0,0,.04)}' +
+    // .frame img (clipped) and .spill (unclipped ghost + handles) share the
+    // same left/top/width/height in frame-%, computed by _applyView(), so the
+    // inside-mask crop and the outside-mask spill stay pixel-aligned.
+    '.frame img{position:absolute;max-width:none;transform:translate(-50%,-50%);' +
+    '  -webkit-user-drag:none;user-select:none;touch-action:none}' +
+    // Reframe mode (double-click): the full image spills past the mask. The
+    // spill layer is sized to the IMAGE bounds so its corners are where the
+    // resize handles belong. The ghost <img> inside is translucent; the real
+    // clipped <img> underneath shows the opaque in-mask crop.
+    '.spill{position:absolute;transform:translate(-50%,-50%);display:none;z-index:1;' +
+    '  cursor:grab;touch-action:none}' +
+    ':host([data-panning]) .spill{cursor:grabbing}' +
+    '.spill .ghost{position:absolute;inset:0;width:100%;height:100%;opacity:.35;' +
+    '  pointer-events:none;-webkit-user-drag:none;user-select:none;' +
+    '  box-shadow:0 0 0 1px rgba(0,0,0,.2),0 12px 32px rgba(0,0,0,.2)}' +
+    '.spill .handle{position:absolute;width:12px;height:12px;border-radius:50%;' +
+    '  background:#fff;box-shadow:0 0 0 1.5px #c96442,0 1px 3px rgba(0,0,0,.3);' +
+    '  transform:translate(-50%,-50%)}' +
+    '.spill .handle[data-c=nw]{left:0;top:0;cursor:nwse-resize}' +
+    '.spill .handle[data-c=ne]{left:100%;top:0;cursor:nesw-resize}' +
+    '.spill .handle[data-c=sw]{left:0;top:100%;cursor:nesw-resize}' +
+    '.spill .handle[data-c=se]{left:100%;top:100%;cursor:nwse-resize}' +
+    ':host([data-reframe]){z-index:10}' +
+    ':host([data-reframe]) .spill{display:block}' +
+    ':host([data-reframe]) .frame{box-shadow:0 0 0 2px #c96442}' +
+    '.empty{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;' +
+    '  justify-content:center;gap:6px;text-align:center;padding:12px;box-sizing:border-box;' +
+    '  cursor:pointer;user-select:none}' +
+    '.empty svg{opacity:.45}' +
+    '.empty .cap{max-width:90%;font-weight:500;letter-spacing:.01em}' +
+    '.empty .sub{font-size:11px}' +
+    '.empty .sub u{text-underline-offset:2px;text-decoration-color:rgba(0,0,0,.25)}' +
+    '.empty:hover .sub u{color:rgba(0,0,0,.75);text-decoration-color:currentColor}' +
+    ':host([data-over]) .frame{outline:2px solid #c96442;outline-offset:-2px;' +
+    '  background:rgba(201,100,66,.10)}' +
+    '.ring{position:absolute;inset:0;pointer-events:none;border:1.5px dashed rgba(0,0,0,.25);' +
+    '  transition:border-color .12s}' +
+    ':host([data-over]) .ring{border-color:#c96442}' +
+    ':host([data-filled]) .ring{display:none}' +
+    // Controls sit BELOW the mask (top:100%), absolutely positioned so the
+    // author-declared slot height is unaffected. The gap is padding, not a
+    // top offset, so the hover target stays contiguous with the frame.
+    '.ctl{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:8px;' +
+    '  display:flex;gap:6px;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2;' +
+    '  white-space:nowrap}' +
+    ':host([data-filled][data-editable]:hover) .ctl,:host([data-reframe]) .ctl' +
+    '  {opacity:1;pointer-events:auto}' +
+    '.ctl button{appearance:none;border:0;border-radius:6px;padding:5px 10px;cursor:pointer;' +
+    '  background:rgba(0,0,0,.65);color:#fff;font:11px/1 system-ui,-apple-system,sans-serif;' +
+    '  backdrop-filter:blur(6px)}' +
+    '.ctl button:hover{background:rgba(0,0,0,.8)}' +
+    '.err{position:absolute;left:8px;bottom:8px;right:8px;color:#b3261e;font-size:11px;' +
+    '  background:rgba(255,255,255,.85);padding:4px 6px;border-radius:5px;pointer-events:none}';
+
+  const icon =
+    '<svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" ' +
+    'stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round">' +
+    '<rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/>' +
+    '<path d="m21 15-5-5L5 21"/></svg>';
+
+  class ImageSlot extends HTMLElement {
+    static get observedAttributes() {
+      return ['shape', 'radius', 'mask', 'fit', 'position', 'placeholder', 'src', 'id'];
+    }
+
+    constructor() {
+      super();
+      const root = this.attachShadow({ mode: 'open' });
+      // .spill and .ctl sit OUTSIDE .frame so overflow:hidden + border-radius
+      // on the frame (circle, pill, rounded) can't clip them.
+      root.innerHTML =
+        '<style>' + stylesheet + '</style>' +
+        '<div class="frame" part="frame">' +
+        '  <img part="image" alt="" draggable="false" style="display:none">' +
+        '  <div class="empty" part="empty">' + icon +
+        '    <div class="cap"></div>' +
+        '    <div class="sub">or <u>browse files</u></div></div>' +
+        '  <div class="ring" part="ring"></div>' +
+        '</div>' +
+        '<div class="spill">' +
+        '  <img class="ghost" alt="" draggable="false">' +
+        '  <div class="handle" data-c="nw"></div><div class="handle" data-c="ne"></div>' +
+        '  <div class="handle" data-c="sw"></div><div class="handle" data-c="se"></div>' +
+        '</div>' +
+        '<div class="ctl"><button data-act="replace" title="Replace image">Replace</button>' +
+        '  <button data-act="clear" title="Remove image">Remove</button></div>' +
+        '<input type="file" accept="' + ACCEPT.join(',') + '" hidden>';
+      this._frame = root.querySelector('.frame');
+      this._ring = root.querySelector('.ring');
+      this._img = root.querySelector('.frame img');
+      this._empty = root.querySelector('.empty');
+      this._cap = root.querySelector('.cap');
+      this._sub = root.querySelector('.sub');
+      this._spill = root.querySelector('.spill');
+      this._ghost = root.querySelector('.ghost');
+      this._err = null;
+      this._input = root.querySelector('input');
+      this._depth = 0;
+      this._gen = 0;
+      this._view = { s: 1, x: 0, y: 0 };
+      this._subFn = () => this._render();
+      // Shadow-DOM listeners live with the shadow DOM — bound once here so
+      // disconnect/reconnect (e.g. React remount) doesn't stack handlers.
+      this._empty.addEventListener('click', () => this._input.click());
+      root.addEventListener('click', (e) => {
+        const act = e.target && e.target.getAttribute && e.target.getAttribute('data-act');
+        if (act === 'replace') { this._exitReframe(true); this._input.click(); }
+        if (act === 'clear') {
+          this._exitReframe(false);
+          this._gen++;
+          this._local = null;
+          if (this.id) setSlot(this.id, null); else this._render();
+        }
+      });
+      this._input.addEventListener('change', () => {
+        const f = this._input.files && this._input.files[0];
+        if (f) this._ingest(f);
+        this._input.value = '';
+      });
+      // naturalWidth/Height aren't known until load — re-apply so the cover
+      // baseline is computed from real dimensions, not the 100%×100% fallback.
+      this._img.addEventListener('load', () => this._applyView());
+      // Gated on editable + fit=cover so share links and contain/fill slots
+      // stay static.
+      this.addEventListener('dblclick', (e) => {
+        if (!this.hasAttribute('data-editable') || !this._reframes()) return;
+        e.preventDefault();
+        if (this.hasAttribute('data-reframe')) this._exitReframe(true);
+        else this._enterReframe();
+      });
+      // Pan + resize both originate on the spill layer. A handle pointerdown
+      // drives an aspect-locked resize anchored at the opposite corner; any
+      // other pointerdown on the spill pans. Offsets are frame-% so a
+      // reframed slot survives responsive resize / PPTX export.
+      this._spill.addEventListener('pointerdown', (e) => {
+        if (e.button !== 0 || !this.hasAttribute('data-reframe')) return;
+        e.preventDefault();
+        e.stopPropagation();
+        this._spill.setPointerCapture(e.pointerId);
+        const rect = this.getBoundingClientRect();
+        const fw = rect.width || 1, fh = rect.height || 1;
+        const corner = e.target.getAttribute && e.target.getAttribute('data-c');
+        let move;
+        if (corner) {
+          // Resize about the OPPOSITE corner. Viewport-px throughout (rect
+          // fw/fh, not clientWidth) so the math survives a transform:scale()
+          // ancestor — deck_stage renders slides scaled-to-fit.
+          const iw = this._img.naturalWidth || 1, ih = this._img.naturalHeight || 1;
+          const base = Math.max(fw / iw, fh / ih);
+          const sx = corner.includes('e') ? 1 : -1;
+          const sy = corner.includes('s') ? 1 : -1;
+          const s0 = this._view.s;
+          const w0 = iw * base * s0, h0 = ih * base * s0;
+          const cx0 = (50 + this._view.x) / 100 * fw;
+          const cy0 = (50 + this._view.y) / 100 * fh;
+          const ox = cx0 - sx * w0 / 2, oy = cy0 - sy * h0 / 2;
+          const diag0 = Math.hypot(w0, h0);
+          const ux = sx * w0 / diag0, uy = sy * h0 / diag0;
+          move = (ev) => {
+            const proj = (ev.clientX - rect.left - ox) * ux +
+                         (ev.clientY - rect.top - oy) * uy;
+            const s = clampS(s0 * proj / diag0);
+            const d = diag0 * s / s0;
+            this._view.s = s;
+            this._view.x = (ox + ux * d / 2) / fw * 100 - 50;
+            this._view.y = (oy + uy * d / 2) / fh * 100 - 50;
+            this._clampView();
+            this._applyView();
+          };
+        } else {
+          this.setAttribute('data-panning', '');
+          const start = { px: e.clientX, py: e.clientY, x: this._view.x, y: this._view.y };
+          move = (ev) => {
+            this._view.x = start.x + (ev.clientX - start.px) / fw * 100;
+            this._view.y = start.y + (ev.clientY - start.py) / fh * 100;
+            this._clampView();
+            this._applyView();
+          };
+        }
+        const up = () => {
+          try { this._spill.releasePointerCapture(e.pointerId); } catch {}
+          this._spill.removeEventListener('pointermove', move);
+          this._spill.removeEventListener('pointerup', up);
+          this._spill.removeEventListener('pointercancel', up);
+          this.removeAttribute('data-panning');
+          this._dragUp = null;
+        };
+        // Stashed so _exitReframe (Escape / outside-click mid-drag) can
+        // tear the capture + listeners down synchronously.
+        this._dragUp = up;
+        this._spill.addEventListener('pointermove', move);
+        this._spill.addEventListener('pointerup', up);
+        this._spill.addEventListener('pointercancel', up);
+      });
+      // Wheel zoom stays available inside reframe mode as a trackpad nicety —
+      // zooms toward the cursor (offset' = cursor·(1-k) + offset·k).
+      this.addEventListener('wheel', (e) => {
+        if (!this.hasAttribute('data-reframe')) return;
+        e.preventDefault();
+        const r = this.getBoundingClientRect();
+        const cx = (e.clientX - r.left) / r.width * 100 - 50;
+        const cy = (e.clientY - r.top) / r.height * 100 - 50;
+        const prev = this._view.s;
+        const next = clampS(prev * Math.pow(1.0015, -e.deltaY));
+        if (next === prev) return;
+        const k = next / prev;
+        this._view.s = next;
+        this._view.x = cx * (1 - k) + this._view.x * k;
+        this._view.y = cy * (1 - k) + this._view.y * k;
+        this._clampView();
+        this._applyView();
+      }, { passive: false });
+    }
+
+    connectedCallback() {
+      // Warn once per page — an id-less slot works for the session but
+      // cannot persist, and two id-less slots would share nothing.
+      if (!this.id && !ImageSlot._warned) {
+        ImageSlot._warned = true;
+        console.warn('<image-slot> without an id will not persist its dropped image.');
+      }
+      this.addEventListener('dragenter', this);
+      this.addEventListener('dragover', this);
+      this.addEventListener('dragleave', this);
+      this.addEventListener('drop', this);
+      subs.add(this._subFn);
+      // width%/height% in _applyView encode the frame aspect at call time —
+      // a host resize (responsive grid, pane divider) would stretch the
+      // image until the next _render. Re-render on size change: _render()
+      // re-seeds _view from stored before clamp/apply, so a shrink→grow
+      // cycle round-trips instead of ratcheting x/y toward the narrower
+      // frame's clamp range.
+      this._ro = new ResizeObserver(() => this._render());
+      this._ro.observe(this);
+      load();
+      this._render();
+    }
+
+    disconnectedCallback() {
+      subs.delete(this._subFn);
+      this.removeEventListener('dragenter', this);
+      this.removeEventListener('dragover', this);
+      this.removeEventListener('dragleave', this);
+      this.removeEventListener('drop', this);
+      if (this._ro) { this._ro.disconnect(); this._ro = null; }
+      this._exitReframe(false);
+    }
+
+    _enterReframe() {
+      if (this.hasAttribute('data-reframe')) return;
+      this.setAttribute('data-reframe', '');
+      this._applyView();
+      // Close on click outside (the spill handler stopPropagation()s so
+      // in-image drags don't reach this) and on Escape. Listeners are held
+      // on the instance so _exitReframe / disconnectedCallback can detach
+      // exactly what was attached.
+      this._outside = (e) => {
+        if (e.composedPath && e.composedPath().includes(this)) return;
+        this._exitReframe(true);
+      };
+      this._esc = (e) => { if (e.key === 'Escape') this._exitReframe(true); };
+      document.addEventListener('pointerdown', this._outside, true);
+      document.addEventListener('keydown', this._esc, true);
+    }
+
+    _exitReframe(commit) {
+      if (!this.hasAttribute('data-reframe')) return;
+      if (this._dragUp) this._dragUp();
+      this.removeAttribute('data-reframe');
+      this.removeAttribute('data-panning');
+      if (this._outside) document.removeEventListener('pointerdown', this._outside, true);
+      if (this._esc) document.removeEventListener('keydown', this._esc, true);
+      this._outside = this._esc = null;
+      if (commit) this._commitView();
+    }
+
+    attributeChangedCallback() { if (this.shadowRoot) this._render(); }
+
+    // handleEvent — one listener object for all four drag events keeps the
+    // add/remove symmetric and the depth counter correct.
+    handleEvent(e) {
+      if (e.type === 'dragenter' || e.type === 'dragover') {
+        // Without preventDefault the browser never fires 'drop'.
+        e.preventDefault();
+        e.stopPropagation();
+        if (e.dataTransfer) e.dataTransfer.dropEffect = 'copy';
+        if (e.type === 'dragenter') this._depth++;
+        this.setAttribute('data-over', '');
+      } else if (e.type === 'dragleave') {
+        // dragenter/leave fire for every descendant crossing — count depth
+        // so hovering the icon inside the empty state doesn't flicker.
+        if (--this._depth <= 0) { this._depth = 0; this.removeAttribute('data-over'); }
+      } else if (e.type === 'drop') {
+        e.preventDefault();
+        e.stopPropagation();
+        this._depth = 0;
+        this.removeAttribute('data-over');
+        const f = e.dataTransfer && e.dataTransfer.files && e.dataTransfer.files[0];
+        if (f) this._ingest(f);
+      }
+    }
+
+    async _ingest(file) {
+      this._setError(null);
+      if (!file || ACCEPT.indexOf(file.type) < 0) {
+        this._setError('Drop a PNG, JPEG, WebP, or AVIF image.');
+        return;
+      }
+      // toDataUrl can take hundreds of ms on a large photo. A Clear or a
+      // newer drop during that window would be clobbered when this await
+      // resumes — bump + capture a generation so stale encodes bail.
+      const gen = ++this._gen;
+      try {
+        const w = this.clientWidth || this.offsetWidth || MAX_DIM;
+        const url = await toDataUrl(file, w);
+        if (gen !== this._gen) return;
+        // Only exit reframe once the new image is in hand — a rejected type
+        // or decode failure leaves the in-progress crop untouched.
+        this._exitReframe(false);
+        const val = { u: url, s: 1, x: 0, y: 0 };
+        setSlot(this.id || '', val);
+        // Keep a session-local copy for id-less slots so the drop still
+        // shows, even though it cannot persist.
+        if (!this.id) { this._local = val; this._render(); }
+      } catch (err) {
+        if (gen !== this._gen) return;
+        this._setError('Could not read that image.');
+        console.warn('<image-slot> ingest failed:', err);
+      }
+    }
+
+    _setError(msg) {
+      if (this._err) { this._err.remove(); this._err = null; }
+      if (!msg) return;
+      const d = document.createElement('div');
+      d.className = 'err'; d.textContent = msg;
+      this.shadowRoot.appendChild(d);
+      this._err = d;
+      setTimeout(() => { if (this._err === d) { d.remove(); this._err = null; } }, 3000);
+    }
+
+    // Reframing (pan/resize) is only meaningful for fit=cover — contain/fill
+    // keep the old object-fit path and double-click is a no-op.
+    _reframes() {
+      return this.hasAttribute('data-filled') &&
+        (this.getAttribute('fit') || 'cover') === 'cover';
+    }
+
+    // Cover-baseline geometry, shared by clamp/apply/resize. Null until the
+    // img has loaded (naturalWidth is 0 before that) or when the slot has no
+    // layout box — ResizeObserver fires with a 0×0 rect under display:none,
+    // and clamping against a degenerate 1×1 frame would silently pull the
+    // stored pan toward zero.
+    _geom() {
+      const iw = this._img.naturalWidth, ih = this._img.naturalHeight;
+      const fw = this.clientWidth, fh = this.clientHeight;
+      if (!iw || !ih || !fw || !fh) return null;
+      return { iw, ih, fw, fh, base: Math.max(fw / iw, fh / ih) };
+    }
+
+    _clampView() {
+      // Pan range on each axis is half the overflow past the frame edge.
+      const g = this._geom();
+      if (!g) return;
+      const mx = Math.max(0, (g.iw * g.base * this._view.s / g.fw - 1) * 50);
+      const my = Math.max(0, (g.ih * g.base * this._view.s / g.fh - 1) * 50);
+      this._view.x = Math.max(-mx, Math.min(mx, this._view.x));
+      this._view.y = Math.max(-my, Math.min(my, this._view.y));
+    }
+
+    _applyView() {
+      const g = this._geom();
+      const fit = this.getAttribute('fit') || 'cover';
+      if (fit !== 'cover' || !g) {
+        // Non-cover, or dimensions not known yet (before img load).
+        this._img.style.width = '100%';
+        this._img.style.height = '100%';
+        this._img.style.left = '50%';
+        this._img.style.top = '50%';
+        this._img.style.objectFit = fit;
+        this._img.style.objectPosition = this.getAttribute('position') || '50% 50%';
+        return;
+      }
+      // Cover baseline: img fills the frame on its tighter axis at s=1, so
+      // pan works immediately on the overflowing axis without zooming first.
+      // Width/height and left/top are all frame-% — depends only on the
+      // frame aspect ratio, so a responsive resize keeps the same crop. The
+      // spill layer mirrors the same box so its corners = image corners.
+      const k = g.base * this._view.s;
+      const w = (g.iw * k / g.fw * 100) + '%';
+      const h = (g.ih * k / g.fh * 100) + '%';
+      const l = (50 + this._view.x) + '%';
+      const t = (50 + this._view.y) + '%';
+      this._img.style.width = w; this._img.style.height = h;
+      this._img.style.left = l; this._img.style.top = t;
+      this._img.style.objectFit = '';
+      this._spill.style.width = w; this._spill.style.height = h;
+      this._spill.style.left = l; this._spill.style.top = t;
+    }
+
+    _commitView() {
+      const v = { s: this._view.s, x: this._view.x, y: this._view.y };
+      if (this._userUrl) v.u = this._userUrl;
+      // Framing-only (no u) persists too so an author-src slot remembers its
+      // crop; clearing the sidecar still falls through to src=.
+      if (this.id) setSlot(this.id, v);
+      else { this._local = v; }
+    }
+
+    _render() {
+      // Shape / mask. Presets use border-radius so the dashed ring can
+      // follow the rounded outline; clip-path is only applied for an
+      // explicit `mask` (the ring is hidden there since a rectangle
+      // dashed border chopped by an arbitrary polygon looks broken).
+      const mask = this.getAttribute('mask');
+      const shape = (this.getAttribute('shape') || 'rounded').toLowerCase();
+      let radius = '';
+      if (shape === 'circle') radius = '50%';
+      else if (shape === 'pill') radius = '9999px';
+      else if (shape === 'rounded') {
+        const n = parseFloat(this.getAttribute('radius'));
+        radius = (Number.isFinite(n) ? n : 12) + 'px';
+      }
+      this._frame.style.borderRadius = mask ? '' : radius;
+      this._frame.style.clipPath = mask || '';
+      this._ring.style.borderRadius = mask ? '' : radius;
+      this._ring.style.display = mask ? 'none' : '';
+
+      // Controls and reframe entry gate on this so share links stay read-only.
+      const editable = !!(window.omelette && window.omelette.writeFile);
+      this.toggleAttribute('data-editable', editable);
+      this._sub.style.display = editable ? '' : 'none';
+
+      // Content. The sidecar is also writable by the agent's write_file
+      // tool, so its value isn't guaranteed canvas-originated — only accept
+      // data:image/ URLs from it. The `src` attribute is author-controlled
+      // (Claude wrote it into the HTML) so it passes through unchanged.
+      let stored = this.id ? getSlot(this.id) : this._local;
+      if (stored && stored.u && !/^data:image\//i.test(stored.u)) stored = null;
+      const srcAttr = this.getAttribute('src') || '';
+      this._userUrl = (stored && stored.u) || null;
+      const url = this._userUrl || srcAttr;
+      // Don't clobber an in-flight reframe with a store-triggered re-render.
+      if (!this.hasAttribute('data-reframe')) {
+        this._view = {
+          s: stored && Number.isFinite(stored.s) ? clampS(stored.s) : 1,
+          x: stored && Number.isFinite(stored.x) ? stored.x : 0,
+          y: stored && Number.isFinite(stored.y) ? stored.y : 0,
+        };
+      }
+      this._cap.textContent = this.getAttribute('placeholder') || 'Drop an image';
+      // Toggle via style.display — the [hidden] attribute alone loses to
+      // the display:flex / display:block rules in the stylesheet above.
+      if (url) {
+        if (this._img.getAttribute('src') !== url) {
+          this._img.src = url;
+          this._ghost.src = url;
+        }
+        this._img.style.display = 'block';
+        this._empty.style.display = 'none';
+        this.setAttribute('data-filled', '');
+        this._clampView();
+        this._applyView();
+      } else {
+        this._img.style.display = 'none';
+        this._img.removeAttribute('src');
+        this._ghost.removeAttribute('src');
+        this._empty.style.display = 'flex';
+        this.removeAttribute('data-filled');
+      }
+    }
+  }
+
+  if (!customElements.get('image-slot')) {
+    customElements.define('image-slot', ImageSlot);
+  }
+})();
+
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "LocalBusiness",
+      "@id": "#business",
+      "name": "Аренда PlayStation Тамбов",
+      "description": "Аренда PlayStation 4 Slim в Тамбове от 500 ₽ в день. В комплекте приставка, 2 геймпада, кабели и игры по запросу. Помощь с подключением, оформление по договору, залог 5000 ₽.",
+      "areaServed": {
+        "@type": "City",
+        "name": "Тамбов"
+      },
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Тамбов",
+        "addressCountry": "RU"
+      },
+      "telephone": "+7-999-680-21-99",
+      "sameAs": [
+        "https://t.me/Tambwolf1",
+        "https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae?src=sharing",
+        "https://www.avito.ru/tambov/predlozheniya_uslug/playstation_4_slim_arenda_prokat_ps4_tambov_7905038967"
+      ],
+      "priceRange": "500-4500 RUB"
+    },
+    {
+      "@type": "Product",
+      "@id": "#ps4-slim-rent",
+      "name": "Аренда PlayStation 4 Slim",
+      "image": "assets/ps4-hero.png",
+      "description": "Прокат PS4 Slim в Тамбове для дома, вечеринок, корпоративов, выходных и прохождения конкретных игр. В комплекте 2 геймпада, кабели для подключения и предустановленные игры по запросу.",
+      "brand": {
+        "@type": "Brand",
+        "name": "PlayStation"
+      },
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Аренда PS4 Slim на 1 день",
+          "price": "500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "businessFunction": "https://schema.org/LeaseOut"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда PS4 Slim на 3 дня",
+          "price": "1300",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "businessFunction": "https://schema.org/LeaseOut"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда PS4 Slim на 7 дней",
+          "price": "2500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "businessFunction": "https://schema.org/LeaseOut"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда PS4 Slim на 14 дней",
+          "price": "4500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "businessFunction": "https://schema.org/LeaseOut"
+        }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "@id": "#faq",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "Сколько стоит аренда PS4 Slim в Тамбове?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Аренда PS4 Slim стоит от 500 ₽ за 1 день. 3 дня — 1300 ₽, 7 дней — 2500 ₽, 14 дней — 4500 ₽."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Что входит в комплект аренды?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "В комплект входит PlayStation 4 Slim, 2 геймпада, все кабели для подключения и предустановленные игры по запросу."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли залог за приставку?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, залог составляет 5000 ₽ при оформлении договора."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Можно ли заказать доставку по Тамбову?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, доступен самовывоз или платная доставка по договоренности. Удобный способ получения лучше уточнить перед бронированием."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "На сколько дней можно взять PlayStation?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Основные сроки аренды: 1 день, 3 дня, 7 дней и 14 дней. Если нужен другой срок, его можно обсудить отдельно."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Нужен ли паспорт для аренды PS4?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, для договора нужен паспорт гражданина, достигшего 18 лет. Документ нужен только для корректного оформления аренды."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Поможете подключить приставку и выбрать игры?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Да, поможем с обучением и подключением консоли для новичков, а также порекомендуем игры под ваш формат вечера."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие условия возврата приставки?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Приставку нужно использовать аккуратно и вернуть в полном комплекте и рабочем состоянии."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "Какие игры можно взять вместе с приставкой?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Можно заранее договориться о подборе и предустановке игр под ваш формат: FIFA 25, UFC 4, Mortal Kombat, Spider-Man, Red Dead Redemption 2, гонки, кооператив или сюжетные проекты."
+          }
+        }
+      ]
+    }
+  ]
+}
+</script>
+</head>
+<body>
+
+<!-- ============================ HEADER ============================ -->
+<header class="header">
+  <div class="container header-inner">
+    <a href="#" class="brand">
+      <span class="logo" aria-hidden="true">
+        <svg width="22" height="22" viewBox="0 0 48 48" fill="none">
+          <!-- Stylized P: tall vertical stem + curved head, simplified geometry -->
+          <path d="M18 7c-.8 0-1.4.6-1.4 1.4v31.2c0 .9.7 1.6 1.6 1.6h2.2c.9 0 1.6-.7 1.6-1.6V25.2l2.6.8c4.4 1.3 7.2-1 7.2-5.8v-3.6c0-3.8-2.3-6.3-6.4-7.6L18 7zm4 5.6 2.4.8c1.4.5 1.9 1.4 1.9 3v3.4c0 1.7-.7 2.2-2.3 1.7L22 21V12.6z" fill="currentColor"/>
+          <!-- S swoosh: two flat curves with offset, abstract, not original PS -->
+          <path d="M9 30.8c-1.6.7-2.4 1.7-2.4 3 0 1.9 1.6 3 4.6 3 1.8 0 3.9-.3 6.2-.9v-3l-3.9 1c-1.2.3-2 .3-2.5.1-.4-.2-.5-.5-.1-.8l5-2v-2.8L9 30.8zm22.6-2.4c-3.3 0-6 .6-8.2 1.7v3.5l5.1-1.7c1.3-.5 2.3-.6 3-.4.6.2.7.5.2.8l-8.3 3v3l11.5-4c2-.7 3-1.8 3-3.2 0-1.7-2.2-2.7-6.3-2.7z" fill="currentColor"/>
+        </svg>
+      </span>
+      <span class="brand-name">Аренда PlayStation Тамбов</span>
+    </a>
+    <nav class="nav">
+      <a href="#rent">Аренда</a>
+      <a href="#prices">Цены</a>
+      <a href="#terms">Условия</a>
+      <a href="#faq">FAQ</a>
+      <a href="#games">Игры</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-cta">
+      <a class="btn btn-primary" href="#" data-open-contact>Связаться</a>
+    </div>
+    <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
+      <span class="menu-toggle-lines" aria-hidden="true"><span></span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================ PAGE ============================ -->
+<main>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container">
+      <div class="hero-grid">
+        <div class="hero-left">
+          <h1>PlayStation 4 Slim</h1>
+          <p class="hero-lead">Аренда PS4 Slim в Тамбове для дома, вечеринок, корпоративов, выходных и прохождения конкретных игр.</p>
+
+          <ul class="hero-list">
+            <li>
+              <span class="feat-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 2.5v4M16 2.5v4"/></svg>
+              </span>
+              Срок аренды: 1 день, 3 дня, 7 дней, 2 недели
+            </li>
+            <li>
+              <span class="feat-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.7"/><circle cx="17.5" cy="17.5" r="1.7"/></svg>
+              </span>
+              Самовывоз или платная доставка
+            </li>
+            <li>
+              <span class="feat-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8M8 13h5"/><path d="M12 21a9 9 0 1 0-9-9v7l3-2.2A9 9 0 0 0 12 21z"/></svg>
+              </span>
+              Помощь с подключением и подбором игр
+            </li>
+            <li>
+              <span class="feat-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>
+              </span>
+              Аренда по договору
+            </li>
+            <li>
+              <span class="feat-ico" aria-hidden="true">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.5-8 9-4.6-.5-8-4.5-8-9V6l8-3z"/><path d="M9 12.5l2 2 4-4"/></svg>
+              </span>
+              Залог: 5000 ₽
+            </li>
+          </ul>
+
+          <div class="hero-price">
+            <span class="price-from">от</span>
+            <span class="amount">500&nbsp;₽</span>
+            <span class="price-suffix">/ 1 день</span>
+          </div>
+
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#prices">Все цены</a>
+            <a class="btn btn-outline" href="#terms">Подробнее</a>
+          </div>
+        </div>
+
+        <div class="product-stage">
+          <div class="stage-deco" aria-hidden="true">
+            <svg viewBox="0 0 760 520" preserveAspectRatio="xMidYMid meet" fill="none">
+              <defs>
+                <!-- Wave fades in from the left, peaks in the middle, fades out top-right -->
+                <linearGradient id="wave-grad" x1="0" y1="1" x2="1" y2="0">
+                  <stop offset="0"  stop-color="#9bb8ee" stop-opacity="0"/>
+                  <stop offset=".25" stop-color="#7ea3e6" stop-opacity=".55"/>
+                  <stop offset=".7"  stop-color="#8fb2eb" stop-opacity=".55"/>
+                  <stop offset="1"  stop-color="#bcd1f5" stop-opacity="0"/>
+                </linearGradient>
+                <linearGradient id="symbol-grad" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="0" stop-color="#7ea3e6" stop-opacity=".85"/>
+                  <stop offset="1" stop-color="#a8c2ee" stop-opacity=".55"/>
+                </linearGradient>
+              </defs>
+
+              <!-- Smooth sweeping waves -->
+              <g stroke="url(#wave-grad)" stroke-width="1.4" fill="none" stroke-linecap="round">
+                <path d="M-20 470 C 180 470, 360 380, 520 300 S 740 140, 820 60"/>
+                <path d="M-20 430 C 180 430, 360 340, 520 260 S 740 100, 820 20"/>
+                <path d="M-20 390 C 180 390, 360 300, 520 220 S 740  60, 820 -20"/>
+                <path d="M-20 350 C 180 350, 360 260, 520 180 S 740  20, 820 -60"/>
+                <path d="M-20 310 C 180 310, 360 220, 520 140 S 740 -20, 820 -100"/>
+              </g>
+
+              <!-- PlayStation button symbols scattered -->
+              <g fill="none" stroke="url(#symbol-grad)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <!-- Triangle -->
+                <path d="M615 70 l11 19 h-22 z"/>
+                <!-- Circle -->
+                <circle cx="680" cy="115" r="11"/>
+                <!-- X / cross -->
+                <path d="M555 165 l14 14 M569 165 l-14 14"/>
+                <!-- Square -->
+                <rect x="700" y="190" width="20" height="20" rx="1.5"/>
+                <!-- Small triangle -->
+                <path d="M635 235 l8 14 h-16 z"/>
+                <!-- Small circle -->
+                <circle cx="725" cy="265" r="7"/>
+                <!-- Small cross -->
+                <path d="M600 320 l9 9 M609 320 l-9 9"/>
+                <!-- Small square -->
+                <rect x="685" y="365" width="11" height="11" rx="1"/>
+                <!-- Tiny circle -->
+                <circle cx="635" cy="420" r="5"/>
+                <!-- Tiny triangle -->
+                <path d="M725 440 l6 10 h-12 z"/>
+              </g>
+            </svg>
+          </div>
+          <div class="product-image">
+            <img src="assets/ps4-hero.png" alt="PS4 Slim и два контроллера DualShock">
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- OFFER CARDS -->
+  <section id="rent">
+    <div class="container">
+      <div class="offer-grid">
+        <div class="offer-card">
+          <div class="offer-ico" aria-hidden="true">
+            <img class="ico-img" src="assets/icon-ps4.svg" alt="">
+          </div>
+          <div>
+            <div class="offer-tag">Главное предложение</div>
+            <div class="offer-title">Аренда PS4 Slim</div>
+            <div class="offer-desc">PS4, 2 геймпада, кабели и игры по запросу</div>
+            <div class="offer-price"><span class="offer-price-main">от 500 ₽ / 1 день</span></div>
+          </div>
+        </div>
+
+        <div class="offer-card">
+          <div class="offer-ico" aria-hidden="true">
+            <img class="ico-img" src="assets/icon-gamepad.svg" alt="">
+          </div>
+          <div>
+            <div class="offer-tag">Дополнение</div>
+            <div class="offer-title">Джойстик</div>
+            <div class="offer-desc">Отдельная аренда</div>
+            <div class="offer-price">
+              <span class="offer-price-main">100 ₽ / 1 день</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRICING -->
+  <section class="pricing" id="prices">
+    <div class="container">
+      <div class="price-grid">
+        <div class="price-card">
+          <div class="price-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 2.5v4M16 2.5v4"/></svg>
+          </div>
+          <div>
+            <div class="days">1 день —</div>
+            <div class="rub">500&nbsp;₽</div>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 2.5v4M16 2.5v4"/></svg>
+          </div>
+          <div>
+            <div class="days">3 дня —</div>
+            <div class="rub">1300&nbsp;₽</div>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 2.5v4M16 2.5v4"/></svg>
+          </div>
+          <div>
+            <div class="days">7 дней —</div>
+            <div class="rub">2500&nbsp;₽</div>
+          </div>
+        </div>
+        <div class="price-card">
+          <div class="price-ico" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 2.5v4M16 2.5v4"/></svg>
+          </div>
+          <div>
+            <div class="days">14 дней —</div>
+            <div class="rub">4500&nbsp;₽</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- INFO STRIP -->
+  <section id="terms">
+    <div class="container">
+      <div class="info-strip">
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-7.5 8-13a8 8 0 1 0-16 0c0 5.5 8 13 8 13z"/><circle cx="12" cy="9.5" r="2.7"/></svg>
+          </div>
+          <div>
+            <div class="info-label">Город:</div>
+            <div class="info-text">Тамбов</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7h11v9H3z"/><path d="M14 10h4l3 3v3h-7z"/><circle cx="7" cy="17.5" r="1.7"/><circle cx="17.5" cy="17.5" r="1.7"/></svg>
+          </div>
+          <div>
+            <div class="info-label">Получение:</div>
+            <div class="info-text">самовывоз или платная доставка по договоренности</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>
+          </div>
+          <div>
+            <div class="info-label">Оформление:</div>
+            <div class="info-text">по договору, нужен паспорт 18+</div>
+          </div>
+        </div>
+        <div class="info-item">
+          <div class="info-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.5-8 9-4.6-.5-8-4.5-8-9V6l8-3z"/><path d="M9 12.5l2 2 4-4"/></svg>
+          </div>
+          <div>
+            <div class="info-label">Залог:</div>
+            <div class="info-text">5000 ₽ при оформлении договора</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="faq-section" id="faq" aria-label="Вопросы по аренде PlayStation 4">
+    <div class="container">
+      <div class="faq-head">
+        <h2 class="section-title">Вопросы</h2>
+      </div>
+
+      <div class="faq-list">
+        <article class="faq-item open">
+          <button class="faq-trigger" type="button" aria-expanded="true">
+            <span class="faq-question">Сколько стоит аренда PS4 Slim в Тамбове?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Аренда PS4 Slim стоит от 500 ₽ за 1 день. 3 дня — 1300 ₽, 7 дней — 2500 ₽, 14 дней — 4500 ₽.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Что входит в комплект аренды?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>В комплект входит PlayStation 4 Slim, 2 геймпада, все кабели для подключения и предустановленные игры по запросу.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Нужен ли залог за приставку?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Да, залог составляет 5000 ₽ при оформлении договора.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Можно ли заказать доставку по Тамбову?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Да, доступен самовывоз или платная доставка по договоренности. Удобный способ получения лучше уточнить перед бронированием.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">На сколько дней можно взять PlayStation?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Основные сроки аренды: 1 день, 3 дня, 7 дней и 14 дней. Если нужен другой срок, его можно обсудить отдельно.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Нужен ли паспорт для аренды PS4?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Да, для договора нужен паспорт гражданина, достигшего 18 лет. Документ нужен только для корректного оформления аренды.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Поможете подключить приставку и выбрать игры?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Да, поможем с обучением и подключением консоли для новичков, а также порекомендуем игры под ваш формат вечера.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Какие условия возврата приставки?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Приставку нужно использовать аккуратно и вернуть в полном комплекте и рабочем состоянии.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Какие игры можно взять вместе с приставкой?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Можно заранее договориться о подборе и предустановке игр под ваш формат: FIFA 25, UFC 4, Mortal Kombat, Spider-Man, Red Dead Redemption 2, гонки, кооператив или сюжетные проекты.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item faq-item-contact">
+          <div class="faq-trigger-contact">
+            <span class="faq-question">Не нашли свой вопрос?</span>
+            <a class="btn btn-primary faq-contact-btn" href="#" data-open-contact>Задать вопрос</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMES COVERFLOW -->
+  <section class="games-section" id="games" aria-labelledby="gamesTitle">
+    <div class="container">
+      <div class="games-head">
+        <h2 class="games-title" id="gamesTitle">Библиотека игр</h2>
+        <p class="games-sub">Топ-20 популярных игр для PlayStation 4 — от сетевых файтингов до кинематографичных приключений</p>
+      </div>
+
+      <div class="coverflow-wrap">
+        <button class="cf-nav left" type="button" aria-label="Предыдущая" data-cf-prev>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 18l-6-6 6-6"/></svg>
+        </button>
+        <button class="cf-nav right" type="button" aria-label="Следующая" data-cf-next>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </button>
+
+        <div class="coverflow" data-coverflow>
+          <div class="coverflow-track">
+            <article class="game-card" data-game="The Last of Us Part II">
+              <image-slot id="game-tlou2" shape="rect" radius="16" placeholder="Обложка The Last of Us Part II"></image-slot>
+              <div class="game-cover">The Last of Us Part II</div>
+              <div class="game-shade"></div>
+              <div class="game-title">The Last of Us Part II</div>
+            </article>
+            <article class="game-card" data-game="God of War">
+              <image-slot id="game-gow" shape="rect" radius="16" placeholder="Обложка God of War"></image-slot>
+              <div class="game-cover">God of War</div>
+              <div class="game-shade"></div>
+              <div class="game-title">God of War</div>
+            </article>
+            <article class="game-card" data-game="Marvel's Spider-Man">
+              <image-slot id="game-spiderman" shape="rect" radius="16" placeholder="Обложка Spider-Man"></image-slot>
+              <div class="game-cover">Marvel’s Spider-Man</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Marvel’s Spider-Man</div>
+            </article>
+            <article class="game-card" data-game="Red Dead Redemption 2">
+              <image-slot id="game-rdr2" shape="rect" radius="16" placeholder="Обложка Red Dead Redemption 2"></image-slot>
+              <div class="game-cover">Red Dead Redemption 2</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Red Dead Redemption 2</div>
+            </article>
+            <article class="game-card" data-game="GTA V">
+              <image-slot id="game-gta5" shape="rect" radius="16" placeholder="Обложка GTA V"></image-slot>
+              <div class="game-cover">GTA V</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Grand Theft Auto V</div>
+            </article>
+            <article class="game-card" data-game="Mortal Kombat 11">
+              <image-slot id="game-mk11" shape="rect" radius="16" placeholder="Обложка Mortal Kombat 11"></image-slot>
+              <div class="game-cover">Mortal Kombat 11</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Mortal Kombat 11</div>
+            </article>
+            <article class="game-card" data-game="FIFA 23">
+              <image-slot id="game-fifa23" shape="rect" radius="16" placeholder="Обложка FIFA 23"></image-slot>
+              <div class="game-cover">FIFA 23</div>
+              <div class="game-shade"></div>
+              <div class="game-title">FIFA 23</div>
+            </article>
+            <article class="game-card" data-game="Uncharted 4: A Thief's End">
+              <image-slot id="game-u4" shape="rect" radius="16" placeholder="Обложка Uncharted 4"></image-slot>
+              <div class="game-cover">Uncharted 4</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Uncharted 4: A Thief’s End</div>
+            </article>
+            <article class="game-card" data-game="Horizon Zero Dawn">
+              <image-slot id="game-hzd" shape="rect" radius="16" placeholder="Обложка Horizon Zero Dawn"></image-slot>
+              <div class="game-cover">Horizon Zero Dawn</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Horizon Zero Dawn</div>
+            </article>
+            <article class="game-card" data-game="Ghost of Tsushima">
+              <image-slot id="game-got" shape="rect" radius="16" placeholder="Обложка Ghost of Tsushima"></image-slot>
+              <div class="game-cover">Ghost of Tsushima</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Ghost of Tsushima</div>
+            </article>
+            <article class="game-card" data-game="Bloodborne">
+              <image-slot id="game-bloodborne" shape="rect" radius="16" placeholder="Обложка Bloodborne"></image-slot>
+              <div class="game-cover">Bloodborne</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Bloodborne</div>
+            </article>
+            <article class="game-card" data-game="Days Gone">
+              <image-slot id="game-daysgone" shape="rect" radius="16" placeholder="Обложка Days Gone"></image-slot>
+              <div class="game-cover">Days Gone</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Days Gone</div>
+            </article>
+            <article class="game-card" data-game="Detroit: Become Human">
+              <image-slot id="game-detroit" shape="rect" radius="16" placeholder="Обложка Detroit: Become Human"></image-slot>
+              <div class="game-cover">Detroit: Become Human</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Detroit: Become Human</div>
+            </article>
+            <article class="game-card" data-game="Death Stranding">
+              <image-slot id="game-deathstranding" shape="rect" radius="16" placeholder="Обложка Death Stranding"></image-slot>
+              <div class="game-cover">Death Stranding</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Death Stranding</div>
+            </article>
+            <article class="game-card" data-game="Resident Evil 2 Remake">
+              <image-slot id="game-re2" shape="rect" radius="16" placeholder="Обложка Resident Evil 2"></image-slot>
+              <div class="game-cover">Resident Evil 2</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Resident Evil 2 Remake</div>
+            </article>
+            <article class="game-card" data-game="Tekken 7">
+              <image-slot id="game-tekken7" shape="rect" radius="16" placeholder="Обложка Tekken 7"></image-slot>
+              <div class="game-cover">Tekken 7</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Tekken 7</div>
+            </article>
+            <article class="game-card" data-game="Persona 5 Royal">
+              <image-slot id="game-persona5" shape="rect" radius="16" placeholder="Обложка Persona 5"></image-slot>
+              <div class="game-cover">Persona 5 Royal</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Persona 5 Royal</div>
+            </article>
+            <article class="game-card" data-game="Cyberpunk 2077">
+              <image-slot id="game-cyberpunk" shape="rect" radius="16" placeholder="Обложка Cyberpunk 2077"></image-slot>
+              <div class="game-cover">Cyberpunk 2077</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Cyberpunk 2077</div>
+            </article>
+            <article class="game-card" data-game="NieR: Automata">
+              <image-slot id="game-nier" shape="rect" radius="16" placeholder="Обложка NieR Automata"></image-slot>
+              <div class="game-cover">NieR: Automata</div>
+              <div class="game-shade"></div>
+              <div class="game-title">NieR: Automata</div>
+            </article>
+            <article class="game-card" data-game="Call of Duty: Modern Warfare">
+              <image-slot id="game-codmw" shape="rect" radius="16" placeholder="Обложка Call of Duty: Modern Warfare"></image-slot>
+              <div class="game-cover">Call of Duty</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Call of Duty: Modern Warfare</div>
+            </article>
+          </div>
+        </div>
+
+        <div class="cf-counter" aria-live="polite">
+          <span class="cf-counter-current" data-cf-current>1</span>
+          <span>из</span>
+          <span class="cf-counter-total" data-cf-total>20</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="cta-section" id="contacts">
+    <div class="container">
+      <div class="cta">
+        <div class="cta-ico" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="18" height="16" rx="2"/><path d="M3 9h18"/><path d="M8 2.5v4M16 2.5v4"/></svg>
+        </div>
+        <div class="cta-body">
+          <div class="cta-title">Забронировать PS4 Slim</div>
+          <div class="cta-sub">Напишите срок аренды и количество джойстиков</div>
+        </div>
+        <a class="btn" href="#" data-open-contact>Связаться</a>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<!-- ============================ CONTACT MODAL ============================ -->
+<div class="modal-backdrop" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
+  <div class="modal">
+    <button class="modal-close" type="button" aria-label="Закрыть" data-close-contact>
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6l12 12M18 6L6 18"/></svg>
+    </button>
+    <div class="modal-icon" aria-hidden="true">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M21 11.5a8.4 8.4 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.4 8.4 0 0 1-3.8-.9L3 21l1.9-5.7a8.4 8.4 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.4 8.4 0 0 1 3.8-.9h.5a8.5 8.5 0 0 1 8 8v.5z"/>
+      </svg>
+    </div>
+    <h3 class="modal-title" id="contactTitle">Свяжитесь с нами</h3>
+    <p class="modal-sub">Напишите в Telegram или позвоните — ответим в течение 15 минут</p>
+    <div class="contact-list">
+      <a class="contact-row" href="https://t.me/Tambwolf1" target="_blank" rel="noopener">
+        <span class="contact-icon tg" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.7 4.3 2.9 11.6c-1.1.4-1.1 1 .1 1.4l4.7 1.5 1.8 5.5c.2.6.4.8 1 .8.4 0 .6-.2.9-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.7-.8L23 5.7c.3-1.3-.4-1.9-1.3-1.4zM9.6 14.5l9.7-6.1c.5-.3.9-.1.6.3l-8.1 7.3-.3 3.5-1.9-5z"/></svg>
+        </span>
+        <div class="contact-meta">
+          <div class="contact-label">Telegram</div>
+          <div class="contact-value">@Tambwolf1</div>
+        </div>
+        <span class="contact-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a class="contact-row" href="https://www.avito.ru/tambov/predlozheniya_uslug/playstation_4_slim_arenda_prokat_ps4_tambov_7905038967" target="_blank" rel="noopener">
+        <span class="contact-icon av" aria-hidden="true">
+          <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#97CF26" cx="59" cy="59" r="16"/><circle fill="#0AF" cx="29" cy="29" r="13"/><circle fill="#FF6163" cx="59" cy="29" r="10"/><circle fill="#A169F7" cx="28.5" cy="58.5" r="7.5"/></g></svg>
+        </span>
+        <div class="contact-meta">
+          <div class="contact-label">Avito</div>
+          <div class="contact-value">Объявление PS4</div>
+        </div>
+        <span class="contact-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a class="contact-row" href="https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae?src=sharing" target="_blank" rel="noopener">
+        <span class="contact-icon av" aria-hidden="true">
+          <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#97CF26" cx="59" cy="59" r="16"/><circle fill="#0AF" cx="29" cy="29" r="13"/><circle fill="#FF6163" cx="59" cy="29" r="10"/><circle fill="#A169F7" cx="28.5" cy="58.5" r="7.5"/></g></svg>
+        </span>
+        <div class="contact-meta">
+          <div class="contact-label">Avito</div>
+          <div class="contact-value">Профиль продавца</div>
+        </div>
+        <span class="contact-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+      <a class="contact-row" href="tel:+79996802199">
+        <span class="contact-icon phone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.1-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></svg>
+        </span>
+        <div class="contact-meta">
+          <div class="contact-label">Телефон</div>
+          <div class="contact-value">+7 (999) 680-21-99</div>
+        </div>
+        <span class="contact-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </span>
+      </a>
+    </div>
+  </div>
+</div>
+
+<script>
+  (function(){
+    const header = document.querySelector('.header');
+    const nav = document.querySelector('.nav');
+    const toggle = document.querySelector('.menu-toggle');
+    if (!header || !nav || !toggle) return;
+
+    const closeMenu = () => {
+      nav.classList.remove('open');
+      toggle.setAttribute('aria-expanded', 'false');
+      toggle.setAttribute('aria-label', 'Открыть меню');
+    };
+
+    const openMenu = () => {
+      nav.classList.add('open');
+      toggle.setAttribute('aria-expanded', 'true');
+      toggle.setAttribute('aria-label', 'Закрыть меню');
+    };
+
+    toggle.addEventListener('click', () => {
+      if (nav.classList.contains('open')) {
+        closeMenu();
+      } else {
+        openMenu();
+      }
+    });
+
+    nav.querySelectorAll('a').forEach(link => {
+      link.addEventListener('click', closeMenu);
+    });
+
+    document.addEventListener('pointerdown', event => {
+      if (nav.classList.contains('open') && !header.contains(event.target)) closeMenu();
+    });
+
+    document.addEventListener('keydown', event => {
+      if (event.key === 'Escape') closeMenu();
+    });
+  })();
+
+  (function(){
+    const modal = document.getElementById('contactModal');
+    const open  = () => { modal.classList.add('open'); modal.setAttribute('aria-hidden','false'); document.body.style.overflow='hidden'; };
+    const close = () => { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); document.body.style.overflow=''; };
+    document.querySelectorAll('[data-open-contact]').forEach(el => {
+      el.addEventListener('click', e => { e.preventDefault(); open(); });
+    });
+    document.querySelectorAll('[data-close-contact]').forEach(el => {
+      el.addEventListener('click', e => { e.preventDefault(); close(); });
+    });
+    modal.addEventListener('click', e => { if (e.target === modal) close(); });
+    document.addEventListener('keydown', e => { if (e.key === 'Escape' && modal.classList.contains('open')) close(); });
+  })();
+
+  (function(){
+    const overlay = document.createElement('div');
+    overlay.className = 'anchor-focus-overlay';
+    overlay.setAttribute('aria-hidden', 'true');
+    document.body.appendChild(overlay);
+
+    let activeTarget = null;
+    let timer = null;
+    let cleanup = null;
+
+    const clearFocus = () => {
+      overlay.classList.remove('active');
+      if (activeTarget) {
+        activeTarget.classList.remove('anchor-focus-target');
+        activeTarget = null;
+      }
+      if (timer) {
+        clearTimeout(timer);
+        timer = null;
+      }
+      if (cleanup) {
+        cleanup();
+        cleanup = null;
+      }
+    };
+
+    const addInteractionDismiss = () => {
+      const events = ['pointerdown', 'wheel', 'keydown', 'touchstart'];
+      const dismiss = () => clearFocus();
+      events.forEach(eventName => document.addEventListener(eventName, dismiss, { once:true, passive:true }));
+      cleanup = () => events.forEach(eventName => document.removeEventListener(eventName, dismiss));
+    };
+
+    const focusAnchorTarget = target => {
+      clearFocus();
+      activeTarget = target;
+      activeTarget.classList.add('anchor-focus-target');
+      requestAnimationFrame(() => overlay.classList.add('active'));
+      timer = setTimeout(clearFocus, 3000);
+      setTimeout(addInteractionDismiss, 120);
+    };
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+      link.addEventListener('click', event => {
+        const hash = link.getAttribute('href');
+        if (!hash || hash === '#') return;
+
+        const target = document.querySelector(hash);
+        if (!target) return;
+
+        event.preventDefault();
+        target.scrollIntoView({ behavior:'smooth', block:'start' });
+        history.pushState(null, '', hash);
+        setTimeout(() => focusAnchorTarget(target), 260);
+      });
+    });
+
+    overlay.addEventListener('click', clearFocus);
+  })();
+
+
+  (function(){
+    const items = document.querySelectorAll('.faq-item');
+    if (!items.length) return;
+
+    items.forEach(item => {
+      const trigger = item.querySelector('.faq-trigger');
+      if (!trigger) return;
+
+      trigger.addEventListener('click', () => {
+        const isOpen = item.classList.contains('open');
+
+        items.forEach(other => {
+          other.classList.remove('open');
+          const otherTrigger = other.querySelector('.faq-trigger');
+          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+        });
+
+        if (!isOpen) {
+          item.classList.add('open');
+          trigger.setAttribute('aria-expanded', 'true');
+        }
+      });
+    });
+  })();
+
+  (function(){
+    const root = document.querySelector('[data-coverflow]');
+    if (!root) return;
+    const trackEl = root.querySelector('.coverflow-track');
+    let cards = [...trackEl.querySelectorAll('.game-card')];
+    const N = cards.length;
+    if (N === 0) return;
+
+    // --- Clone all cards before and after for seamless infinite loop ---
+    const fragBefore = document.createDocumentFragment();
+    cards.forEach(c => {
+      const x = c.cloneNode(true);
+      x.dataset.clone = 'before';
+      // Strip duplicate ids (image-slot id) so dropped images don't double-link
+      x.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+      fragBefore.appendChild(x);
+    });
+    trackEl.insertBefore(fragBefore, cards[0]);
+    const fragAfter = document.createDocumentFragment();
+    cards.forEach(c => {
+      const x = c.cloneNode(true);
+      x.dataset.clone = 'after';
+      x.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
+      fragAfter.appendChild(x);
+    });
+    trackEl.appendChild(fragAfter);
+
+    cards = [...trackEl.querySelectorAll('.game-card')]; // 3N
+    let active = N; // first original
+    let position = active;
+
+    const wrap  = root.closest('.coverflow-wrap');
+    const prev  = wrap.querySelector('[data-cf-prev]');
+    const next  = wrap.querySelector('[data-cf-next]');
+    const curEl = wrap.querySelector('[data-cf-current]');
+    const totEl = wrap.querySelector('[data-cf-total]');
+    if (totEl) totEl.textContent = N;
+
+    const TRANSITION_MS = 500;
+    const AUTOPLAY_MS   = 2800;
+    let snapTimer = null;
+    let timer = null;
+    let pauseTimer = null;
+    let paused = false;
+    let centerMonitor = null;
+
+    const originalNumber = index => ((index - N) % N + N) % N + 1;
+
+    function metrics(){
+      const cardW = cards[0].offsetWidth;
+      const gap = parseFloat(getComputedStyle(trackEl).gap || '0');
+      const step = cardW + gap;
+      const containerW = root.clientWidth;
+      return { cardW, step, containerW };
+    }
+
+    function nearestIndex(pos){
+      const rounded = Math.round(pos);
+      return Math.max(0, Math.min(cards.length - 1, rounded));
+    }
+
+    function syncActiveFromPosition(pos){
+      const centered = nearestIndex(pos);
+      cards.forEach((c, i) => c.classList.toggle('is-active', i === centered));
+      if (curEl) curEl.textContent = String(originalNumber(centered));
+      return centered;
+    }
+
+    function syncActiveToViewport(){
+      const rootRect = root.getBoundingClientRect();
+      const centerX = rootRect.left + rootRect.width / 2;
+      let bestIndex = active;
+      let bestDistance = Infinity;
+      cards.forEach((card, i) => {
+        const rect = card.getBoundingClientRect();
+        const distance = Math.abs((rect.left + rect.width / 2) - centerX);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          bestIndex = i;
+        }
+      });
+      cards.forEach((c, i) => c.classList.toggle('is-active', i === bestIndex));
+      if (curEl) curEl.textContent = String(originalNumber(bestIndex));
+      return bestIndex;
+    }
+
+    function startCenterMonitor(duration){
+      if (centerMonitor) cancelAnimationFrame(centerMonitor);
+      const until = performance.now() + duration + 80;
+      const tick = () => {
+        syncActiveToViewport();
+        if (performance.now() < until) {
+          centerMonitor = requestAnimationFrame(tick);
+        } else {
+          centerMonitor = null;
+          syncActiveToViewport();
+        }
+      };
+      centerMonitor = requestAnimationFrame(tick);
+    }
+
+    function render(pos, animate, duration = TRANSITION_MS){
+      if (!animate && centerMonitor) {
+        cancelAnimationFrame(centerMonitor);
+        centerMonitor = null;
+      }
+      // Track transition
+      trackEl.style.transition = animate ? `transform ${duration}ms cubic-bezier(.4,.2,.2,1)` : 'none';
+      // Card scale transitions — disable during a silent snap so the active card
+      // doesn't visibly scale down then back up when the loop wraps.
+      if (!animate && !dragging){
+        cards.forEach(c => { c.style.transition = 'none'; });
+      }
+      const { cardW, step, containerW } = metrics();
+      const x = containerW / 2 - pos * step - cardW / 2;
+      trackEl.style.transform = `translate3d(${x}px,-50%,0)`;
+      if (animate) {
+        startCenterMonitor(duration);
+      } else {
+        syncActiveFromPosition(pos);
+      }
+      if (!animate && !dragging){
+        // Force reflow, then restore CSS-driven transitions on next frame
+        void trackEl.offsetHeight;
+        requestAnimationFrame(() => {
+          cards.forEach(c => { c.style.transition = ''; });
+        });
+      }
+    }
+
+    function layout(animate){
+      position = active;
+      render(position, animate);
+    }
+
+    function go(delta){
+      if (snapTimer){ clearTimeout(snapTimer); snapTimer = null; }
+      active = syncActiveToViewport();
+      normalizeIfNeeded(false);
+      active += delta;
+      position = active;
+      layout(true);
+      scheduleSnap();
+    }
+
+    function setActive(i){
+      if (snapTimer){ clearTimeout(snapTimer); snapTimer = null; }
+      active = syncActiveToViewport();
+      normalizeIfNeeded(false);
+      if (i === active) return;
+      active = i;
+      position = active;
+      layout(true);
+      scheduleSnap();
+    }
+
+    function normalizeIfNeeded(animate){
+      if (active >= 2 * N) {
+        active -= N;
+        position = active;
+        render(position, animate);
+      } else if (active < N) {
+        active += N;
+        position = active;
+        render(position, animate);
+      }
+    }
+
+    function scheduleSnap(){
+      if (snapTimer) clearTimeout(snapTimer);
+      if (active >= 2 * N || active < N){
+        snapTimer = setTimeout(() => {
+          normalizeIfNeeded(false);
+          snapTimer = null;
+        }, TRANSITION_MS + 20);
+      }
+    }
+
+    function startAuto(){
+      stopAuto();
+      timer = setInterval(() => { if (!paused) go(1); }, AUTOPLAY_MS);
+    }
+    function stopAuto(){
+      if (timer){ clearInterval(timer); timer = null; }
+    }
+
+    function pauseTemporarily(ms){
+      paused = true;
+      if (pauseTimer) clearTimeout(pauseTimer);
+      pauseTimer = setTimeout(() => {
+        paused = document.hidden;
+        pauseTimer = null;
+      }, ms);
+    }
+
+    if (prev) prev.addEventListener('click', () => { go(-1); pauseTemporarily(2500); });
+    if (next) next.addEventListener('click', () => { go(1);  pauseTemporarily(2500); });
+    trackEl.addEventListener('transitionend', event => {
+      if (event.propertyName === 'transform') active = syncActiveToViewport();
+    });
+
+    cards.forEach((c, i) => {
+      c.addEventListener('click', e => {
+        if (i === active) return;
+        e.preventDefault();
+        setActive(i);
+        pauseTemporarily(2500);
+      });
+    });
+
+    // Pause on hover & when tab is hidden
+    root.addEventListener('mouseenter', () => { paused = true; });
+    root.addEventListener('mouseleave', () => {
+      if (!dragging && !pauseTimer) paused = document.hidden;
+    });
+    document.addEventListener('visibilitychange', () => {
+      paused = document.hidden;
+    });
+
+    // --- Drag / swipe with inertia ---
+    let dragStartX     = null;
+    let dragStartActive = N;
+    let dragPosition = N;
+    let dragSamples    = [];
+    let captureId      = null;
+    let dragging       = false;
+
+    function pushSample(x){
+      const t = performance.now();
+      dragSamples.push({ x, t });
+      // Keep only ~150ms of history
+      while (dragSamples.length > 1 && t - dragSamples[0].t > 160) dragSamples.shift();
+    }
+
+    function beginDrag(clientX){
+      // Cancel any pending snap so it doesn't fight the drag
+      if (snapTimer){ clearTimeout(snapTimer); snapTimer = null; }
+      if (pauseTimer){ clearTimeout(pauseTimer); pauseTimer = null; }
+      dragging        = true;
+      paused          = true;
+      root.classList.add('is-dragging');
+      active          = syncActiveToViewport();
+      normalizeIfNeeded(false);
+      dragStartX      = clientX;
+      dragStartActive = active;
+      dragPosition    = active;
+      dragSamples     = [];
+      pushSample(clientX);
+      trackEl.style.transition = 'none';
+    }
+
+    function moveDrag(clientX){
+      if (!dragging) return;
+      pushSample(clientX);
+      const dx = clientX - dragStartX;
+      const { step } = metrics();
+      dragPosition = dragStartActive - (dx / step);
+      dragPosition = Math.max(1, Math.min(cards.length - 2, dragPosition));
+      position = dragPosition;
+      render(position, false);
+    }
+
+    root.addEventListener('pointerdown', e => {
+      if (e.pointerType === 'touch') return;
+      if (e.pointerType === 'mouse' && e.button !== 0) return;
+      beginDrag(e.clientX);
+      captureId = e.pointerId;
+      if (root.setPointerCapture) root.setPointerCapture(e.pointerId);
+    });
+
+    root.addEventListener('pointermove', e => {
+      if (!dragging) return;
+      e.preventDefault();
+      moveDrag(e.clientX);
+    });
+
+    function endDrag(clientX){
+      if (!dragging) return;
+      dragging = false;
+      root.classList.remove('is-dragging');
+      const dx = (typeof clientX === 'number') ? (clientX - dragStartX) : 0;
+      if (captureId !== null && root.hasPointerCapture && root.hasPointerCapture(captureId)) {
+        try { root.releasePointerCapture(captureId); } catch(_){}
+      }
+      captureId = null;
+      dragStartX = null;
+
+      // Velocity from recent samples (px / ms, sign: positive = swiping right)
+      const now = performance.now();
+      const recent = dragSamples.filter(s => now - s.t < 140);
+      let v = 0;
+      if (recent.length >= 2){
+        const a = recent[0];
+        const b = recent[recent.length - 1];
+        const dt = b.t - a.t;
+        if (dt > 0) v = (b.x - a.x) / dt;
+      }
+      const { step } = metrics();
+      // Project from the current drag position, not the original card, so release
+      // feels like a clean snap instead of a second jump.
+      const PROJECTION_MS = 150;
+      const projectedPosition = dragPosition - ((v * PROJECTION_MS) / step);
+      let target = Math.round(projectedPosition);
+      target = Math.max(1, Math.min(cards.length - 2, target));
+      const nearestNow = Math.round(dragPosition);
+      const maxJump = 3;
+      if (target > nearestNow + maxJump) target = nearestNow + maxJump;
+      if (target < nearestNow - maxJump) target = nearestNow - maxJump;
+      // Treat very small drags as a tap on the held card
+      if (Math.abs(dx) < 6 && Math.abs(v) < 0.05) target = syncActiveFromPosition(position);
+      active = target;
+      position = active;
+      // Slightly longer transition for momentum feel when delta is large
+      const baseT = 420;
+      const t = Math.min(baseT + Math.abs(active - nearestNow) * 55, 650);
+      render(position, true, t);
+      // Schedule snap-back if we left the original range
+      if (snapTimer) clearTimeout(snapTimer);
+      if (active >= 2 * N || active < N){
+        snapTimer = setTimeout(() => {
+          normalizeIfNeeded(false);
+          snapTimer = null;
+        }, t + 30);
+      }
+      pauseTemporarily(2500);
+    }
+    root.addEventListener('pointerup', e => endDrag(e.clientX));
+    root.addEventListener('pointercancel', () => {
+      if (!dragging) return;
+      dragging = false;
+      root.classList.remove('is-dragging');
+      dragStartX = null;
+      captureId = null;
+      // Snap back to the start position
+      layout(true);
+      paused = document.hidden;
+    });
+
+    root.addEventListener('touchstart', e => {
+      if (!e.touches || e.touches.length !== 1) return;
+      beginDrag(e.touches[0].clientX);
+    }, { passive:true });
+    root.addEventListener('touchmove', e => {
+      if (!dragging || !e.touches || e.touches.length !== 1) return;
+      e.preventDefault();
+      moveDrag(e.touches[0].clientX);
+    }, { passive:false });
+    root.addEventListener('touchend', e => {
+      const touch = e.changedTouches && e.changedTouches[0];
+      endDrag(touch ? touch.clientX : null);
+    }, { passive:true });
+    root.addEventListener('touchcancel', () => {
+      if (!dragging) return;
+      dragging = false;
+      root.classList.remove('is-dragging');
+      dragStartX = null;
+      captureId = null;
+      layout(true);
+      paused = document.hidden;
+    }, { passive:true });
+
+    window.addEventListener('resize', () => layout(false));
+
+    // Initial layout — wait a frame so image-slot custom elements have sized
+    requestAnimationFrame(() => {
+      layout(false);
+      requestAnimationFrame(() => { active = syncActiveToViewport(); });
+      startAuto();
+    });
+  })();
+</script>
+
+</body>
+</html>
+
