@@ -55,7 +55,7 @@
 
   /* ---------- Header ---------- */
   .header{
-    position:fixed;top:0;left:0;right:0;z-index:50;
+    position:fixed;top:0;left:0;right:0;z-index:90;
     background:var(--surface);
     border-bottom:1px solid var(--line);
   }
@@ -404,6 +404,138 @@
   .info-label{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:2px}
   .info-text{font-size:13.5px;color:var(--muted);line-height:1.4}
 
+  /* ---------- Trust ---------- */
+  .trust-section{
+    padding:22px 0 30px;
+  }
+  .avito-trust{
+    display:grid;
+    grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);
+    column-gap:34px;
+    row-gap:0;
+    align-items:start;
+  }
+  .trust-kicker{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    min-height:28px;
+    padding:0 11px;
+    border-radius:999px;
+    background:var(--blue-3);
+    color:var(--blue);
+    font-size:12.5px;
+    font-weight:800;
+    margin-bottom:14px;
+  }
+  .trust-title{
+    margin:0 0 12px;
+    font-size:clamp(28px,3.6vw,40px);
+    line-height:1.06;
+    letter-spacing:-.035em;
+    font-weight:900;
+    color:var(--text);
+  }
+  .trust-text{
+    max-width:660px;
+    margin:0;
+    color:var(--muted);
+    font-size:15.5px;
+    line-height:1.62;
+  }
+  .trust-panel{
+    display:grid;
+    grid-template-columns:repeat(2,minmax(0,1fr));
+    column-gap:26px;
+    row-gap:0;
+  }
+  .trust-check{
+    min-height:74px;
+    padding:14px 0;
+    border-bottom:1px solid rgba(220,229,246,.92);
+    display:flex;
+    align-items:flex-start;
+    gap:12px;
+  }
+  .trust-check:nth-last-child(-n+2){border-bottom:none}
+  .trust-icon{
+    width:30px;
+    height:30px;
+    border-radius:50%;
+    display:grid;
+    place-items:center;
+    flex:none;
+    background:#fff;
+    border:1px solid rgba(7,84,217,.18);
+    color:var(--blue);
+    box-shadow:0 6px 16px rgba(7,84,217,.08);
+  }
+  .trust-icon svg{width:17px;height:17px;stroke-width:2.2}
+  .trust-check-title{
+    display:block;
+    font-size:15.5px;
+    font-weight:850;
+    color:var(--text);
+    line-height:1.25;
+    margin-bottom:4px;
+  }
+  .trust-check-text{
+    display:block;
+    font-size:13.5px;
+    line-height:1.48;
+    color:var(--muted);
+  }
+  .trust-avito{
+    grid-column:1 / -1;
+    margin-top:0;
+    padding-top:14px;
+    border-top:1px solid rgba(220,229,246,.92);
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:18px;
+  }
+  .trust-avito-copy{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    min-width:0;
+  }
+  .trust-avatar{
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#fff;
+    border:1px solid var(--line);
+    display:grid;
+    place-items:center;
+    flex:none;
+    overflow:hidden;
+    padding:6px;
+    box-shadow:0 10px 24px rgba(7,17,43,.08);
+  }
+  .trust-avatar svg{width:100%;height:100%;display:block}
+  .trust-avito-title{
+    font-size:15px;
+    font-weight:850;
+    color:var(--text);
+    line-height:1.2;
+    margin-bottom:3px;
+  }
+  .trust-avito-text{
+    font-size:13.5px;
+    line-height:1.42;
+    color:var(--muted);
+  }
+  .trust-actions{
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:flex-end;
+    gap:10px;
+    flex:none;
+  }
+  .trust-actions .btn{min-height:44px;padding:0 18px}
+
   /* ---------- CTA ---------- */
   .cta-section{padding:16px 0 36px}
   .cta{
@@ -445,6 +577,7 @@
     .info-item{border-right:none;border-bottom:1px solid var(--line)}
     .info-item:nth-child(3),.info-item:nth-child(4){border-bottom:none}
     .info-item:nth-child(1),.info-item:nth-child(3){border-right:1px solid var(--line)}
+    .avito-trust{grid-template-columns:1fr;column-gap:0;row-gap:18px}
     .nav{
       position:absolute;
       top:calc(100% + 10px);
@@ -544,6 +677,17 @@
     .info-icon svg{width:30px;height:30px}
     .info-label{font-size:13.5px}
     .info-text{font-size:12.5px}
+    .trust-section{padding:18px 0 24px}
+    .avito-trust{row-gap:0}
+    .trust-title{font-size:28px}
+    .trust-text{font-size:14px}
+    .trust-panel{grid-template-columns:1fr}
+    .trust-check{min-height:0;padding:13px 0}
+    .trust-check:nth-last-child(-n+2){border-bottom:1px solid rgba(220,229,246,.92)}
+    .trust-check:last-child{border-bottom:none}
+    .trust-avito{align-items:flex-start;flex-direction:column;margin-top:0;padding-top:8px}
+    .trust-actions{width:100%;justify-content:flex-start}
+    .trust-actions .btn{width:100%;justify-content:center}
 
     /* CTA — stack vertically, kill bg decoration */
     .cta{
@@ -563,6 +707,7 @@
     .info-strip{grid-template-columns:1fr}
     .info-item{border-right:none !important;border-bottom:1px solid var(--line)}
     .info-item:last-child{border-bottom:none}
+    .trust-avito-copy{align-items:center}
     .hero h1{font-size:38px}
     .amount{font-size:36px}
     .hero-actions{flex-direction:column}
@@ -744,9 +889,7 @@
     border-radius:inherit;
     pointer-events:none;
     opacity:0;
-    background:
-      radial-gradient(ellipse at 50% 42%,rgba(255,255,255,.30),rgba(255,255,255,0) 58%),
-      linear-gradient(135deg,rgba(255,255,255,.22),rgba(255,255,255,0) 34%);
+    background:radial-gradient(ellipse at 50% 46%,rgba(43,119,255,.20),rgba(43,119,255,0) 62%);
   }
   .game-card.is-active{
     transform:scale(1.12);
@@ -754,7 +897,6 @@
       0 16px 34px rgba(7,17,40,.18),
       0 0 0 1px rgba(87,151,255,.34),
       0 0 42px rgba(7,84,217,.30);
-    filter:drop-shadow(0 18px 28px rgba(7,84,217,.18));
     z-index:5;
   }
   .game-card.is-active::before{opacity:1}
@@ -785,7 +927,6 @@
     34%{opacity:1}
     100%{opacity:0}
   }
-  .game-card:not(.is-active){filter:saturate(.92) brightness(.96)}
   .game-card image-slot, .game-card img{position:relative;z-index:0;width:100%;height:100%;display:block;object-fit:cover;border-radius:inherit;pointer-events:none;overflow:hidden}
   .game-card .game-cover{display:none}
   .game-card .game-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 55%);pointer-events:none}
@@ -1511,6 +1652,59 @@
       "priceRange": "500-4500 RUB"
     },
     {
+      "@type": "Service",
+      "@id": "#ps4-rental-service",
+      "name": "Аренда PS4 Slim в Тамбове",
+      "serviceType": "Прокат игровых приставок",
+      "description": "Локальная услуга аренды Sony PlayStation 4 Slim в Тамбове с двумя геймпадами, кабелями, играми по запросу, помощью с подключением и возможной доставкой.",
+      "provider": {
+        "@id": "#business"
+      },
+      "areaServed": {
+        "@type": "City",
+        "name": "Тамбов"
+      },
+      "audience": {
+        "@type": "PeopleAudience",
+        "suggestedMinAge": 18
+      },
+      "termsOfService": "Аренда оформляется по договору. Для оформления нужен паспорт гражданина 18+. Залог при оформлении договора составляет 5000 ₽.",
+      "offers": [
+        {
+          "@type": "Offer",
+          "name": "Аренда PS4 Slim на 1 день",
+          "price": "500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "businessFunction": "https://schema.org/LeaseOut"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда PS4 Slim на 3 дня",
+          "price": "1300",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "businessFunction": "https://schema.org/LeaseOut"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда PS4 Slim на 7 дней",
+          "price": "2500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "businessFunction": "https://schema.org/LeaseOut"
+        },
+        {
+          "@type": "Offer",
+          "name": "Аренда PS4 Slim на 14 дней",
+          "price": "4500",
+          "priceCurrency": "RUB",
+          "availability": "https://schema.org/InStock",
+          "businessFunction": "https://schema.org/LeaseOut"
+        }
+      ]
+    },
+    {
       "@type": "Product",
       "@id": "#ps4-slim-rent",
       "name": "Аренда PlayStation 4 Slim",
@@ -1900,6 +2094,88 @@
           <div>
             <div class="info-label">Залог:</div>
             <div class="info-text">5000 ₽ при оформлении договора</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVITO TRUST -->
+  <section class="trust-section" id="trust" aria-labelledby="trustTitle">
+    <div class="container">
+      <div class="avito-trust">
+        <div class="trust-copy">
+          <h2 class="trust-title" id="trustTitle">Почему нам стоит доверять?</h2>
+          <p class="trust-text">Перед арендой можно заранее сверить комплект, условия, сумму залога и актуальное объявление на Avito. Все ключевые моменты фиксируются до передачи приставки.</p>
+        </div>
+        <div class="trust-panel" aria-label="Сигналы доверия перед арендой">
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Работаем по договору</span>
+              <span class="trust-check-text">Условия аренды фиксируются до передачи приставки.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8a2 2 0 0 1 2 2v14H6V6a2 2 0 0 1 2-2z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Паспорт только для оформления</span>
+              <span class="trust-check-text">Документ нужен для договора с гражданином 18+.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.5-8 9-4.6-.5-8-4.5-8-9V6l8-3z"/><path d="M9 12.5l2 2 4-4"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Залог 5000 ₽</span>
+              <span class="trust-check-text">Сумма залога указана заранее и не прячется в переписке.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8V6a4 4 0 0 1 8 0v2"/><path d="M6.5 8h11A2.5 2.5 0 0 1 20 10.5V20H4V10.5A2.5 2.5 0 0 1 6.5 8Z"/><path d="M8 13h8"/><path d="M8 20v-4h8v4"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Комплект проверяется</span>
+              <span class="trust-check-text">Приставка, 2 геймпада, кабели и игры сверяются при передаче.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11v10H4z"/><path d="M15 10l5-3v10l-5-3z"/><circle cx="8" cy="12" r="1"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Фото или видео до аренды</span>
+              <span class="trust-check-text">Можно попросить показать комплект перед бронированием.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v14H5z"/><path d="M8 9h8M8 13h6M8 17h4"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Актуальное объявление</span>
+              <span class="trust-check-text">Цены и комплект можно сверить на внешней площадке.</span>
+            </span>
+          </div>
+        </div>
+        <div class="trust-avito">
+          <div class="trust-avito-copy">
+            <span class="trust-avatar" aria-hidden="true">
+              <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#97CF26" cx="59" cy="59" r="16"/><circle fill="#0AF" cx="29" cy="29" r="13"/><circle fill="#FF6163" cx="59" cy="29" r="10"/><circle fill="#A169F7" cx="28.5" cy="58.5" r="7.5"/></g></svg>
+            </span>
+            <span>
+              <span class="trust-avito-title">Профиль на АВИТО</span>
+            </span>
+          </div>
+          <div class="trust-actions">
+            <a class="btn btn-outline" href="https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae/all?gdlkerfdnwq=101&page_from=from_item_card_icon&iid=7905038967&sellerId=dd51b05e892e9b957b56d5c1d045d667" target="_blank" rel="noopener">Открыть профиль</a>
+            <a class="btn btn-primary" href="#" data-open-contact>Связаться</a>
           </div>
         </div>
       </div>
@@ -2339,16 +2615,24 @@
     let timer = null;
     let cleanup = null;
     let targetReleaseTimer = null;
+    let targetReleaseTarget = null;
 
     const clearFocus = () => {
       overlay.classList.remove('active');
       if (activeTarget) {
         const targetToRelease = activeTarget;
         activeTarget = null;
-        if (targetReleaseTimer) clearTimeout(targetReleaseTimer);
+        if (targetReleaseTimer) {
+          clearTimeout(targetReleaseTimer);
+          if (targetReleaseTarget && targetReleaseTarget !== targetToRelease) {
+            targetReleaseTarget.classList.remove('anchor-focus-target');
+          }
+        }
+        targetReleaseTarget = targetToRelease;
         targetReleaseTimer = setTimeout(() => {
           targetToRelease.classList.remove('anchor-focus-target');
           targetReleaseTimer = null;
+          targetReleaseTarget = null;
         }, 520);
       }
       if (timer) {
@@ -2370,9 +2654,10 @@
 
     const focusAnchorTarget = target => {
       clearFocus();
-      if (targetReleaseTimer) {
+      if (targetReleaseTimer && targetReleaseTarget === target) {
         clearTimeout(targetReleaseTimer);
         targetReleaseTimer = null;
+        targetReleaseTarget = null;
       }
       activeTarget = target;
       activeTarget.classList.add('anchor-focus-target');
@@ -2472,15 +2757,23 @@
     let startPosition = position;
     let samples = [];
     let ignoreClick = false;
+    let metricCache = null;
+    let activeCard = null;
+    let dragRaf = null;
 
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
     const ease = t => 1 - Math.pow(1 - t, 3);
     const originalNumber = index => ((index - N) % N + N) % N + 1;
 
-    function metrics(){
+    function measure(){
       const cardW = cards[0].offsetWidth;
       const gap = parseFloat(getComputedStyle(trackEl).gap || '0');
-      return { cardW, step: cardW + gap, containerW: root.clientWidth };
+      metricCache = { cardW, step: cardW + gap, containerW: root.clientWidth };
+      return metricCache;
+    }
+
+    function metrics(){
+      return metricCache || measure();
     }
 
     function nearest(){
@@ -2497,15 +2790,15 @@
         const previousNumber = activeIndex === null ? null : originalNumber(activeIndex);
         const nextNumber = originalNumber(nextActive);
         activeIndex = nextActive;
-        cards.forEach((card, i) => {
-          const isActive = i === activeIndex;
-          card.classList.toggle('is-active', isActive);
-          if (!isActive) card.classList.remove('is-entering');
-        });
         const card = cards[activeIndex];
+        if (activeCard && activeCard !== card) {
+          activeCard.classList.remove('is-active', 'is-entering');
+        }
+        activeCard = card;
+        if (card) card.classList.add('is-active');
         if (card && animateEntry && previousNumber !== nextNumber) {
           card.classList.remove('is-entering');
-          void card.offsetWidth;
+          if (!dragging) void card.offsetWidth;
           card.classList.add('is-entering');
         }
         if (curEl) curEl.textContent = String(nextNumber);
@@ -2523,7 +2816,6 @@
       }
       if (shifted) {
         root.classList.add('is-normalizing');
-        activeIndex = null;
         render(false);
         void trackEl.offsetHeight;
         requestAnimationFrame(() => root.classList.remove('is-normalizing'));
@@ -2541,6 +2833,8 @@
     function stopMotion(){
       if (raf) cancelAnimationFrame(raf);
       raf = null;
+      if (dragRaf) cancelAnimationFrame(dragRaf);
+      dragRaf = null;
     }
 
     function animateTo(target, duration = 500, onDone){
@@ -2602,11 +2896,21 @@
       pushSample(x);
       const { step } = metrics();
       position = clamp(startPosition - ((x - startX) / step), 1, cards.length - 2);
-      render();
+      if (!dragRaf) {
+        dragRaf = requestAnimationFrame(() => {
+          dragRaf = null;
+          render();
+        });
+      }
     }
 
     function endDrag(x){
       if (!dragging) return;
+      if (dragRaf) {
+        cancelAnimationFrame(dragRaf);
+        dragRaf = null;
+        render();
+      }
       const dx = typeof x === 'number' ? x - startX : 0;
       const now = performance.now();
       const recent = samples.filter(sample => now - sample.t < 140);
@@ -2627,7 +2931,7 @@
 
       dragging = false;
       pointerDown = false;
-      cards.forEach(card => card.classList.remove('is-entering'));
+      if (activeCard) activeCard.classList.remove('is-entering');
       root.classList.add('is-settling');
       root.classList.remove('is-dragging');
       ignoreClick = Math.abs(dx) > 6 || Math.abs(velocity) >= .05;
@@ -2660,7 +2964,6 @@
     });
 
     root.addEventListener('pointerdown', event => {
-      if (event.pointerType === 'touch') return;
       if (event.pointerType === 'mouse' && event.button !== 0) return;
       pointerDown = true;
       pointerId = event.pointerId;
@@ -2674,7 +2977,7 @@
       const dx = event.clientX - startX;
       const dy = event.clientY - startY;
       if (!dragging) {
-        if (Math.abs(dx) < 5 || Math.abs(dx) < Math.abs(dy)) return;
+        if (Math.abs(dx) < 10 || Math.abs(dx) < Math.abs(dy)) return;
         beginDrag(startX);
       }
       event.preventDefault();
@@ -2694,56 +2997,24 @@
     root.addEventListener('pointerup', endPointer);
     root.addEventListener('pointercancel', endPointer);
 
-    root.addEventListener('touchstart', event => {
-      if (!event.touches || event.touches.length !== 1) return;
-      pointerDown = true;
-      startX = event.touches[0].clientX;
-      startY = event.touches[0].clientY;
-    }, { passive:true });
-
-    root.addEventListener('touchmove', event => {
-      if (!pointerDown || !event.touches || event.touches.length !== 1) return;
-      const touch = event.touches[0];
-      const dx = touch.clientX - startX;
-      const dy = touch.clientY - startY;
-      if (!dragging) {
-        if (Math.abs(dy) > Math.abs(dx) || Math.abs(dx) < 12) return;
-        beginDrag(startX);
-      }
-      event.preventDefault();
-      moveDrag(touch.clientX);
-    }, { passive:false });
-
-    root.addEventListener('touchend', event => {
-      const touch = event.changedTouches && event.changedTouches[0];
-      if (dragging) endDrag(touch ? touch.clientX : null);
-      pointerDown = false;
-    }, { passive:true });
-
-    root.addEventListener('touchcancel', () => {
-      if (dragging) {
-        dragging = false;
-        root.classList.remove('is-dragging');
-        root.classList.add('is-settling');
-        animateTo(Math.round(position), 420, () => {
-          root.classList.remove('is-settling');
-        });
-      }
-      pointerDown = false;
-    }, { passive:true });
-
     root.addEventListener('mouseenter', () => { paused = true; });
     root.addEventListener('mouseleave', () => {
       if (!dragging && !pauseTimer) paused = document.hidden;
     });
     document.addEventListener('visibilitychange', () => { paused = document.hidden; });
-    window.addEventListener('resize', render);
+    window.addEventListener('resize', () => {
+      measure();
+      render(false);
+    });
 
     timer = setInterval(() => {
       if (!paused && !dragging) go(1);
     }, AUTOPLAY_MS);
 
-    requestAnimationFrame(render);
+    requestAnimationFrame(() => {
+      measure();
+      render(false);
+    });
   })();
 </script>
 
