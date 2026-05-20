@@ -827,36 +827,35 @@
     mask-image:linear-gradient(90deg,transparent 0,#000 var(--cf-fade),#000 calc(100% - var(--cf-fade)),transparent 100%);
   }
   .coverflow.is-dragging{cursor:grabbing}
-  .coverflow.is-dragging .game-card,
-  .coverflow.is-animating .game-card,
-  .coverflow.is-settling .game-card{
-    transition:transform .2s cubic-bezier(.2,.8,.2,1);
-  }
-  .coverflow.is-dragging .game-card::before,
-  .coverflow.is-animating .game-card::before,
-  .coverflow.is-settling .game-card::before{transition:opacity .18s ease}
-  .coverflow.is-normalizing .game-card,
-  .coverflow.is-normalizing .game-card::before,
-  .coverflow.is-normalizing .game-card::after{
-    transition:none!important;
-    animation:none!important;
-  }
   .coverflow::before,
   .coverflow::after{
     display:none;
   }
   .coverflow-track{
-    position:absolute;top:var(--cf-mid);left:0;
-    display:flex;align-items:center;gap:24px;
-    transform:translate3d(0,-50%,0);
-    will-change:transform;
+    position:absolute;
+    inset:0;
+    --cf-gap:24px;
   }
   .game-card{
-    position:relative;flex:0 0 200px;width:200px;height:284px;
+    --glow:0;
+    --ring:0;
+    --scale:1;
+    --x:0px;
+    --card-opacity:0;
+    position:absolute;
+    top:var(--cf-mid);
+    left:0;
+    width:200px;height:284px;
     border-radius:14px;overflow:hidden;cursor:pointer;
     background:linear-gradient(135deg,#1849ab 0%,#0754d9 100%);
-    box-shadow:0 10px 28px rgba(7,17,40,.16);
-    transition:transform .42s cubic-bezier(.4,.2,.2,1);
+    opacity:var(--card-opacity);
+    pointer-events:none;
+    transform:translate3d(var(--x),-50%,0) scale(var(--scale));
+    box-shadow:
+      0 10px 28px rgba(7,17,40,.16),
+      0 0 0 1px rgb(87 151 255 / var(--ring)),
+      0 0 42px rgb(7 84 217 / calc(var(--glow) * .30));
+    will-change:transform, opacity;
     user-select:none;-webkit-user-drag:none;
   }
   .game-card::before{
@@ -868,8 +867,7 @@
     background:
       radial-gradient(ellipse at 50% 100%,rgba(43,119,255,.50),rgba(43,119,255,.18) 42%,rgba(43,119,255,0) 72%),
       linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,0) 32%);
-    opacity:0;
-    transition:opacity .3s ease;
+    opacity:var(--glow);
     pointer-events:none;
   }
   .game-card::after{
@@ -879,33 +877,13 @@
     z-index:2;
     border-radius:inherit;
     pointer-events:none;
-    opacity:0;
-    transform:scale(.55);
-    transition:opacity .32s ease, transform .36s cubic-bezier(.2,.8,.2,1);
+    opacity:var(--glow);
+    transform:scale(calc(.62 + var(--glow) * .38));
     background:radial-gradient(ellipse at 50% 50%,rgba(88,156,255,.28),rgba(43,119,255,.14) 40%,rgba(43,119,255,0) 70%);
   }
+  .game-card.is-visible{pointer-events:auto}
   .game-card.is-active{
-    transform:scale(1.12);
-    box-shadow:
-      0 16px 34px rgba(7,17,40,.18),
-      0 0 0 1px rgba(87,151,255,.34),
-      0 0 42px rgba(7,84,217,.30);
     z-index:5;
-  }
-  .game-card.is-active::before{opacity:1}
-  .game-card.is-active::after{opacity:1;transform:scale(1)}
-  .coverflow.is-dragging .game-card.is-active,
-  .coverflow.is-animating .game-card.is-active,
-  .coverflow.is-settling .game-card.is-active{
-    box-shadow:
-      0 12px 26px rgba(7,17,40,.16),
-      0 0 0 1px rgba(87,151,255,.22);
-  }
-  .coverflow.is-dragging .game-card.is-active::after,
-  .coverflow.is-animating .game-card.is-active::after,
-  .coverflow.is-settling .game-card.is-active::after{
-    opacity:0;
-    transform:scale(.62);
   }
   .game-card image-slot, .game-card img{position:relative;z-index:0;width:100%;height:100%;display:block;object-fit:cover;border-radius:inherit;pointer-events:none;overflow:hidden}
   .game-card .game-cover{display:none}
@@ -949,8 +927,8 @@
       --cf-fade:clamp(24px,8vw,38px);
       max-width:520px;
     }
-    .coverflow-track{gap:16px}
-    .game-card{flex-basis:150px;width:150px;height:212px;border-radius:12px}
+    .coverflow-track{--cf-gap:16px}
+    .game-card{width:150px;height:212px;border-radius:12px}
     .game-card .game-title{font-size:12px;padding:12px 10px 10px}
     .cf-counter{margin-top:-26px}
     .cf-nav{width:38px;height:38px}
@@ -2698,25 +2676,10 @@
     const root = document.querySelector('[data-coverflow]');
     if (!root) return;
     const trackEl = root.querySelector('.coverflow-track');
-    const originals = [...trackEl.querySelectorAll('.game-card')];
-    const N = originals.length;
+    const cards = [...trackEl.querySelectorAll('.game-card')];
+    const N = cards.length;
     if (!N) return;
 
-    const clone = (card, where) => {
-      const copy = card.cloneNode(true);
-      copy.dataset.clone = where;
-      copy.querySelectorAll('[id]').forEach(el => el.removeAttribute('id'));
-      return copy;
-    };
-
-    const before = document.createDocumentFragment();
-    const after = document.createDocumentFragment();
-    originals.forEach(card => before.appendChild(clone(card, 'before')));
-    originals.forEach(card => after.appendChild(clone(card, 'after')));
-    trackEl.insertBefore(before, originals[0]);
-    trackEl.appendChild(after);
-
-    const cards = [...trackEl.querySelectorAll('.game-card')];
     const wrap = root.closest('.coverflow-wrap');
     const prev = wrap.querySelector('[data-cf-prev]');
     const next = wrap.querySelector('[data-cf-next]');
@@ -2725,7 +2688,7 @@
     if (totEl) totEl.textContent = N;
 
     const AUTOPLAY_MS = 2800;
-    let position = N;
+    let position = 0;
     let activeIndex = null;
     let raf = null;
     let timer = null;
@@ -2745,11 +2708,15 @@
 
     const clamp = (value, min, max) => Math.max(min, Math.min(max, value));
     const ease = t => 1 - Math.pow(1 - t, 3);
-    const originalNumber = index => ((index - N) % N + N) % N + 1;
+    const mod = value => ((value % N) + N) % N;
+    const smooth = value => {
+      const t = clamp(value, 0, 1);
+      return t * t * (3 - 2 * t);
+    };
 
     function measure(){
       const cardW = cards[0].offsetWidth;
-      const gap = parseFloat(getComputedStyle(trackEl).gap || '0');
+      const gap = parseFloat(getComputedStyle(trackEl).getPropertyValue('--cf-gap') || '0');
       metricCache = { cardW, step: cardW + gap, containerW: root.clientWidth };
       return metricCache;
     }
@@ -2758,65 +2725,68 @@
       return metricCache || measure();
     }
 
+    function deltaTo(index, from = position){
+      const raw = index - from;
+      return ((raw + N / 2) % N + N) % N - N / 2;
+    }
+
     function nearest(){
-      return clamp(Math.round(position), 0, cards.length - 1);
+      return mod(Math.round(position));
     }
 
     function render(){
       const { cardW, step, containerW } = metrics();
-      const x = containerW / 2 - position * step - cardW / 2;
-      trackEl.style.transform = `translate3d(${x}px,-50%,0)`;
-
+      const centerX = containerW / 2 - cardW / 2;
+      const visibleLimit = 2.65;
+      const fadeStart = 2.1;
       const nextActive = nearest();
+
+      cards.forEach((card, index) => {
+        const d = deltaTo(index);
+        const ad = Math.abs(d);
+        const visible = ad <= visibleLimit;
+        const centerStrength = smooth(1 - Math.min(ad, 1));
+        const edgeFade = ad <= fadeStart ? 1 : clamp((visibleLimit - ad) / (visibleLimit - fadeStart), 0, 1);
+        const scale = 1 + centerStrength * .12;
+        const x = centerX + d * step;
+
+        card.style.setProperty('--x', `${x.toFixed(2)}px`);
+        card.style.setProperty('--scale', scale.toFixed(4));
+        card.style.setProperty('--glow', centerStrength.toFixed(4));
+        card.style.setProperty('--ring', (centerStrength * .34).toFixed(4));
+        card.style.setProperty('--card-opacity', visible ? edgeFade.toFixed(4) : '0');
+        card.style.zIndex = String(Math.round((visibleLimit - ad) * 10));
+        card.classList.toggle('is-visible', visible);
+        card.style.pointerEvents = visible ? 'auto' : 'none';
+      });
+
       if (nextActive !== activeIndex) {
-        const nextNumber = originalNumber(nextActive);
         activeIndex = nextActive;
         const card = cards[activeIndex];
-        if (activeCard && activeCard !== card) {
-          activeCard.classList.remove('is-active');
-        }
+        if (activeCard && activeCard !== card) activeCard.classList.remove('is-active');
         activeCard = card;
         if (card) card.classList.add('is-active');
-        if (curEl) curEl.textContent = String(nextNumber);
+        if (curEl) curEl.textContent = String(activeIndex + 1);
       }
     }
 
     function normalize(){
-      let shifted = false;
-      if (position >= 2 * N) {
-        position -= N;
-        shifted = true;
-      } else if (position < N) {
-        position += N;
-        shifted = true;
-      }
-      if (shifted) {
-        root.classList.add('is-normalizing');
-        render();
-        void trackEl.offsetHeight;
-        requestAnimationFrame(() => root.classList.remove('is-normalizing'));
-      }
+      position = mod(position);
     }
 
-    function nearestCopy(index){
-      const base = ((index - N) % N + N) % N + N;
-      const candidates = [base - N, base, base + N];
-      return candidates.reduce((best, item) =>
-        Math.abs(item - position) < Math.abs(best - position) ? item : best
-      , base);
+    function nearestPosition(index){
+      return position + deltaTo(index);
     }
 
     function stopMotion(){
       if (raf) cancelAnimationFrame(raf);
       raf = null;
-      root.classList.remove('is-animating');
       if (dragRaf) cancelAnimationFrame(dragRaf);
       dragRaf = null;
     }
 
     function animateTo(target, duration = 500, onDone){
       stopMotion();
-      root.classList.add('is-animating');
       const from = position;
       const start = performance.now();
       const tick = now => {
@@ -2829,7 +2799,7 @@
           raf = null;
           position = target;
           normalize();
-          root.classList.remove('is-animating');
+          render();
           if (onDone) onDone();
         }
       };
@@ -2897,7 +2867,7 @@
       if (!dragging) return;
       pushSample(x);
       const { step } = metrics();
-      position = clamp(startPosition - ((x - startX) / step), 1, cards.length - 2);
+      position = startPosition - ((x - startX) / step);
       if (!dragRaf) {
         dragRaf = requestAnimationFrame(() => {
           dragRaf = null;
@@ -2928,7 +2898,6 @@
       const projected = position - (velocity * 150 / step);
       const near = Math.round(position);
       let target = clamp(Math.round(projected), near - 3, near + 3);
-      target = clamp(target, 1, cards.length - 2);
       if (Math.abs(dx) < 6 && Math.abs(velocity) < .05) target = near;
 
       dragging = false;
@@ -2954,7 +2923,7 @@
         }
         event.preventDefault();
         normalize();
-        animateTo(nearestCopy(i), 480);
+        animateTo(nearestPosition(i), 480);
         pauseTemporarily(2500);
       });
     });
