@@ -911,7 +911,7 @@
     background:#fff;color:var(--blue);
     border:1px solid var(--line);
     display:grid;place-items:center;cursor:pointer;
-    z-index:100;
+    z-index:40;
     box-shadow:0 8px 22px rgba(7,84,217,.18);
     transition:transform .15s ease, background .15s ease, color .15s ease;
   }
@@ -1824,12 +1824,12 @@
       <a href="#rent">Аренда</a>
       <a href="#prices">Цены</a>
       <a href="#terms">Условия</a>
-      <a href="#faq">Вопросы</a>
       <a href="#games">Игры</a>
       <a href="#contacts">Контакты</a>
+      <a href="#faq">Вопросы</a>
     </nav>
     <div class="header-cta">
-      <a class="btn btn-primary" href="#" data-open-contact>Связаться</a>
+      <a class="btn btn-primary" href="#" data-open-contact>Контакты</a>
     </div>
     <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
       <span class="menu-toggle-lines" aria-hidden="true"><span></span></span>
@@ -1845,8 +1845,8 @@
     <div class="container">
       <div class="hero-grid">
         <div class="hero-left">
-          <h1>PlayStation 4 Slim</h1>
-          <p class="hero-lead">Аренда PS4 Slim в Тамбове для дома, вечеринок, корпоративов, выходных и прохождения конкретных игр.</p>
+          <h1>Аренда PlayStation</h1>
+          <p class="hero-lead">Аренда PS4 Slim в Тамбове для выходных, корпоративов и прохождения конкретных игр.</p>
 
           <ul class="hero-list">
             <li>
@@ -1985,7 +1985,7 @@
     </div>
   </section>
 
-  <!-- PRICING -->
+<!-- PRICING -->
   <section class="pricing" id="prices">
     <div class="container">
       <div class="price-grid">
@@ -2029,7 +2029,7 @@
     </div>
   </section>
 
-  <!-- INFO STRIP -->
+<!-- INFO STRIP -->
   <section id="terms">
     <div class="container">
       <div class="info-strip">
@@ -2073,224 +2073,7 @@
     </div>
   </section>
 
-  <!-- AVITO TRUST -->
-  <section class="trust-section" id="trust" aria-labelledby="trustTitle">
-    <div class="container">
-      <div class="avito-trust">
-        <div class="trust-copy">
-          <h2 class="trust-title" id="trustTitle">Почему нам стоит доверять?</h2>
-          <p class="trust-text">Перед арендой можно заранее сверить комплект, условия, сумму залога и актуальное объявление на Avito. Все ключевые моменты фиксируются до передачи приставки.</p>
-        </div>
-        <div class="trust-panel" aria-label="Сигналы доверия перед арендой">
-          <div class="trust-check">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>
-            </span>
-            <span>
-              <span class="trust-check-title">Работаем по договору</span>
-              <span class="trust-check-text">Условия аренды фиксируются до передачи приставки.</span>
-            </span>
-          </div>
-          <div class="trust-check">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8a2 2 0 0 1 2 2v14H6V6a2 2 0 0 1 2-2z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
-            </span>
-            <span>
-              <span class="trust-check-title">Паспорт только для оформления</span>
-              <span class="trust-check-text">Документ нужен для договора с гражданином 18+.</span>
-            </span>
-          </div>
-          <div class="trust-check">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.5-8 9-4.6-.5-8-4.5-8-9V6l8-3z"/><path d="M9 12.5l2 2 4-4"/></svg>
-            </span>
-            <span>
-              <span class="trust-check-title">Залог 5000 ₽</span>
-              <span class="trust-check-text">Сумма залога указана заранее и не прячется в переписке.</span>
-            </span>
-          </div>
-          <div class="trust-check">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8V6a4 4 0 0 1 8 0v2"/><path d="M6.5 8h11A2.5 2.5 0 0 1 20 10.5V20H4V10.5A2.5 2.5 0 0 1 6.5 8Z"/><path d="M8 13h8"/><path d="M8 20v-4h8v4"/></svg>
-            </span>
-            <span>
-              <span class="trust-check-title">Комплект проверяется</span>
-              <span class="trust-check-text">Приставка, 2 геймпада, кабели и игры сверяются при передаче.</span>
-            </span>
-          </div>
-          <div class="trust-check">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11v10H4z"/><path d="M15 10l5-3v10l-5-3z"/><circle cx="8" cy="12" r="1"/></svg>
-            </span>
-            <span>
-              <span class="trust-check-title">Фото или видео до аренды</span>
-              <span class="trust-check-text">Можно попросить показать комплект перед бронированием.</span>
-            </span>
-          </div>
-          <div class="trust-check">
-            <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v14H5z"/><path d="M8 9h8M8 13h6M8 17h4"/></svg>
-            </span>
-            <span>
-              <span class="trust-check-title">Актуальное объявление</span>
-              <span class="trust-check-text">Цены и комплект можно сверить на внешней площадке.</span>
-            </span>
-          </div>
-        </div>
-        <div class="trust-avito">
-          <div class="trust-avito-copy">
-            <span class="trust-avatar" aria-hidden="true">
-              <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#97CF26" cx="59" cy="59" r="16"/><circle fill="#0AF" cx="29" cy="29" r="13"/><circle fill="#FF6163" cx="59" cy="29" r="10"/><circle fill="#A169F7" cx="28.5" cy="58.5" r="7.5"/></g></svg>
-            </span>
-            <span>
-              <span class="trust-avito-title">Профиль на АВИТО</span>
-            </span>
-          </div>
-          <div class="trust-actions">
-            <a class="btn btn-outline" href="https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae/all?gdlkerfdnwq=101&page_from=from_item_card_icon&iid=7905038967&sellerId=dd51b05e892e9b957b56d5c1d045d667" target="_blank" rel="noopener">Открыть профиль</a>
-            <a class="btn btn-primary" href="#" data-open-contact>Связаться</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- FAQ -->
-  <section class="faq-section" id="faq" aria-label="Вопросы по аренде PlayStation 4">
-    <div class="container">
-      <div class="faq-head">
-        <h2 class="section-title">Вопросы</h2>
-      </div>
-
-      <div class="faq-list">
-        <article class="faq-item open">
-          <button class="faq-trigger" type="button" aria-expanded="true">
-            <span class="faq-question">Сколько стоит аренда PS4 Slim в Тамбове?</span>
-            <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel">
-            <div class="faq-answer"><p>Аренда PS4 Slim стоит от 500 ₽ за 1 день. 3 дня — 1300 ₽, 7 дней — 2500 ₽, 14 дней — 4500 ₽.</p></div>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-trigger" type="button" aria-expanded="false">
-            <span class="faq-question">Что входит в комплект аренды?</span>
-            <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel">
-            <div class="faq-answer"><p>В комплект входит PlayStation 4 Slim, 2 геймпада, все кабели для подключения и предустановленные игры по запросу.</p></div>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-trigger" type="button" aria-expanded="false">
-            <span class="faq-question">Нужен ли залог за приставку?</span>
-            <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel">
-            <div class="faq-answer"><p>Да, залог составляет 5000 ₽ при оформлении договора.</p></div>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-trigger" type="button" aria-expanded="false">
-            <span class="faq-question">Можно ли заказать доставку по Тамбову?</span>
-            <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel">
-            <div class="faq-answer"><p>Да, доступен самовывоз или платная доставка по договоренности. Удобный способ получения лучше уточнить перед бронированием.</p></div>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-trigger" type="button" aria-expanded="false">
-            <span class="faq-question">На сколько дней можно взять PlayStation?</span>
-            <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel">
-            <div class="faq-answer"><p>Основные сроки аренды: 1 день, 3 дня, 7 дней и 14 дней. Если нужен другой срок, его можно обсудить отдельно.</p></div>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-trigger" type="button" aria-expanded="false">
-            <span class="faq-question">Нужен ли паспорт для аренды PS4?</span>
-            <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel">
-            <div class="faq-answer"><p>Да, для договора нужен паспорт гражданина, достигшего 18 лет. Документ нужен только для корректного оформления аренды.</p></div>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-trigger" type="button" aria-expanded="false">
-            <span class="faq-question">Поможете подключить приставку и выбрать игры?</span>
-            <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel">
-            <div class="faq-answer"><p>Да, поможем с обучением и подключением консоли для новичков, а также порекомендуем игры под ваш формат вечера.</p></div>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-trigger" type="button" aria-expanded="false">
-            <span class="faq-question">Какие условия возврата приставки?</span>
-            <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel">
-            <div class="faq-answer"><p>Приставку нужно использовать аккуратно и вернуть в полном комплекте и рабочем состоянии.</p></div>
-          </div>
-        </article>
-
-        <article class="faq-item">
-          <button class="faq-trigger" type="button" aria-expanded="false">
-            <span class="faq-question">Какие игры можно взять вместе с приставкой?</span>
-            <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
-            </span>
-          </button>
-          <div class="faq-panel">
-            <div class="faq-answer"><p>Можно заранее договориться о подборе и предустановке игр под ваш формат: FIFA 25, UFC 4, Mortal Kombat, Spider-Man, Red Dead Redemption 2, гонки, кооператив или сюжетные проекты.</p></div>
-          </div>
-        </article>
-
-        <article class="faq-item faq-item-contact">
-          <div class="faq-trigger-contact">
-            <span class="faq-question">Не нашли свой вопрос?</span>
-            <a class="btn btn-primary faq-contact-btn" href="#" data-open-contact>Задать вопрос</a>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- GAMES COVERFLOW -->
+<!-- GAMES COVERFLOW -->
   <section class="games-section" id="games" aria-labelledby="gamesTitle">
     <div class="container">
       <div class="games-head">
@@ -2440,7 +2223,7 @@
     </div>
   </section>
 
-  <!-- CTA -->
+<!-- CTA -->
   <section class="cta-section" id="contacts">
     <div class="container">
       <div class="cta">
@@ -2451,12 +2234,229 @@
           <div class="cta-title">Забронировать PS4 Slim</div>
           <div class="cta-sub">Напишите срок аренды и количество джойстиков</div>
         </div>
-        <a class="btn" href="#" data-open-contact>Связаться</a>
+        <a class="btn" href="#" data-open-contact>Контакты</a>
       </div>
     </div>
   </section>
 
 </main>
+
+<!-- AVITO TRUST -->
+  <section class="trust-section" id="trust" aria-labelledby="trustTitle">
+    <div class="container">
+      <div class="avito-trust">
+        <div class="trust-copy">
+          <h2 class="trust-title" id="trustTitle">Почему нам стоит доверять?</h2>
+          <p class="trust-text">Перед арендой можно заранее сверить комплект, условия, сумму залога и актуальное объявление на Avito. Все ключевые моменты фиксируются до передачи приставки.</p>
+        </div>
+        <div class="trust-panel" aria-label="Сигналы доверия перед арендой">
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Работаем по договору</span>
+              <span class="trust-check-text">Условия аренды фиксируются до передачи приставки.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 4h8a2 2 0 0 1 2 2v14H6V6a2 2 0 0 1 2-2z"/><path d="M9 9h6M9 13h6M9 17h4"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Паспорт только для оформления</span>
+              <span class="trust-check-text">Документ нужен для договора с гражданином 18+.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 4.5-3.4 8.5-8 9-4.6-.5-8-4.5-8-9V6l8-3z"/><path d="M9 12.5l2 2 4-4"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Залог 5000 ₽</span>
+              <span class="trust-check-text">Сумма залога указана заранее и не прячется в переписке.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M8 8V6a4 4 0 0 1 8 0v2"/><path d="M6.5 8h11A2.5 2.5 0 0 1 20 10.5V20H4V10.5A2.5 2.5 0 0 1 6.5 8Z"/><path d="M8 13h8"/><path d="M8 20v-4h8v4"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Комплект проверяется</span>
+              <span class="trust-check-text">Приставка, 2 геймпада, кабели и игры сверяются при передаче.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h11v10H4z"/><path d="M15 10l5-3v10l-5-3z"/><circle cx="8" cy="12" r="1"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Фото или видео до аренды</span>
+              <span class="trust-check-text">Можно попросить показать комплект перед бронированием.</span>
+            </span>
+          </div>
+          <div class="trust-check">
+            <span class="trust-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M5 5h14v14H5z"/><path d="M8 9h8M8 13h6M8 17h4"/></svg>
+            </span>
+            <span>
+              <span class="trust-check-title">Актуальное объявление</span>
+              <span class="trust-check-text">Цены и комплект можно сверить на внешней площадке.</span>
+            </span>
+          </div>
+        </div>
+        <div class="trust-avito">
+          <div class="trust-avito-copy">
+            <span class="trust-avatar" aria-hidden="true">
+              <svg viewBox="0 0 90 90" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><circle fill="#97CF26" cx="59" cy="59" r="16"/><circle fill="#0AF" cx="29" cy="29" r="13"/><circle fill="#FF6163" cx="59" cy="29" r="10"/><circle fill="#A169F7" cx="28.5" cy="58.5" r="7.5"/></g></svg>
+            </span>
+            <span>
+              <span class="trust-avito-title">Профиль на АВИТО</span>
+            </span>
+          </div>
+          <div class="trust-actions">
+            <a class="btn btn-outline" href="https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae/all?gdlkerfdnwq=101&page_from=from_item_card_icon&iid=7905038967&sellerId=dd51b05e892e9b957b56d5c1d045d667" target="_blank" rel="noopener">Открыть профиль</a>
+            <a class="btn btn-primary" href="#" data-open-contact>Контакты</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+<!-- FAQ -->
+  <section class="faq-section" id="faq" aria-label="Вопросы по аренде PlayStation 4">
+    <div class="container">
+      <div class="faq-head">
+        <h2 class="section-title">Вопросы</h2>
+      </div>
+
+      <div class="faq-list">
+        <article class="faq-item open">
+          <button class="faq-trigger" type="button" aria-expanded="true">
+            <span class="faq-question">Сколько стоит аренда PS4 Slim в Тамбове?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Аренда PS4 Slim стоит от 500 ₽ за 1 день. 3 дня — 1300 ₽, 7 дней — 2500 ₽, 14 дней — 4500 ₽.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Что входит в комплект аренды?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>В комплект входит PlayStation 4 Slim, 2 геймпада, все кабели для подключения и предустановленные игры по запросу.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Нужен ли залог за приставку?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Да, залог составляет 5000 ₽ при оформлении договора.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Можно ли заказать доставку по Тамбову?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Да, доступен самовывоз или платная доставка по договоренности. Удобный способ получения лучше уточнить перед бронированием.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">На сколько дней можно взять PlayStation?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Основные сроки аренды: 1 день, 3 дня, 7 дней и 14 дней. Если нужен другой срок, его можно обсудить отдельно.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Нужен ли паспорт для аренды PS4?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Да, для договора нужен паспорт гражданина, достигшего 18 лет. Документ нужен только для корректного оформления аренды.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Поможете подключить приставку и выбрать игры?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Да, поможем с обучением и подключением консоли для новичков, а также порекомендуем игры под ваш формат вечера.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Какие условия возврата приставки?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Приставку нужно использовать аккуратно и вернуть в полном комплекте и рабочем состоянии.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item">
+          <button class="faq-trigger" type="button" aria-expanded="false">
+            <span class="faq-question">Какие игры можно взять вместе с приставкой?</span>
+            <span class="faq-action" aria-hidden="true">
+              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
+              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+            </span>
+          </button>
+          <div class="faq-panel">
+            <div class="faq-answer"><p>Можно заранее договориться о подборе и предустановке игр под ваш формат: FIFA 25, UFC 4, Mortal Kombat, Spider-Man, Red Dead Redemption 2, гонки, кооператив или сюжетные проекты.</p></div>
+          </div>
+        </article>
+
+        <article class="faq-item faq-item-contact">
+          <div class="faq-trigger-contact">
+            <span class="faq-question">Не нашли свой вопрос?</span>
+            <a class="btn btn-primary faq-contact-btn" href="#" data-open-contact>Задать вопрос</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
 
 <!-- ============================ CONTACT MODAL ============================ -->
 <div class="modal-backdrop" id="contactModal" aria-hidden="true" role="dialog" aria-modal="true" aria-labelledby="contactTitle">
@@ -2470,8 +2470,20 @@
       </svg>
     </div>
     <h3 class="modal-title" id="contactTitle">Свяжитесь с нами</h3>
-    <p class="modal-sub">Напишите в Telegram или позвоните — ответим в течение 15 минут</p>
+    <p class="modal-sub">Позвоните или напишите в Telegram — ответим в течение 15 минут</p>
     <div class="contact-list">
+      <a class="contact-row" href="tel:+79996802199">
+        <span class="contact-icon phone" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.1-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></svg>
+        </span>
+        <div class="contact-meta">
+          <div class="contact-label">Телефон</div>
+          <div class="contact-value">+7 (999) 680-21-99</div>
+        </div>
+        <span class="contact-arrow" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
+        </span>
+      </a>
       <a class="contact-row" href="https://t.me/Tambwolf1" target="_blank" rel="noopener">
         <span class="contact-icon tg" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="currentColor"><path d="M21.7 4.3 2.9 11.6c-1.1.4-1.1 1 .1 1.4l4.7 1.5 1.8 5.5c.2.6.4.8 1 .8.4 0 .6-.2.9-.5l2.4-2.3 4.9 3.6c.9.5 1.5.2 1.7-.8L23 5.7c.3-1.3-.4-1.9-1.3-1.4zM9.6 14.5l9.7-6.1c.5-.3.9-.1.6.3l-8.1 7.3-.3 3.5-1.9-5z"/></svg>
@@ -2503,18 +2515,6 @@
         <div class="contact-meta">
           <div class="contact-label">Avito</div>
           <div class="contact-value">Профиль продавца</div>
-        </div>
-        <span class="contact-arrow" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
-        </span>
-      </a>
-      <a class="contact-row" href="tel:+79996802199">
-        <span class="contact-icon phone" aria-hidden="true">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .3 1.9.6 2.8a2 2 0 0 1-.5 2.1L8 9.7a16 16 0 0 0 6 6l1.1-1.2a2 2 0 0 1 2.1-.5c.9.3 1.8.5 2.8.6a2 2 0 0 1 1.7 2z"/></svg>
-        </span>
-        <div class="contact-meta">
-          <div class="contact-label">Телефон</div>
-          <div class="contact-value">+7 (999) 680-21-99</div>
         </div>
         <span class="contact-arrow" aria-hidden="true">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 6l6 6-6 6"/></svg>
@@ -2824,18 +2824,40 @@
       raf = requestAnimationFrame(tick);
     }
 
+    function clearAutoplay(){
+      if (timer) clearTimeout(timer);
+      timer = null;
+    }
+
+    function scheduleAutoplay(delay = AUTOPLAY_MS){
+      clearAutoplay();
+      if (paused || dragging || document.hidden) return;
+      timer = setTimeout(() => {
+        timer = null;
+        if (paused || dragging || document.hidden) {
+          scheduleAutoplay();
+          return;
+        }
+        normalize();
+        animateTo(position + 1, 500, () => scheduleAutoplay());
+      }, delay);
+    }
+
     function pauseTemporarily(ms){
+      clearAutoplay();
       paused = true;
       if (pauseTimer) clearTimeout(pauseTimer);
       pauseTimer = setTimeout(() => {
         paused = document.hidden;
         pauseTimer = null;
+        if (!paused) scheduleAutoplay();
       }, ms);
     }
 
     function go(delta){
+      clearAutoplay();
       normalize();
-      animateTo(position + delta, 500);
+      animateTo(position + delta, 500, () => scheduleAutoplay());
       pauseTemporarily(2500);
     }
 
@@ -2847,6 +2869,7 @@
 
     function beginDrag(x){
       stopMotion();
+      clearAutoplay();
       if (pauseTimer) { clearTimeout(pauseTimer); pauseTimer = null; }
       normalize();
       dragging = true;
@@ -2958,27 +2981,39 @@
     root.addEventListener('pointerup', endPointer);
     root.addEventListener('pointercancel', endPointer);
 
-    root.addEventListener('mouseenter', () => { paused = true; });
-    root.addEventListener('mouseleave', () => {
-      if (!dragging && !pauseTimer) paused = document.hidden;
+    root.addEventListener('mouseenter', () => {
+      paused = true;
+      clearAutoplay();
     });
-    document.addEventListener('visibilitychange', () => { paused = document.hidden; });
+    root.addEventListener('mouseleave', () => {
+      if (!dragging && !pauseTimer) {
+        paused = document.hidden;
+        if (!paused) scheduleAutoplay();
+      }
+    });
+    document.addEventListener('visibilitychange', () => {
+      paused = document.hidden;
+      if (paused) {
+        clearAutoplay();
+      } else {
+        scheduleAutoplay();
+      }
+    });
     window.addEventListener('resize', () => {
       measure();
       render();
     });
 
-    timer = setInterval(() => {
-      if (!paused && !dragging) go(1);
-    }, AUTOPLAY_MS);
-
     requestAnimationFrame(() => {
       measure();
       render();
+      scheduleAutoplay();
     });
   })();
 </script>
 
 </body>
 </html>
+
+
 
