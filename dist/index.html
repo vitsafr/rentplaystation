@@ -829,7 +829,7 @@
   .coverflow.is-dragging{cursor:grabbing}
   .coverflow.is-dragging .game-card,
   .coverflow.is-settling .game-card{
-    transition:transform .2s cubic-bezier(.2,.8,.2,1), box-shadow .18s ease, filter .18s ease;
+    transition:transform .2s cubic-bezier(.2,.8,.2,1);
   }
   .coverflow.is-dragging .game-card::before,
   .coverflow.is-settling .game-card::before{transition:opacity .18s ease}
@@ -854,7 +854,7 @@
     border-radius:14px;overflow:hidden;cursor:pointer;
     background:linear-gradient(135deg,#1849ab 0%,#0754d9 100%);
     box-shadow:0 10px 28px rgba(7,17,40,.16);
-    transition:transform .5s cubic-bezier(.4,.2,.2,1), box-shadow .5s ease, filter .5s ease;
+    transition:transform .42s cubic-bezier(.4,.2,.2,1);
     user-select:none;-webkit-user-drag:none;
   }
   .game-card::before{
@@ -867,7 +867,7 @@
       radial-gradient(ellipse at 50% 100%,rgba(43,119,255,.38),rgba(43,119,255,.12) 42%,rgba(43,119,255,0) 70%),
       linear-gradient(180deg,rgba(255,255,255,.12),rgba(255,255,255,0) 32%);
     opacity:0;
-    transition:opacity .5s ease;
+    transition:opacity .3s ease;
     pointer-events:none;
   }
   .game-card::after{
@@ -883,9 +883,8 @@
   .game-card.is-active{
     transform:scale(1.12);
     box-shadow:
-      0 16px 34px rgba(7,17,40,.18),
-      0 0 0 1px rgba(87,151,255,.34),
-      0 0 42px rgba(7,84,217,.30);
+      0 14px 30px rgba(7,17,40,.18),
+      0 0 0 1px rgba(87,151,255,.34);
     z-index:5;
   }
   .game-card.is-active::before{opacity:1}
