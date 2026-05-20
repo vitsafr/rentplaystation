@@ -828,16 +828,13 @@
   }
   .coverflow.is-dragging{cursor:grabbing}
   .coverflow.is-dragging .game-card,
+  .coverflow.is-animating .game-card,
   .coverflow.is-settling .game-card{
     transition:transform .2s cubic-bezier(.2,.8,.2,1);
   }
-  .coverflow.is-animating .game-card{
-    transition:transform .5s cubic-bezier(.2,.8,.2,1), box-shadow .5s ease;
-  }
   .coverflow.is-dragging .game-card::before,
-  .coverflow.is-settling .game-card::before{transition:opacity .18s ease}
   .coverflow.is-animating .game-card::before,
-  .coverflow.is-animating .game-card::after{transition:opacity .5s ease, transform .5s cubic-bezier(.2,.8,.2,1)}
+  .coverflow.is-settling .game-card::before{transition:opacity .18s ease}
   .coverflow.is-normalizing .game-card,
   .coverflow.is-normalizing .game-card::before,
   .coverflow.is-normalizing .game-card::after{
@@ -898,12 +895,14 @@
   .game-card.is-active::before{opacity:1}
   .game-card.is-active::after{opacity:1;transform:scale(1)}
   .coverflow.is-dragging .game-card.is-active,
+  .coverflow.is-animating .game-card.is-active,
   .coverflow.is-settling .game-card.is-active{
     box-shadow:
       0 12px 26px rgba(7,17,40,.16),
       0 0 0 1px rgba(87,151,255,.22);
   }
   .coverflow.is-dragging .game-card.is-active::after,
+  .coverflow.is-animating .game-card.is-active::after,
   .coverflow.is-settling .game-card.is-active::after{
     opacity:0;
     transform:scale(.62);
