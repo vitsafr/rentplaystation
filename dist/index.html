@@ -813,6 +813,7 @@
     --cf-pad-top:80px;
     --cf-pad-bottom:96px;
     --cf-mid:236px;
+    --cf-fade:clamp(42px,8vw,84px);
     position:relative;
     max-width:820px;
     height:var(--cf-height);
@@ -822,6 +823,8 @@
     isolation:isolate;
     touch-action:pan-y;
     cursor:grab;
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--cf-fade),#000 calc(100% - var(--cf-fade)),transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 var(--cf-fade),#000 calc(100% - var(--cf-fade)),transparent 100%);
   }
   .coverflow.is-dragging{cursor:grabbing}
   .coverflow.is-dragging .game-card,
@@ -838,21 +841,7 @@
   }
   .coverflow::before,
   .coverflow::after{
-    content:"";
-    position:absolute;
-    top:0;
-    bottom:0;
-    width:84px;
-    z-index:30;
-    pointer-events:none;
-  }
-  .coverflow::before{
-    left:0;
-    background:linear-gradient(90deg,var(--bg) 0%,rgba(247,250,255,.92) 28%,rgba(247,250,255,0) 100%);
-  }
-  .coverflow::after{
-    right:0;
-    background:linear-gradient(270deg,var(--bg) 0%,rgba(247,250,255,.92) 28%,rgba(247,250,255,0) 100%);
+    display:none;
   }
   .coverflow-track{
     position:absolute;top:var(--cf-mid);left:0;
@@ -939,10 +928,9 @@
       --cf-pad-top:64px;
       --cf-pad-bottom:74px;
       --cf-mid:188px;
+      --cf-fade:clamp(24px,8vw,38px);
       max-width:520px;
     }
-    .coverflow::before,
-    .coverflow::after{width:44px}
     .coverflow-track{gap:16px}
     .game-card{flex-basis:150px;width:150px;height:212px;border-radius:12px}
     .game-card .game-title{font-size:12px;padding:12px 10px 10px}
@@ -952,6 +940,9 @@
   }
   @media (max-width: 480px){
     .coverflow-wrap{padding:0 12px}
+    .coverflow{
+      --cf-fade:clamp(18px,7vw,28px);
+    }
   }
 </style>
 <script>
