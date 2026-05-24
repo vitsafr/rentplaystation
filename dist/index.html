@@ -950,11 +950,12 @@
     background:rgba(7,17,40,.55);
     backdrop-filter:blur(6px);
     -webkit-backdrop-filter:blur(6px);
-    display:none;align-items:center;justify-content:center;
+    display:flex;align-items:center;justify-content:center;
     padding:20px;
-    opacity:0;transition:opacity var(--t-base) ease;
+    opacity:0;visibility:hidden;pointer-events:none;
+    transition:opacity var(--t-slow) ease, visibility 0s linear var(--t-slow);
   }
-  .modal-backdrop.open{display:flex;opacity:1}
+  .modal-backdrop.open{opacity:1;visibility:visible;pointer-events:auto;transition:opacity var(--t-slow) ease, visibility 0s}
   .modal{
     width:100%;max-width:440px;
     background:#fff;border-radius:var(--radius-lg);
@@ -962,7 +963,7 @@
     box-shadow:var(--shadow-modal);
     position:relative;
     transform:translateY(8px) scale(.98);
-    transition:transform var(--t-base) ease;
+    transition:transform var(--t-slow) ease;
   }
   .modal-backdrop.open .modal{transform:none}
   .modal-close{
