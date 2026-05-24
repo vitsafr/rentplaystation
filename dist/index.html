@@ -178,16 +178,11 @@
   :root[data-theme="dark"] .offer-ico .ico-img{filter:brightness(0) invert(1)}
   /* Anchor-focus dim overlay must darken (not lighten) the page in dark mode */
   :root[data-theme="dark"] .anchor-focus-overlay{background:rgba(0,0,0,.5)}
-  /* During a theme switch, apply one uniform 0.3s transition to every element so
-     the whole page cross-fades together; it's removed afterwards so normal
-     hover transitions aren't slowed down. */
-  :root.theme-switching *,
-  :root.theme-switching *::before,
-  :root.theme-switching *::after{
-    transition:background-color var(--t-slow) ease, color var(--t-slow) ease,
-               border-color var(--t-slow) ease, fill var(--t-slow) ease,
-               stroke var(--t-slow) ease, box-shadow var(--t-slow) ease !important;
-  }
+  /* Theme switch = GPU-composited cross-fade via the View Transitions API.
+     Snapshots old/new and fades them on the compositor — no per-frame full-page
+     repaint, so no jank on mobile. (Instant fallback where unsupported.) */
+  ::view-transition-old(root),
+  ::view-transition-new(root){animation-duration:var(--t-slow);animation-timing-function:ease}
 
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
   html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 20px)}
@@ -888,9 +883,11 @@
     .faq-item-contact .faq-question{flex:1 1 auto;min-width:0}
     .faq-contact-btn{width:auto;padding:0 20px}
 
-    /* Pricing */
+    /* Pricing — phones: one column, price on a single line (icon · 1 день — 500 ₽) */
+    .price-grid{grid-template-columns:1fr}
     .price-card{padding:var(--row-pad-y) var(--row-pad-x);min-height:0}
-    .days{font-size:var(--text-xl)}
+    .price-card > div:last-child{display:flex;align-items:baseline;gap:6px}
+    .days{font-size:var(--text-xl);margin-bottom:0}
     .rub{font-size:26px}
 
     /* Info strip — keep 2 cols, tighten */
@@ -922,10 +919,6 @@
     /* Tight screens → swap to the short button labels */
     .lbl-full{display:none}
     .lbl-short{display:inline}
-    /* Two compact columns instead of one full-width row.
-       Padding/gap/icon stay on the shared row tokens — consistent with every
-       other block. */
-    .price-grid{grid-template-columns:repeat(2,1fr)}
     .info-strip{grid-template-columns:1fr}
     .info-item{border-right:none !important;border-bottom:1px solid var(--line)}
     .info-item:last-child{border-bottom:none}
@@ -2867,16 +2860,19 @@
     const btn = document.querySelector('.theme-toggle');
     if (!btn) return;
     const root = document.documentElement;
-    let switchTimer;
     btn.addEventListener('click', () => {
       const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
-      // Enable a uniform 0.3s cross-fade for the swap, then remove it so normal
-      // hover transitions aren't affected.
-      root.classList.add('theme-switching');
-      root.setAttribute('data-theme', next);
-      try { localStorage.setItem('theme', next); } catch(e){}
-      clearTimeout(switchTimer);
-      switchTimer = setTimeout(() => root.classList.remove('theme-switching'), 350);
+      const apply = () => {
+        root.setAttribute('data-theme', next);
+        try { localStorage.setItem('theme', next); } catch(e){}
+      };
+      // GPU-composited cross-fade where supported; instant otherwise.
+      if (document.startViewTransition &&
+          !matchMedia('(prefers-reduced-motion: reduce)').matches) {
+        document.startViewTransition(apply);
+      } else {
+        apply();
+      }
     });
   })();
 
