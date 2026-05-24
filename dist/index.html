@@ -3,13 +3,24 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Аренда PS4 Slim в Тамбове от 500 ₽ в день — PlayStation с играми</title>
-<meta name="description" content="Аренда PlayStation 4 Slim в Тамбове от 500 ₽ в день. В комплекте PS4, 2 геймпада, кабели и игры по запросу. Поможем подключить консоль, возможна доставка.">
+<script>
+  /* Set the theme before paint (no flash). System default unless a manual choice was saved. */
+  (function(){
+    try{
+      var t = localStorage.getItem('theme');
+      if (t !== 'dark' && t !== 'light')
+        t = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
+      document.documentElement.setAttribute('data-theme', t);
+    }catch(e){}
+  })();
+</script>
+<title>Аренда PS4 Slim в Тамбове до 500 ₽ в день — PlayStation с играми</title>
+<meta name="description" content="Аренда PlayStation 4 Slim в Тамбове до 500 ₽ в день. В комплекте PS4, 2 геймпада, кабели и игры по запросу. Поможем подключить консоль, возможна доставка.">
 <meta name="keywords" content="аренда PS4 Тамбов, аренда PlayStation Тамбов, PS4 Slim напрокат, прокат приставки Тамбов, аренда приставки, аренда джойстика, игры PS4 Тамбов, PS4 с играми, прокат игровых приставок Тамбов, PS4 на дом">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
-<meta property="og:title" content="Аренда PS4 Slim в Тамбове от 500 ₽ в день">
+<meta property="og:title" content="Аренда PS4 Slim в Тамбове до 500 ₽ в день">
 <meta property="og:description" content="PlayStation 4 Slim напрокат: 2 геймпада, кабели и игры по запросу в комплекте. Помощь с подключением, договор, залог, доставка по договоренности.">
 <meta property="og:image" content="assets/ps4-hero.png">
 <meta name="twitter:card" content="summary_large_image">
@@ -24,6 +35,9 @@
     --surface-soft:#f2f6ff;
 
     --text:#07112b;
+    --text-2:#222d44;     /* strong body text (feature list) */
+    --text-3:#33405b;     /* nav links */
+    --text-soft:#3a4356;  /* hero lead */
     --muted:#5f6b83;
     --muted-2:#8a94aa;
 
@@ -37,13 +51,148 @@
     --radius-md:14px;
     --radius-lg:18px;
     --radius-xl:28px;
+    --radius-pill:999px;
 
+    /* Elevation — tokenized 1:1 (no visual change), centralized for future tuning */
     --shadow: 0 10px 30px rgba(14,42,87,.08);
+    --shadow-card-hover:0 16px 36px rgba(7,84,217,.12);
+    --shadow-btn:0 6px 18px rgba(7,84,217,.25);
+    --shadow-btn-hover:0 10px 24px rgba(7,84,217,.35);
+    --shadow-faq:0 8px 20px rgba(7,84,217,.20);
+    --shadow-faq-hover:0 12px 26px rgba(7,84,217,.26);
+    --shadow-faq-open:0 8px 18px rgba(7,17,43,.08);
+    --shadow-icon:0 6px 16px rgba(7,84,217,.08);
+    --shadow-cta:0 18px 40px rgba(7,84,217,.30);
+    --shadow-nav:0 18px 48px rgba(7,17,43,.14);
+    --shadow-modal:0 30px 80px rgba(7,84,217,.25);
+    --shadow-cf:0 8px 22px rgba(7,84,217,.18);
+
+    /* Type scale (clean steps; half-px values rounded in) */
+    --text-xs:12px;
+    --text-sm:13px;
+    --text-base:14px;
+    --text-md:15px;
+    --text-lg:16px;
+    --text-xl:18px;
+    --text-2xl:20px;
+    --text-3xl:22px;
+    --text-4xl:25px;
+    --text-5xl:30px;
+    --text-6xl:38px;
+
+    /* Motion */
+    --t-fast:.15s;
+    --t-base:.2s;
+    --t-slow:.3s;
+    --ease:ease;
+
+    /* Card vertical padding (compact rows: price / info / trust) */
+    --row-pad-y:16px;
+
+    /* Content measures (max-width of text columns) */
+    --measure-sm:530px;
+    --measure-md:660px;
+    --measure-lg:780px;
+
+    /* Layout */
+    --header-h:72px;
+    --btn-gap:var(--grid-gap);   /* same gutter as the card grids (16px / 12px mobile) */
+
+    /* Unified icon badges — one diameter + one glyph size = equal breathing room.
+       Offer cards use 2× via calc(). Override the two vars in a media query to
+       rescale every badge at once. */
+    --ico:40px;
+    --ico-glyph:38px;   /* EXPERIMENT: large bare glyphs (info-icon style) */
+
+    /* Shared row rhythm for icon+text blocks — equal horizontal padding, equal
+       icon↔text gap and a fixed icon column (= --ico) so icon-left edges and
+       text-left edges line up across price/info/offer/trust rows. */
+    --row-pad-x:22px;
+    --row-gap:16px;
+
+    /* Gutter shared by the card grids (offers / price tiles) so their column
+       gaps read as one consistent rhythm down the page. */
+    --grid-gap:16px;
+
+    /* ---- Spacing scale (8-point grid) ---- */
+    --space-4:4px;
+    --space-8:8px;
+    --space-12:12px;
+    --space-16:16px;
+    --space-24:24px;
+    --space-32:32px;
+    --space-48:48px;
+
+    /* ---- Semantic vertical rhythm (balanced) ---- */
+    --section-pad-y:32px;    /* top & bottom of every section → ~64px between blocks */
+    --head-gap:24px;         /* section heading block → its content */
+    --title-sub-gap:8px;     /* heading → its subtext */
+    --eyebrow-gap:8px;       /* eyebrow / kicker → heading */
   }
-  *{box-sizing:border-box}
-  html{scroll-behavior:smooth;scroll-padding-top:92px}
+
+  /* ---------- Dark theme (only token overrides + a few hardcoded-surface fixes) ---------- */
+  :root[data-theme="dark"]{
+    --bg:#0b0f1a;
+    --surface:#121826;
+    --surface-soft:#0f1422;
+    --text:#eef3fb;
+    --text-2:#dbe3f1;
+    --text-3:#aeb9d1;
+    --text-soft:#c4cde0;
+    --muted:#97a3bd;
+    --muted-2:#6e7a95;
+    --blue:#5b94ff;
+    --blue-2:#7aa9ff;
+    --blue-3:#19243d;
+    --line:#283248;
+    --shadow:0 10px 30px rgba(0,0,0,.5);
+    --shadow-card-hover:0 16px 36px rgba(0,0,0,.55);
+    --shadow-btn:0 6px 18px rgba(0,0,0,.5);
+    --shadow-btn-hover:0 10px 24px rgba(0,0,0,.55);
+    --shadow-faq:0 8px 20px rgba(0,0,0,.45);
+    --shadow-faq-hover:0 12px 26px rgba(0,0,0,.5);
+    --shadow-faq-open:0 8px 18px rgba(0,0,0,.4);
+    --shadow-icon:0 6px 16px rgba(0,0,0,.4);
+    --shadow-cta:0 18px 40px rgba(0,0,0,.55);
+    --shadow-nav:0 18px 48px rgba(0,0,0,.55);
+    --shadow-modal:0 30px 80px rgba(0,0,0,.6);
+    --shadow-cf:0 8px 22px rgba(0,0,0,.45);
+  }
+  /* Surfaces hardcoded to #fff in base rules → themed surface in dark */
+  :root[data-theme="dark"] .menu-toggle,
+  :root[data-theme="dark"] .btn-outline,
+  :root[data-theme="dark"] .cf-nav,
+  :root[data-theme="dark"] .modal,
+  :root[data-theme="dark"] .contact-row,
+  :root[data-theme="dark"] .faq-item.open .faq-action{background:var(--surface)}
+  /* Light hairlines → themed line color in dark */
+  :root[data-theme="dark"] .trust-check,
+  :root[data-theme="dark"] .trust-avito{border-color:var(--line)}
+  :root[data-theme="dark"] .faq-list::before,
+  :root[data-theme="dark"] .faq-item::after{background:linear-gradient(90deg,transparent,var(--line) 10%,var(--line) 90%,transparent)}
+  /* EXPERIMENT: white icon glyphs in dark mode (currentColor-driven icons) */
+  :root[data-theme="dark"] .feat-ico,
+  :root[data-theme="dark"] .price-ico,
+  :root[data-theme="dark"] .trust-icon,
+  :root[data-theme="dark"] .info-icon{color:#fff}
+  :root[data-theme="dark"] .offer-ico .ico-img{filter:brightness(0) invert(1)}
+  /* Anchor-focus dim overlay must darken (not lighten) the page in dark mode */
+  :root[data-theme="dark"] .anchor-focus-overlay{background:rgba(0,0,0,.5)}
+  /* During a theme switch, apply one uniform 0.3s transition to every element so
+     the whole page cross-fades together; it's removed afterwards so normal
+     hover transitions aren't slowed down. */
+  :root.theme-switching *,
+  :root.theme-switching *::before,
+  :root.theme-switching *::after{
+    transition:background-color var(--t-slow) ease, color var(--t-slow) ease,
+               border-color var(--t-slow) ease, fill var(--t-slow) ease,
+               stroke var(--t-slow) ease, box-shadow var(--t-slow) ease !important;
+  }
+
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+  html{scroll-behavior:smooth;scroll-padding-top:calc(var(--header-h) + 20px)}
   html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:'Manrope',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:hidden}
-  body{padding-top:72px}
+  body{padding-top:var(--header-h)}
   a{color:inherit;text-decoration:none}
   button{font-family:inherit;cursor:pointer;border:none;background:none}
 
@@ -60,34 +209,34 @@
     border-bottom:1px solid var(--line);
   }
   .header-inner{
-    height:72px;
-    display:flex;align-items:center;gap:40px;
+    height:var(--header-h);
+    display:flex;align-items:center;gap:var(--btn-gap);
   }
   .brand{display:flex;align-items:center;gap:14px}
   .logo{
     width:38px;height:38px;border-radius:50%;
-    background:var(--blue);
+    background:linear-gradient(135deg,#0754d9,#0b65ff);
     display:grid;place-items:center;color:#fff;flex:none;
-    font-weight:800;font-size:15px;letter-spacing:.02em;
+    font-weight:800;font-size:var(--text-md);letter-spacing:.02em;
     font-family:'Manrope',system-ui,sans-serif;
   }
-  .brand-name{font-size:22px;font-weight:800;letter-spacing:-.015em;color:var(--text)}
-  .nav{display:flex;gap:30px;margin-left:18px}
-  .nav a{font-size:15px;color:#33405b;font-weight:600}
+  .brand-name{font-size:var(--text-3xl);font-weight:800;letter-spacing:-.015em;color:var(--text)}
+  .nav{display:flex;gap:var(--btn-gap);margin-left:18px}
+  .nav a{font-size:var(--text-md);color:var(--text-3);font-weight:600}
   .nav a:hover{color:var(--blue)}
   .header-cta{margin-left:auto}
   .menu-toggle{
     display:none;
     width:44px;
     height:44px;
-    border-radius:12px;
+    border-radius:var(--radius-sm);
     border:1px solid var(--line);
     background:#fff;
     color:var(--text);
     align-items:center;
     justify-content:center;
     flex:none;
-    transition:background .18s ease, border-color .18s ease, color .18s ease;
+    transition:background var(--t-fast) ease, border-color var(--t-fast) ease, color var(--t-fast) ease;
   }
   .menu-toggle:hover,
   .menu-toggle[aria-expanded="true"]{
@@ -110,7 +259,7 @@
     height:2px;
     border-radius:2px;
     background:currentColor;
-    transition:transform .18s ease, opacity .18s ease, top .18s ease;
+    transition:transform var(--t-fast) ease, opacity var(--t-fast) ease, top var(--t-fast) ease;
   }
   .menu-toggle-lines::before{top:0}
   .menu-toggle-lines span{top:6px}
@@ -122,21 +271,42 @@
   .btn{
     display:inline-flex;align-items:center;justify-content:center;
     min-height:48px;padding:0 28px;border-radius:var(--radius-sm);
-    font-weight:800;font-size:14.5px;letter-spacing:.01em;white-space:nowrap;
-    transition:transform .15s ease, box-shadow .2s ease, background .2s ease, color .15s ease;
+    font-weight:800;font-size:var(--text-base);letter-spacing:.01em;white-space:nowrap;
+    transition:transform var(--t-fast) ease, box-shadow var(--t-base) ease, background var(--t-base) ease, color var(--t-fast) ease;
   }
   .btn-primary{
     background:linear-gradient(135deg,#0754d9,#0b65ff);
     color:#fff;
-    box-shadow:0 6px 18px rgba(7,84,217,.25);
+    box-shadow:var(--shadow-btn);
   }
-  .btn-primary:hover{box-shadow:0 10px 24px rgba(7,84,217,.35);transform:translateY(-1px)}
+  .btn-primary:hover{box-shadow:var(--shadow-btn-hover);transform:translateY(-1px)}
   .btn-outline{
     background:#fff;color:var(--blue);
     border:1px solid rgba(7,84,217,.35);
   }
   .btn-outline:hover{background:var(--blue-3)}
-  .header-cta .btn{min-height:48px}
+  /* Adaptive button label: full text by default, short on tight screens */
+  .lbl-short{display:none}
+  /* Theme toggle (sun/moon) in the header */
+  .theme-toggle{
+    width:44px;height:44px;border-radius:var(--radius-sm);
+    border:1px solid var(--line);
+    background:var(--surface);
+    color:var(--text);
+    display:grid;place-items:center;flex:none;
+    transition:background var(--t-fast) ease, border-color var(--t-fast) ease, color var(--t-fast) ease;
+  }
+  .theme-toggle:hover{background:var(--blue-3);border-color:rgba(7,84,217,.35);color:var(--blue)}
+  .theme-toggle svg{width:20px;height:20px;display:block}
+  .theme-toggle .theme-sun{display:none}
+  :root[data-theme="dark"] .theme-toggle .theme-sun{display:block}
+  :root[data-theme="dark"] .theme-toggle .theme-moon{display:none}
+  .header-cta .btn{
+    height:44px;
+    min-height:44px;
+    padding:0 18px;
+    border-radius:var(--radius-sm);
+  }
   .anchor-focus-overlay{
     position:fixed;
     inset:0;
@@ -146,7 +316,7 @@
     -webkit-backdrop-filter:blur(5px);
     opacity:0;
     pointer-events:none;
-    transition:opacity .32s ease;
+    transition:opacity var(--t-slow) ease;
   }
   .anchor-focus-overlay.active{
     opacity:1;
@@ -159,7 +329,7 @@
   }
 
   /* ---------- Hero ---------- */
-  .hero{padding:34px 0 22px}
+  .hero{padding:var(--section-pad-y) 0}
   .hero-grid{
     display:grid;
     grid-template-columns: 46% 54%;
@@ -172,35 +342,35 @@
     line-height:.95;
     letter-spacing:-.045em;
     font-weight:800;
-    margin:0 0 16px;
+    margin:0 0 var(--space-16);
   }
   .hero-lead{
-    font-size:18px;line-height:1.45;
-    color:#3a4356;font-weight:500;
-    max-width:530px;
-    margin:0 0 22px;
+    font-size:var(--text-xl);line-height:1.45;
+    color:var(--text-soft);font-weight:500;
+    max-width:var(--measure-sm);
+    margin:0 0 var(--space-24);
   }
   .hero-list{
-    list-style:none;margin:0 0 24px;padding:0;
-    display:flex;flex-direction:column;gap:13px;
+    list-style:none;margin:0 0 var(--space-24);padding:0;
+    display:flex;flex-direction:column;gap:var(--space-12);
   }
-  .hero-list li{display:flex;align-items:center;gap:14px;font-size:16px;font-weight:500;color:#222d44}
+  .hero-list li{display:flex;align-items:center;gap:var(--row-gap);font-size:var(--text-lg);font-weight:500;color:var(--text-2)}
   .feat-ico{
-    width:34px;height:34px;border-radius:50%;
+    width:var(--ico);height:var(--ico);border-radius:50%;
     background:var(--blue-3);color:var(--blue);
     display:grid;place-items:center;flex:none;
   }
-  .feat-ico svg{width:18px;height:18px}
+  .feat-ico svg{width:var(--ico-glyph);height:var(--ico-glyph)}
 
   .hero-price{
-    display:flex;align-items:baseline;gap:12px;
-    margin-bottom:18px;
+    display:flex;align-items:baseline;gap:var(--space-12);
+    margin-bottom:var(--space-24);
   }
-  .price-from{font-size:14px;color:var(--muted);font-weight:600;text-transform:lowercase;letter-spacing:.04em}
+  .price-from{font-size:var(--text-base);color:var(--muted);font-weight:600;text-transform:lowercase;letter-spacing:.04em}
   .amount{font-size:clamp(48px,6vw,62px);font-weight:900;color:var(--blue);letter-spacing:-.025em;line-height:1}
-  .price-suffix{font-size:20px;color:var(--muted);font-weight:600}
+  .price-suffix{font-size:var(--text-2xl);color:var(--muted);font-weight:600}
 
-  .hero-actions{display:flex;gap:14px;flex-wrap:wrap}
+  .hero-actions{display:flex;gap:var(--btn-gap);flex-wrap:wrap}
   .hero-actions .btn{min-width:190px}
 
   /* Hero visual */
@@ -209,55 +379,55 @@
     display:grid;place-items:center;
     overflow:hidden;
   }
-  .stage-deco{position:absolute;inset:-10px -40px -10px 0;pointer-events:none;z-index:0;overflow:hidden;border-radius:18px}
+  .stage-deco{position:absolute;inset:-10px -40px -10px 0;pointer-events:none;z-index:0;overflow:hidden;border-radius:var(--radius-lg)}
   .stage-deco svg{position:absolute;right:-60px;top:0;width:760px;height:520px;opacity:.85}
   .product-image{position:relative;z-index:1;width:100%;height:438px;display:flex;align-items:center;justify-content:center}
   .product-image img{max-width:100%;max-height:100%;width:auto;height:auto;object-fit:contain;display:block}
 
   /* ---------- Offer cards ---------- */
+  #rent{padding:var(--section-pad-y) 0}
   .offer-grid{
-    display:grid;grid-template-columns:1fr 1fr;gap:28px;
-    margin-top:6px;
+    display:grid;grid-template-columns:1fr 1fr;gap:var(--grid-gap);
   }
   .offer-card{
     background:var(--surface);
     border:1px solid var(--line);
     border-radius:var(--radius-lg);
     min-height:144px;
-    padding:22px 30px;
-    display:flex;gap:20px;align-items:center;
+    padding:22px var(--row-pad-x);
+    display:flex;gap:var(--row-gap);align-items:center;
     box-shadow:var(--shadow);
-    transition:box-shadow .2s ease, transform .2s ease;
+    transition:box-shadow var(--t-base) ease, transform var(--t-base) ease;
   }
-  .offer-card:hover{box-shadow:0 16px 36px rgba(7,84,217,.12);transform:translateY(-2px)}
+  .offer-card:hover{box-shadow:var(--shadow-card-hover);transform:translateY(-2px)}
   .offer-ico{
-    width:96px;height:96px;border-radius:50%;
+    width:calc(var(--ico) * 2);height:calc(var(--ico) * 2);border-radius:50%;
     background:var(--blue-3);color:var(--blue);
     display:grid;place-items:center;flex:none;
   }
-  .offer-ico svg{width:36px;height:36px}
+  .offer-ico svg{width:calc(var(--ico-glyph) * 2);height:calc(var(--ico-glyph) * 2)}
   .offer-ico .ico-mask{
-    width:72px;height:72px;
+    width:calc(var(--ico-glyph) * 2);height:calc(var(--ico-glyph) * 2);
     background:var(--blue);
     -webkit-mask-position:center;mask-position:center;
     -webkit-mask-repeat:no-repeat;mask-repeat:no-repeat;
     -webkit-mask-size:contain;mask-size:contain;
   }
   .offer-ico .ico-img{
-    width:56px;height:56px;
+    width:calc(var(--ico-glyph) * 2);height:calc(var(--ico-glyph) * 2);
     object-fit:contain;display:block;
   }
   .ico-console{-webkit-mask-image:url('assets/icon-ps4.svg');mask-image:url('assets/icon-ps4.svg')}
   .ico-controller{-webkit-mask-image:url('assets/icon-gamepad.svg');mask-image:url('assets/icon-gamepad.svg')}
-  .offer-tag{font-size:14px;font-weight:700;color:var(--blue);margin-bottom:2px}
-  .offer-title{font-size:25px;font-weight:800;letter-spacing:-.015em;color:var(--text);line-height:1.1;margin-bottom:4px}
-  .offer-desc{font-size:14.5px;color:var(--muted);margin-bottom:8px;line-height:1.45}
+  .offer-tag{font-size:var(--text-base);font-weight:700;color:var(--blue);margin-bottom:2px}
+  .offer-title{font-size:var(--text-4xl);font-weight:800;letter-spacing:-.015em;color:var(--text);line-height:1.1;margin-bottom:4px}
+  .offer-desc{font-size:var(--text-base);color:var(--muted);margin-bottom:8px;line-height:1.45}
   .offer-price{display:flex;align-items:baseline;gap:12px}
-  .offer-price-main{font-size:22px;font-weight:800;color:var(--blue);letter-spacing:-.01em}
-  .offer-price-note{font-size:13.5px;color:var(--muted-2);font-weight:500}
+  .offer-price-main{font-size:var(--text-3xl);font-weight:800;color:var(--blue);letter-spacing:-.01em}
+  .offer-price-note{font-size:var(--text-sm);color:var(--muted-2);font-weight:500}
 
   /* ---------- Section heads ---------- */
-  .section-head{margin-bottom:18px}
+  .section-head{margin-bottom:var(--head-gap)}
   .section-title{
     margin:0;
     color:var(--text);
@@ -268,8 +438,8 @@
   }
 
   /* ---------- FAQ ---------- */
-  .faq-section{padding:24px 0 34px}
-  .faq-head{margin-bottom:16px}
+  .faq-section{padding:var(--section-pad-y) 0}
+  .faq-head{margin-bottom:var(--head-gap)}
   .faq-list{display:block;position:relative}
   .faq-list::before,
   .faq-item::after{
@@ -295,7 +465,7 @@
     text-align:left;
   }
   .faq-question{
-    font-size:20px;
+    font-size:var(--text-2xl);
     line-height:1.35;
     font-weight:800;
     letter-spacing:-.018em;
@@ -306,40 +476,60 @@
     display:grid;place-items:center;
     color:#fff;
     background:linear-gradient(135deg,#0754d9,#0b65ff);
-    box-shadow:0 8px 20px rgba(7,84,217,.20);
-    transition:transform .2s ease, box-shadow .2s ease, filter .2s ease, background .2s ease;
+    box-shadow:var(--shadow-faq);
+    transition:transform var(--t-base) ease, box-shadow var(--t-base) ease, filter var(--t-base) ease, background var(--t-base) ease;
   }
-  .faq-action svg{width:20px;height:20px;display:block;stroke-width:2.2}
-  .faq-action .faq-circle{display:none}
+  .faq-action svg{width:20px;height:20px;display:block}
+  /* True shape morph: one path interpolated between a triangle and a circle —
+     both authored as 4 cubic segments so the anchor points map 1:1. */
+  .faq-morph{
+    fill:none;
+    stroke:currentColor;
+    stroke-width:18;
+    stroke-linecap:round;
+    stroke-linejoin:round;
+    d:path("M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z");
+    transition:d var(--t-slow) cubic-bezier(.4,0,.2,1), stroke var(--t-base) ease;
+  }
+  /* Browsers without the CSS `d` property (Firefox) can't morph — flip instead. */
+  @supports not (d: path("M0 0")) {
+    .faq-action svg{transition:transform var(--t-base) ease}
+    .faq-item.open .faq-action svg{transform:rotate(180deg)}
+  }
   .faq-trigger:hover .faq-action{
     transform:translateY(-1px);
-    box-shadow:0 12px 26px rgba(7,84,217,.26);
+    box-shadow:var(--shadow-faq-hover);
     filter:brightness(1.03);
   }
+  /* Smooth accordion: animate the real content height via grid 0fr→1fr
+     (no fixed max-height, so the easing matches the answer and nothing clips). */
   .faq-panel{
-    max-height:0;
-    overflow:hidden;
-    opacity:0;
-    transform:translateY(-4px);
-    transition:max-height .28s ease, opacity .2s ease, transform .22s ease;
+    display:grid;
+    grid-template-rows:0fr;
+    transition:grid-template-rows var(--t-slow) ease;
   }
   .faq-answer{
-    max-width:780px;
+    overflow:hidden;
+    min-height:0;
+    max-width:var(--measure-lg);
     padding:0 72px 22px 0;
     color:var(--muted);
-    font-size:15.5px;
+    font-size:var(--text-md);
     line-height:1.65;
+    opacity:0;
+    transform:translateY(-4px);
+    transition:opacity var(--t-base) ease, transform var(--t-base) ease;
   }
   .faq-answer p{margin:0}
-  .faq-item.open .faq-panel{max-height:260px;opacity:1;transform:none}
+  .faq-item.open .faq-panel{grid-template-rows:1fr}
+  .faq-item.open .faq-answer{opacity:1;transform:none}
   .faq-item.open .faq-action{
     background:#fff;
     color:var(--blue);
     border:1px solid rgba(7,84,217,.32);
-    box-shadow:0 8px 18px rgba(7,17,43,.08);
+    box-shadow:var(--shadow-faq-open);
   }
-  .faq-item.open .faq-action .faq-triangle{display:none}
-  .faq-item.open .faq-action .faq-circle{display:block}
+  .faq-item.open .faq-morph{d:path("M 100,20 C 144,20 180,56 180,100 C 180,144 144,180 100,180 C 56,180 20,144 20,100 C 20,56 56,20 100,20 Z")}
   .faq-item-contact .faq-trigger-contact{
     width:100%;
     display:flex;
@@ -353,28 +543,28 @@
   .faq-contact-btn{min-height:46px;padding:0 22px;flex:none}
 
   /* ---------- Pricing tiles ---------- */
-  .pricing{padding:20px 0 16px}
+  .pricing{padding:var(--section-pad-y) 0}
   .price-grid{
-    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+    display:grid;grid-template-columns:repeat(4,1fr);gap:var(--grid-gap);
   }
   .price-card{
     background:var(--surface);
     border:1px solid var(--line);
     border-radius:var(--radius-md);
     min-height:102px;
-    padding:18px 22px;
-    display:flex;align-items:center;gap:16px;
+    padding:var(--row-pad-y) var(--row-pad-x);
+    display:flex;align-items:center;gap:var(--row-gap);
     box-shadow:var(--shadow);
-    transition:box-shadow .2s ease, transform .2s ease;
+    transition:box-shadow var(--t-base) ease, transform var(--t-base) ease;
   }
-  .price-card:hover{box-shadow:0 16px 36px rgba(7,84,217,.12);transform:translateY(-2px)}
+  .price-card:hover{box-shadow:var(--shadow-card-hover);transform:translateY(-2px)}
   .price-ico{
-    width:52px;height:52px;border-radius:50%;
+    width:var(--ico);height:var(--ico);border-radius:50%;
     background:var(--blue-3);color:var(--blue);
     display:grid;place-items:center;flex:none;
   }
-  .price-ico svg{width:24px;height:24px}
-  .days{font-size:22px;font-weight:800;color:var(--text);line-height:1.05;margin-bottom:4px;letter-spacing:-.01em}
+  .price-ico svg{width:var(--ico-glyph);height:var(--ico-glyph)}
+  .days{font-size:var(--text-3xl);font-weight:800;color:var(--text);line-height:1.05;margin-bottom:4px;letter-spacing:-.01em}
   .rub{font-size:32px;font-weight:900;color:var(--blue);letter-spacing:-.02em;line-height:1}
 
   /* ---------- Info strip ---------- */
@@ -390,23 +580,23 @@
   }
   .info-item{
     min-height:78px;
-    padding:14px 22px;
-    display:flex;align-items:center;gap:14px;
+    padding:var(--row-pad-y) var(--row-pad-x);
+    display:flex;align-items:center;gap:var(--row-gap);
     border-right:1px solid var(--line);
   }
   .info-item:last-child{border-right:none}
   .info-icon{
-    width:auto;height:auto;border-radius:0;
+    width:var(--ico);height:var(--ico);border-radius:0;
     background:transparent;color:var(--blue);
     display:grid;place-items:center;flex:none;
   }
   .info-icon svg{width:38px;height:38px;stroke-width:1.7}
-  .info-label{font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:2px}
-  .info-text{font-size:13.5px;color:var(--muted);line-height:1.4}
+  .info-label{font-size:var(--text-base);font-weight:700;color:var(--text);margin-bottom:2px}
+  .info-text{font-size:var(--text-sm);color:var(--muted);line-height:1.4}
 
   /* ---------- Trust ---------- */
   .trust-section{
-    padding:22px 0 30px;
+    padding:var(--section-pad-y) 0;
   }
   .avito-trust{
     display:grid;
@@ -421,26 +611,26 @@
     gap:8px;
     min-height:28px;
     padding:0 11px;
-    border-radius:999px;
+    border-radius:var(--radius-pill);
     background:var(--blue-3);
     color:var(--blue);
-    font-size:12.5px;
+    font-size:var(--text-sm);
     font-weight:800;
-    margin-bottom:14px;
+    margin-bottom:var(--eyebrow-gap);
   }
   .trust-title{
-    margin:0 0 12px;
-    font-size:clamp(28px,3.6vw,40px);
-    line-height:1.06;
+    margin:0 0 var(--title-sub-gap);
+    font-size:clamp(30px,4vw,42px);
+    line-height:1.05;
     letter-spacing:-.035em;
     font-weight:900;
     color:var(--text);
   }
   .trust-text{
-    max-width:660px;
+    max-width:var(--measure-md);
     margin:0;
     color:var(--muted);
-    font-size:15.5px;
+    font-size:var(--text-md);
     line-height:1.62;
   }
   .trust-panel{
@@ -451,16 +641,16 @@
   }
   .trust-check{
     min-height:74px;
-    padding:14px 0;
+    padding:var(--row-pad-y) 0;
     border-bottom:1px solid rgba(220,229,246,.92);
     display:flex;
     align-items:flex-start;
-    gap:12px;
+    gap:var(--row-gap);
   }
   .trust-check:nth-last-child(-n+2){border-bottom:none}
   .trust-icon{
-    width:30px;
-    height:30px;
+    width:var(--ico);
+    height:var(--ico);
     border-radius:50%;
     display:grid;
     place-items:center;
@@ -468,12 +658,12 @@
     background:#fff;
     border:1px solid rgba(7,84,217,.18);
     color:var(--blue);
-    box-shadow:0 6px 16px rgba(7,84,217,.08);
+    box-shadow:var(--shadow-icon);
   }
-  .trust-icon svg{width:17px;height:17px;stroke-width:2.2}
+  .trust-icon svg{width:var(--ico-glyph);height:var(--ico-glyph);stroke-width:2.2}
   .trust-check-title{
     display:block;
-    font-size:15.5px;
+    font-size:var(--text-md);
     font-weight:850;
     color:var(--text);
     line-height:1.25;
@@ -481,7 +671,7 @@
   }
   .trust-check-text{
     display:block;
-    font-size:13.5px;
+    font-size:var(--text-sm);
     line-height:1.48;
     color:var(--muted);
   }
@@ -498,32 +688,30 @@
   .trust-avito-copy{
     display:flex;
     align-items:center;
-    gap:12px;
+    gap:var(--row-gap);
     min-width:0;
   }
   .trust-avatar{
-    width:42px;
-    height:42px;
+    width:var(--ico);
+    height:var(--ico);
     border-radius:50%;
     background:#fff;
-    border:1px solid var(--line);
+    border:1px solid rgba(7,84,217,.18);
     display:grid;
     place-items:center;
     flex:none;
-    overflow:hidden;
-    padding:6px;
-    box-shadow:0 10px 24px rgba(7,17,43,.08);
+    box-shadow:var(--shadow-icon);
   }
-  .trust-avatar svg{width:100%;height:100%;display:block}
+  .trust-avatar svg{width:var(--ico-glyph);height:var(--ico-glyph);display:block}
   .trust-avito-title{
-    font-size:15px;
+    font-size:var(--text-md);
     font-weight:850;
     color:var(--text);
-    line-height:1.2;
-    margin-bottom:3px;
+    line-height:1.25;
+    margin-bottom:0;
   }
   .trust-avito-text{
-    font-size:13.5px;
+    font-size:var(--text-sm);
     line-height:1.42;
     color:var(--muted);
   }
@@ -531,21 +719,21 @@
     display:flex;
     flex-wrap:wrap;
     justify-content:flex-end;
-    gap:10px;
+    gap:var(--btn-gap);
     flex:none;
   }
   .trust-actions .btn{min-height:44px;padding:0 18px}
 
   /* ---------- CTA ---------- */
-  .cta-section{padding:16px 0 36px}
+  .cta-section{padding:var(--section-pad-y) 0}
   .cta{
     position:relative;overflow:hidden;
-    min-height:124px;padding:24px 32px;
-    border-radius:15px;
-    display:grid;grid-template-columns:84px 1fr auto;gap:26px;align-items:center;
+    padding:var(--row-pad-y) var(--row-pad-x);
+    border-radius:var(--radius-md);
+    display:grid;grid-template-columns:auto 1fr auto;gap:var(--row-gap);align-items:center;
     color:#fff;
     background:linear-gradient(135deg,#06276f 0%,#0754d9 55%,#096bff 100%);
-    box-shadow:0 18px 40px rgba(7,84,217,.30);
+    box-shadow:var(--shadow-cta);
   }
   .cta::after{
     content:"";position:absolute;right:24px;top:50%;transform:translateY(-50%);
@@ -554,16 +742,43 @@
       url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 300 200'><g fill='none' stroke='%23ffffff' stroke-width='1.4' opacity='.32'><circle cx='40' cy='40' r='6'/><circle cx='90' cy='140' r='4'/><circle cx='200' cy='30' r='5'/><circle cx='260' cy='160' r='8'/><polygon points='160,80 170,98 150,98'/><polygon points='230,110 240,128 220,128'/><path d='M50 100 l8 8 l-8 8 l-8 -8 z'/><path d='M280 70 l6 6 l-6 6 l-6 -6 z'/><path d='M110 50 l7 7 l-7 7 l-7 -7 z'/></g></svg>") no-repeat center / contain;
   }
   .cta-ico{
-    width:84px;height:84px;border-radius:50%;
+    width:var(--ico);height:var(--ico);border-radius:50%;
     background:rgba(255,255,255,.12);
     display:grid;place-items:center;position:relative;z-index:1;
   }
-  .cta-ico svg{width:36px;height:36px;color:#fff}
+  .cta-ico svg{width:var(--ico-glyph);height:var(--ico-glyph);color:#fff}
   .cta-body{position:relative;z-index:1}
-  .cta-title{font-size:30px;font-weight:800;letter-spacing:-.015em;margin-bottom:4px;line-height:1.1}
-  .cta-sub{font-size:15px;color:rgba(255,255,255,.85);font-weight:500}
-  .cta .btn{position:relative;z-index:1;background:#fff;color:var(--blue);min-height:54px;padding:0 36px;font-size:15px;border-radius:12px;box-shadow:none}
+  .cta-title{font-size:var(--text-4xl);font-weight:800;letter-spacing:-.015em;line-height:1.2}
+  .cta .btn{position:relative;z-index:1;background:#fff;color:var(--blue);min-height:54px;padding:0 36px;font-size:var(--text-md);border-radius:var(--radius-sm);box-shadow:none}
   .cta .btn:hover{background:#f1f5fd}
+
+  /* ---------- Floating quick-contact button (phones) ---------- */
+  .fab{
+    display:none;                 /* shown only on phones via media query */
+    position:fixed;
+    right:16px;
+    bottom:16px;
+    z-index:85;                   /* above content, below the modal (100) */
+    width:56px;height:56px;border-radius:50%;
+    place-items:center;
+    color:#fff;
+    background:linear-gradient(135deg,#0754d9,#0b65ff);
+    box-shadow:var(--shadow-cta);
+    transition:transform var(--t-fast) ease, box-shadow var(--t-fast) ease, opacity var(--t-fast) ease;
+  }
+  .fab:hover{transform:translateY(-2px);box-shadow:var(--shadow-btn-hover)}
+  .fab:active{transform:translateY(0)}
+  .fab svg{width:26px;height:26px;display:block}
+  /* Hidden while the FAQ block is on screen (its «Задать» button is there) */
+  .fab.is-hidden{opacity:0;pointer-events:none;transform:translateY(14px) scale(.92)}
+
+  /* EXPERIMENT: bare, large icons (in the style of .info-icon) — strip the badge
+     plates; the glyph size comes from the bumped --ico-glyph above. */
+  .feat-ico, .offer-ico, .price-ico, .trust-icon, .trust-avatar, .cta-ico{
+    background:transparent;
+    border:none;
+    box-shadow:none;
+  }
 
   /* ---------- Responsive ---------- */
   @media (max-width: 980px){
@@ -578,132 +793,139 @@
     .info-item:nth-child(3),.info-item:nth-child(4){border-bottom:none}
     .info-item:nth-child(1),.info-item:nth-child(3){border-right:1px solid var(--line)}
     .avito-trust{grid-template-columns:1fr;column-gap:0;row-gap:18px}
+    /* Burger menu = full-width drop-down bar flush under the header (a visual
+       extension of it), not a floating corner box. Row of tabs on tablet. */
     .nav{
       position:absolute;
-      top:calc(100% + 10px);
-      right:0;
-      width:min(320px, calc(100vw - 40px));
+      top:100%;
+      left:50%;
+      width:100vw;                 /* full-bleed; body has overflow-x:hidden */
       margin-left:0;
-      padding:8px;
-      display:grid;
-      gap:4px;
-      background:rgba(255,255,255,.94);
-      border:1px solid var(--line);
-      border-radius:16px;
-      box-shadow:0 18px 48px rgba(7,17,43,.14);
-      backdrop-filter:blur(12px);
-      -webkit-backdrop-filter:blur(12px);
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      align-items:center;
+      gap:var(--btn-gap);
+      padding:10px 20px;
+      background:var(--surface);
+      border-bottom:1px solid var(--line);
+      box-shadow:var(--shadow-nav);
       opacity:0;
       pointer-events:none;
-      transform:translateY(-8px) scale(.98);
-      transform-origin:top right;
-      transition:opacity .18s ease, transform .18s ease;
+      transform:translate(-50%,-8px);
+      transition:opacity var(--t-fast) ease, transform var(--t-fast) ease;
     }
-    .nav.open{
-      opacity:1;
-      pointer-events:auto;
-      transform:none;
-    }
+    .nav.open{opacity:1;pointer-events:auto;transform:translate(-50%,0)}
     .nav a{
       min-height:44px;
-      padding:0 14px;
-      border-radius:10px;
+      padding:0 16px;
+      border-radius:var(--radius-sm);
       display:flex;
       align-items:center;
-      font-size:15px;
+      justify-content:center;
+      font-size:var(--text-md);
     }
     .nav a:hover{background:var(--blue-3)}
     .menu-toggle{display:flex}
-    .cta{grid-template-columns:64px 1fr;gap:18px}
-    .cta .btn{grid-column:1 / -1;justify-self:start}
+    /* Row 1: icon + title. Row 2: button full-width.
+       display:contents lifts .cta-title out of .cta-body so it can be placed
+       as a grid area (desktop keeps the wrapper untouched). */
+    .cta{
+      grid-template-columns:auto 1fr;
+      grid-template-areas:
+        "ico title"
+        "btn btn";
+      column-gap:var(--row-gap);
+      row-gap:var(--space-12);
+      align-items:center;
+    }
+    .cta-body{display:contents}
+    .cta-ico{grid-area:ico}
+    .cta-title{grid-area:title}
+    .cta .btn{grid-area:btn;justify-self:stretch}
   }
   @media (max-width: 720px){
-    html{scroll-padding-top:80px}
-    body{padding-top:64px}
+    /* One place rescales the whole system on mobile: icons, row rhythm,
+       grid gutters, section spacing, card padding and header height. */
+    :root{--ico:36px;--ico-glyph:30px;--row-pad-x:16px;--row-gap:12px;--grid-gap:12px;--section-pad-y:24px;--head-gap:16px;--row-pad-y:12px;--header-h:64px}
     /* Header tighter */
-    .header-inner{height:64px;gap:10px}
+    .header-inner{height:var(--header-h);gap:var(--btn-gap)}
     .brand{min-width:0;flex:1 1 auto}
-    .brand-name{font-size:15.5px;line-height:1.15;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .brand-name{font-size:var(--text-md);line-height:1.15;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
     .logo{width:34px;height:34px;flex:none}
     .header-cta{flex:none}
-    .header-cta .btn{min-height:42px;padding:0 16px;font-size:13px}
+    .header-cta .btn{height:44px;min-height:44px;padding:0 14px}
     .menu-toggle{display:flex}
+    /* On phones the drop-down stacks its tabs in a centered column */
+    .nav{flex-direction:column;align-items:stretch;gap:var(--btn-gap);padding:8px 16px}
+    .nav a{justify-content:center;padding:0 14px}
+    /* Floating quick-contact button appears on phones */
+    .fab{display:grid}
 
     /* Hero */
-    .hero{padding:22px 0 16px}
     .hero-grid{gap:14px}
-    .hero h1{font-size:44px;letter-spacing:-.035em;margin-bottom:12px}
-    .hero-lead{font-size:15.5px;margin-bottom:18px}
-    .hero-list li{font-size:14.5px;gap:12px}
-    .feat-ico{width:30px;height:30px}
-    .feat-ico svg{width:16px;height:16px}
+    .hero h1{font-size:44px;letter-spacing:-.035em}
+    .hero-lead{font-size:var(--text-md)}
+    .hero-list li{font-size:var(--text-base);gap:12px}
     .amount{font-size:42px}
-    .price-suffix{font-size:17px}
+    .price-suffix{font-size:var(--text-xl)}
     .product-stage{min-height:260px}
     .product-image{height:260px}
     .stage-deco{inset:0}
     .stage-deco svg{right:-20px;width:120%;height:100%}
 
     /* Offer cards */
-    .offer-card{padding:18px 18px;gap:14px;min-height:0}
-    .offer-ico{width:72px;height:72px}
-    .offer-ico svg{width:30px;height:30px}
-    .offer-ico .ico-mask{width:54px;height:54px}
-    .offer-ico .ico-img{width:42px;height:42px}
-    .offer-title{font-size:20px}
-    .offer-desc{font-size:13.5px}
-    .offer-price-main{font-size:18px}
-    .section-title{font-size:30px}
-    .faq-section{padding:18px 0 28px}
+    .offer-card{padding:18px var(--row-pad-x);min-height:0}
+    .offer-title{font-size:var(--text-2xl)}
+    .offer-desc{font-size:var(--text-sm)}
+    .offer-price-main{font-size:var(--text-xl)}
     .faq-trigger{min-height:64px;padding:15px 0;gap:14px}
-    .faq-question{font-size:16px;line-height:1.42}
+    .faq-question{font-size:var(--text-lg);line-height:1.42}
     .faq-action{width:36px;height:36px}
     .faq-action svg{width:18px;height:18px}
-    .faq-answer{padding:0 0 18px 0;font-size:14px;line-height:1.6}
-    .faq-item-contact .faq-trigger-contact{align-items:center;flex-direction:row;padding:16px 0;gap:14px}
-    .faq-contact-btn{width:auto;min-width:154px;padding:0 20px}
+    .faq-answer{padding:0 0 18px 0;font-size:var(--text-base);line-height:1.6}
+    .faq-item-contact .faq-trigger-contact{align-items:center;flex-direction:row;flex-wrap:nowrap;padding:16px 0;gap:14px}
+    .faq-item-contact .faq-question{flex:1 1 auto;min-width:0}
+    .faq-contact-btn{width:auto;padding:0 20px}
 
     /* Pricing */
-    .pricing{padding:14px 0 10px}
-    .price-grid{gap:12px}
-    .price-card{padding:14px 16px;gap:12px;min-height:0}
-    .price-ico{width:44px;height:44px}
-    .price-ico svg{width:20px;height:20px}
-    .days{font-size:18px}
+    .price-card{padding:var(--row-pad-y) var(--row-pad-x);min-height:0}
+    .days{font-size:var(--text-xl)}
     .rub{font-size:26px}
 
     /* Info strip — keep 2 cols, tighten */
-    .info-item{padding:12px 14px;gap:12px;min-height:0}
+    .info-item{padding:var(--row-pad-y) var(--row-pad-x);min-height:0}
     .info-icon svg{width:30px;height:30px}
-    .info-label{font-size:13.5px}
-    .info-text{font-size:12.5px}
-    .trust-section{padding:18px 0 24px}
+    .info-label{font-size:var(--text-sm)}
+    .info-text{font-size:var(--text-xs)}
     .avito-trust{row-gap:0}
-    .trust-title{font-size:28px}
-    .trust-text{font-size:14px}
+    .trust-text{font-size:var(--text-base)}
     .trust-panel{grid-template-columns:1fr}
-    .trust-check{min-height:0;padding:13px 0}
+    .trust-check{min-height:0;padding:var(--row-pad-y) 0}
     .trust-check:nth-last-child(-n+2){border-bottom:1px solid rgba(220,229,246,.92)}
     .trust-check:last-child{border-bottom:none}
-    .trust-avito{align-items:flex-start;flex-direction:column;margin-top:0;padding-top:8px}
-    .trust-actions{width:100%;justify-content:flex-start}
-    .trust-actions .btn{width:100%;justify-content:center}
+    /* Row 1: profile + «Профиль» (buttons lifted in via display:contents);
+       Row 2: «Контакты» full-width. */
+    .trust-avito{flex-wrap:wrap;align-items:center;justify-content:space-between;gap:var(--row-gap);margin-top:0;padding-top:8px}
+    .trust-actions{display:contents}
+    .trust-avito-copy{flex:1 1 auto;min-width:0}
+    .trust-avito .btn-outline{flex:0 0 auto;width:auto;justify-content:center}
+    .trust-avito .btn-primary{flex:1 1 100%;width:100%;justify-content:center}
 
-    /* CTA — stack vertically, kill bg decoration */
-    .cta{
-      grid-template-columns:1fr;gap:14px;
-      padding:22px;min-height:0;
-    }
+    /* CTA — drop bg decoration; spacing & icon now inherit the row tokens */
     .cta::after{display:none}
-    .cta-ico{width:56px;height:56px}
-    .cta-ico svg{width:26px;height:26px}
-    .cta-title{font-size:22px}
-    .cta-sub{font-size:13.5px}
-    .cta .btn{min-height:48px;padding:0 26px;font-size:14px;width:100%;justify-content:center}
+    .cta-title{font-size:var(--text-3xl)}
+    .cta .btn{min-height:48px;padding:0 26px;font-size:var(--text-base);width:100%;justify-content:center}
   }
   @media (max-width: 480px){
     .container{width:calc(100% - 24px)}
-    .price-grid{grid-template-columns:1fr}
+    /* Tight screens → swap to the short button labels */
+    .lbl-full{display:none}
+    .lbl-short{display:inline}
+    /* Two compact columns instead of one full-width row.
+       Padding/gap/icon stay on the shared row tokens — consistent with every
+       other block. */
+    .price-grid{grid-template-columns:repeat(2,1fr)}
     .info-strip{grid-template-columns:1fr}
     .info-item{border-right:none !important;border-bottom:1px solid var(--line)}
     .info-item:last-child{border-bottom:none}
@@ -712,13 +934,9 @@
     .amount{font-size:36px}
     .hero-actions{flex-direction:column}
     .hero-actions .btn{width:100%}
-    .faq-item-contact .faq-trigger-contact{align-items:center;flex-direction:row}
-    .faq-contact-btn{width:100%}
-
     /* Header — abbreviate CTA on tiny screens */
     .header-cta{display:none}
-    .brand-name{font-size:15px}
-    .nav{left:0;right:0;width:auto}
+    .brand-name{font-size:var(--text-md)}
   }
 
   /* ---------- Contact Modal ---------- */
@@ -729,25 +947,25 @@
     -webkit-backdrop-filter:blur(6px);
     display:none;align-items:center;justify-content:center;
     padding:20px;
-    opacity:0;transition:opacity .2s ease;
+    opacity:0;transition:opacity var(--t-base) ease;
   }
   .modal-backdrop.open{display:flex;opacity:1}
   .modal{
     width:100%;max-width:440px;
-    background:#fff;border-radius:20px;
+    background:#fff;border-radius:var(--radius-lg);
     padding:32px 32px 28px;
-    box-shadow:0 30px 80px rgba(7,84,217,.25);
+    box-shadow:var(--shadow-modal);
     position:relative;
     transform:translateY(8px) scale(.98);
-    transition:transform .2s ease;
+    transition:transform var(--t-base) ease;
   }
   .modal-backdrop.open .modal{transform:none}
   .modal-close{
     position:absolute;top:14px;right:14px;
     width:36px;height:36px;border-radius:50%;
     display:grid;place-items:center;
-    color:#7c8aa8;background:transparent;
-    transition:background .15s ease, color .15s ease;
+    color:var(--muted-2);background:transparent;
+    transition:background var(--t-fast) ease, color var(--t-fast) ease;
   }
   .modal-close:hover{background:var(--blue-3);color:var(--blue)}
   .modal-close svg{width:18px;height:18px}
@@ -758,24 +976,24 @@
   }
   .modal-icon svg{width:30px;height:30px}
   .modal-title{
-    font-size:24px;font-weight:800;letter-spacing:-.015em;
+    font-size:var(--text-4xl);font-weight:800;letter-spacing:-.015em;
     color:var(--text);text-align:center;margin:0 0 6px;
   }
   .modal-sub{
-    font-size:14.5px;color:var(--muted);text-align:center;
+    font-size:var(--text-base);color:var(--muted);text-align:center;
     margin:0 0 22px;line-height:1.45;
   }
   .contact-list{display:flex;flex-direction:column;gap:10px}
   .contact-row{
     display:flex;align-items:center;gap:14px;
-    padding:14px 18px;border-radius:14px;
+    padding:14px 18px;border-radius:var(--radius-md);
     border:1px solid var(--line);
     background:#fff;
-    transition:border-color .15s ease, background .15s ease, transform .15s ease;
+    transition:border-color var(--t-fast) ease, background var(--t-fast) ease, transform var(--t-fast) ease;
   }
   .contact-row:hover{border-color:var(--blue);background:var(--blue-3);transform:translateY(-1px)}
   .contact-icon{
-    width:42px;height:42px;border-radius:12px;
+    width:42px;height:42px;border-radius:var(--radius-sm);
     display:grid;place-items:center;flex:none;color:#fff;
   }
   .contact-icon.tg{background:#229ED9}
@@ -785,22 +1003,22 @@
   .contact-icon.phone{background:var(--blue)}
   .contact-icon svg{width:22px;height:22px}
   .contact-meta{flex:1;min-width:0}
-  .contact-label{font-size:12.5px;color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
-  .contact-value{font-size:16px;color:var(--text);font-weight:700;letter-spacing:-.005em}
+  .contact-label{font-size:var(--text-xs);color:var(--muted);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+  .contact-value{font-size:var(--text-lg);color:var(--text);font-weight:700;letter-spacing:-.005em}
   .contact-arrow{color:var(--muted-2);flex:none}
   .contact-arrow svg{width:18px;height:18px}
   @media (max-width:480px){
-    .modal{padding:26px 22px 22px;border-radius:18px}
-    .modal-title{font-size:20px}
-    .contact-value{font-size:15px}
+    .modal{padding:26px 22px 22px;border-radius:var(--radius-lg)}
+    .modal-title{font-size:var(--text-2xl)}
+    .contact-value{font-size:var(--text-md)}
   }
 
   /* ---------- Games coverflow ---------- */
-  .games-section{padding:48px 0 24px;overflow:visible}
-  .games-head{text-align:center;margin-bottom:32px}
-  .games-eyebrow{font-size:14px;font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
-  .games-title{font-size:38px;font-weight:800;letter-spacing:-.02em;color:var(--text);margin:0 0 8px;line-height:1.1}
-  .games-sub{font-size:16px;color:var(--muted);margin:0;max-width:520px;margin-left:auto;margin-right:auto;line-height:1.5}
+  .games-section{padding:var(--section-pad-y) 0;overflow:visible}
+  .games-head{text-align:center;margin-bottom:var(--head-gap)}
+  .games-eyebrow{font-size:var(--text-sm);font-weight:700;color:var(--blue);letter-spacing:.06em;text-transform:uppercase;margin-bottom:var(--eyebrow-gap)}
+  .games-title{font-size:clamp(30px,4vw,42px);font-weight:900;letter-spacing:-.035em;color:var(--text);margin:0 0 var(--title-sub-gap);line-height:1.05}
+  .games-sub{font-size:var(--text-lg);color:var(--muted);margin:0;max-width:var(--measure-sm);margin-left:auto;margin-right:auto;line-height:1.5}
 
   .coverflow-wrap{
     position:relative;
@@ -846,7 +1064,7 @@
     top:var(--cf-mid);
     left:0;
     width:200px;height:284px;
-    border-radius:14px;overflow:hidden;cursor:pointer;
+    border-radius:var(--radius-md);overflow:hidden;cursor:pointer;
     background:linear-gradient(135deg,#1849ab 0%,#0754d9 100%);
     opacity:var(--card-opacity);
     pointer-events:none;
@@ -886,9 +1104,9 @@
     z-index:5;
   }
   .game-card image-slot, .game-card img{position:relative;z-index:0;width:100%;height:100%;display:block;object-fit:cover;border-radius:inherit;pointer-events:none;overflow:hidden}
-  .game-card .game-cover{display:none}
+  .game-card .game-cover,.game-card .game-shade,.game-card .game-title{display:none}
   .game-card .game-shade{position:absolute;inset:0;z-index:1;background:linear-gradient(to top, rgba(0,0,0,.75) 0%, rgba(0,0,0,0) 55%);pointer-events:none}
-  .game-card .game-title{position:absolute;left:0;right:0;bottom:0;z-index:3;color:#fff;padding:14px 12px 12px;font-size:13.5px;font-weight:700;text-align:center;letter-spacing:-.005em;line-height:1.2;text-shadow:0 1px 3px rgba(0,0,0,.5);pointer-events:none}
+  .game-card .game-title{position:absolute;left:0;right:0;bottom:0;z-index:3;color:#fff;padding:14px 12px 12px;font-size:var(--text-sm);font-weight:700;text-align:center;letter-spacing:-.005em;line-height:1.2;text-shadow:0 1px 3px rgba(0,0,0,.5);pointer-events:none}
 
   .cf-nav{
     position:absolute;top:50%;transform:translateY(-50%);
@@ -897,8 +1115,8 @@
     border:1px solid var(--line);
     display:grid;place-items:center;cursor:pointer;
     z-index:40;
-    box-shadow:0 8px 22px rgba(7,84,217,.18);
-    transition:transform .15s ease, background .15s ease, color .15s ease;
+    box-shadow:var(--shadow-cf);
+    transition:transform var(--t-fast) ease, background var(--t-fast) ease, color var(--t-fast) ease;
   }
   .cf-nav:hover{background:var(--blue);color:#fff;transform:translateY(-50%) scale(1.06)}
   .cf-nav:active{transform:translateY(-50%) scale(.96)}
@@ -907,8 +1125,16 @@
   .cf-nav svg{width:22px;height:22px}
 
   .cf-counter{
-    display:flex;align-items:center;justify-content:center;gap:14px;
-    margin-top:-46px;color:var(--muted);font-weight:600;font-size:14px;
+    display:flex;flex-direction:column;align-items:center;gap:4px;
+    margin-top:-46px;text-align:center;
+  }
+  .cf-counter-name{
+    font-size:var(--text-xl);font-weight:800;color:var(--text);
+    letter-spacing:-.01em;line-height:1.2;max-width:var(--measure-sm);
+  }
+  .cf-counter-pos{
+    display:flex;align-items:center;justify-content:center;gap:8px;
+    color:var(--muted);font-weight:600;font-size:var(--text-base);
   }
   .cf-counter-current,
   .cf-counter-total{
@@ -917,12 +1143,10 @@
     text-align:center;
     font-variant-numeric:tabular-nums;
   }
-  .cf-counter-current{color:var(--blue);font-weight:800;font-size:18px}
+  .cf-counter-current{color:var(--blue);font-weight:800}
 
   @media (max-width: 720px){
-    .games-section{padding:32px 0 16px}
-    .games-title{font-size:26px}
-    .games-sub{font-size:14.5px}
+    .games-sub{font-size:var(--text-base)}
     .cf-nav{display:none}
     .coverflow-wrap{max-width:100%;padding:0 18px}
     .coverflow{
@@ -931,11 +1155,11 @@
       --cf-pad-bottom:74px;
       --cf-mid:188px;
       --cf-fade:clamp(24px,8vw,38px);
-      max-width:520px;
+      max-width:var(--measure-sm);
     }
     .coverflow-track{--cf-gap:16px}
-    .game-card{width:150px;height:212px;border-radius:12px}
-    .game-card .game-title{font-size:12px;padding:12px 10px 10px}
+    .game-card{width:150px;height:212px;border-radius:var(--radius-sm)}
+    .game-card .game-title{font-size:var(--text-xs);padding:12px 10px 10px}
     .cf-counter{margin-top:-26px}
     .cf-nav{width:38px;height:38px}
     .cf-nav svg{width:18px;height:18px}
@@ -1148,14 +1372,14 @@
     ':host([data-over]) .frame{outline:2px solid #c96442;outline-offset:-2px;' +
     '  background:rgba(201,100,66,.10)}' +
     '.ring{position:absolute;inset:0;pointer-events:none;border:1.5px dashed rgba(0,0,0,.25);' +
-    '  transition:border-color .12s}' +
+    '  transition:border-color var(--t-fast)}' +
     ':host([data-over]) .ring{border-color:#c96442}' +
     ':host([data-filled]) .ring{display:none}' +
     // Controls sit BELOW the mask (top:100%), absolutely positioned so the
     // author-declared slot height is unaffected. The gap is padding, not a
     // top offset, so the hover target stays contiguous with the frame.
     '.ctl{position:absolute;top:100%;left:50%;transform:translateX(-50%);padding-top:8px;' +
-    '  display:flex;gap:6px;opacity:0;pointer-events:none;transition:opacity .12s;z-index:2;' +
+    '  display:flex;gap:6px;opacity:0;pointer-events:none;transition:opacity var(--t-fast);z-index:2;' +
     '  white-space:nowrap}' +
     ':host([data-filled][data-editable]:hover) .ctl,:host([data-reframe]) .ctl' +
     '  {opacity:1;pointer-events:auto}' +
@@ -1599,7 +1823,7 @@
       "@type": "LocalBusiness",
       "@id": "#business",
       "name": "Аренда PlayStation Тамбов",
-      "description": "Аренда PlayStation 4 Slim в Тамбове от 500 ₽ в день. В комплекте приставка, 2 геймпада, кабели и игры по запросу. Помощь с подключением, оформление по договору, залог 5000 ₽.",
+      "description": "Аренда PlayStation 4 Slim в Тамбове до 500 ₽ в день. В комплекте приставка, 2 геймпада, кабели и игры по запросу. Помощь с подключением, оформление по договору, залог 5000 ₽.",
       "areaServed": {
         "@type": "City",
         "name": "Тамбов"
@@ -1724,7 +1948,7 @@
           "name": "Сколько стоит аренда PS4 Slim в Тамбове?",
           "acceptedAnswer": {
             "@type": "Answer",
-            "text": "Аренда PS4 Slim стоит от 500 ₽ за 1 день. 3 дня — 1300 ₽, 7 дней — 2500 ₽, 14 дней — 4500 ₽."
+            "text": "Аренда PS4 Slim стоит до 500 ₽ в день. 1 день — 500 ₽, 3 дня — 1300 ₽, 7 дней — 2500 ₽, 14 дней — 4500 ₽."
           }
         },
         {
@@ -1824,6 +2048,10 @@
     <div class="header-cta">
       <a class="btn btn-primary" href="#" data-open-contact>Контакты</a>
     </div>
+    <button class="theme-toggle" type="button" aria-label="Сменить тему" title="Сменить тему">
+      <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
+      <svg class="theme-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M2 12h2M20 12h2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M19.1 4.9l-1.4 1.4M6.3 17.7l-1.4 1.4"/></svg>
+    </button>
     <button class="menu-toggle" type="button" aria-label="Открыть меню" aria-expanded="false">
       <span class="menu-toggle-lines" aria-hidden="true"><span></span></span>
     </button>
@@ -1862,7 +2090,7 @@
             </li>
             <li>
               <span class="feat-ico" aria-hidden="true">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7l5 5v13H6z"/><path d="M13 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
               </span>
               Аренда по договору
             </li>
@@ -1875,7 +2103,7 @@
           </ul>
 
           <div class="hero-price">
-            <span class="price-from">от</span>
+            <span class="price-from">до</span>
             <span class="amount">500&nbsp;₽</span>
             <span class="price-suffix">/ 1 день</span>
           </div>
@@ -1957,7 +2185,7 @@
             <div class="offer-tag">Главное предложение</div>
             <div class="offer-title">Аренда PS4 Slim</div>
             <div class="offer-desc">PS4, 2 геймпада, кабели и игры по запросу</div>
-            <div class="offer-price"><span class="offer-price-main">от 500 ₽ / 1 день</span></div>
+            <div class="offer-price"><span class="offer-price-main">до 500 ₽ / 1 день</span></div>
           </div>
         </div>
 
@@ -2046,7 +2274,7 @@
         </div>
         <div class="info-item">
           <div class="info-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7l5 5v13H6z"/><path d="M13 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
           </div>
           <div>
             <div class="info-label">Оформление:</div>
@@ -2071,7 +2299,7 @@
     <div class="container">
       <div class="games-head">
         <h2 class="games-title" id="gamesTitle">Библиотека игр</h2>
-        <p class="games-sub">Топ-20 популярных игр для PlayStation 4 — от сетевых файтингов до кинематографичных приключений</p>
+        <p class="games-sub">Игры из нашей библиотеки для PlayStation 4 — берите любые в аренду вместе с приставкой</p>
       </div>
 
       <div class="coverflow-wrap">
@@ -2084,133 +2312,190 @@
 
         <div class="coverflow" data-coverflow>
           <div class="coverflow-track">
-            <article class="game-card" data-game="The Last of Us Part II">
-              <image-slot id="game-tlou2" shape="rect" radius="16" placeholder="Обложка The Last of Us Part II"></image-slot>
-              <div class="game-cover">The Last of Us Part II</div>
-              <div class="game-shade"></div>
-              <div class="game-title">The Last of Us Part II</div>
-            </article>
             <article class="game-card" data-game="God of War">
-              <image-slot id="game-gow" shape="rect" radius="16" placeholder="Обложка God of War"></image-slot>
+              <image-slot id="game-gow" src="assets/covers/gow.webp" shape="rect" radius="16" placeholder="Обложка God of War"></image-slot>
               <div class="game-cover">God of War</div>
               <div class="game-shade"></div>
               <div class="game-title">God of War</div>
             </article>
-            <article class="game-card" data-game="Marvel's Spider-Man">
-              <image-slot id="game-spiderman" shape="rect" radius="16" placeholder="Обложка Spider-Man"></image-slot>
-              <div class="game-cover">Marvel’s Spider-Man</div>
+            <article class="game-card" data-game="The Last of Us">
+              <image-slot id="game-tlou" src="assets/covers/tlou.webp" shape="rect" radius="16" placeholder="Обложка The Last of Us"></image-slot>
+              <div class="game-cover">The Last of Us</div>
               <div class="game-shade"></div>
-              <div class="game-title">Marvel’s Spider-Man</div>
-            </article>
-            <article class="game-card" data-game="Red Dead Redemption 2">
-              <image-slot id="game-rdr2" shape="rect" radius="16" placeholder="Обложка Red Dead Redemption 2"></image-slot>
-              <div class="game-cover">Red Dead Redemption 2</div>
-              <div class="game-shade"></div>
-              <div class="game-title">Red Dead Redemption 2</div>
-            </article>
-            <article class="game-card" data-game="GTA V">
-              <image-slot id="game-gta5" shape="rect" radius="16" placeholder="Обложка GTA V"></image-slot>
-              <div class="game-cover">GTA V</div>
-              <div class="game-shade"></div>
-              <div class="game-title">Grand Theft Auto V</div>
-            </article>
-            <article class="game-card" data-game="Mortal Kombat 11">
-              <image-slot id="game-mk11" shape="rect" radius="16" placeholder="Обложка Mortal Kombat 11"></image-slot>
-              <div class="game-cover">Mortal Kombat 11</div>
-              <div class="game-shade"></div>
-              <div class="game-title">Mortal Kombat 11</div>
-            </article>
-            <article class="game-card" data-game="FIFA 23">
-              <image-slot id="game-fifa23" shape="rect" radius="16" placeholder="Обложка FIFA 23"></image-slot>
-              <div class="game-cover">FIFA 23</div>
-              <div class="game-shade"></div>
-              <div class="game-title">FIFA 23</div>
+              <div class="game-title">The Last of Us</div>
             </article>
             <article class="game-card" data-game="Uncharted 4: A Thief's End">
-              <image-slot id="game-u4" shape="rect" radius="16" placeholder="Обложка Uncharted 4"></image-slot>
+              <image-slot id="game-u4" src="assets/covers/u4.webp" shape="rect" radius="16" placeholder="Обложка Uncharted 4"></image-slot>
               <div class="game-cover">Uncharted 4</div>
               <div class="game-shade"></div>
-              <div class="game-title">Uncharted 4: A Thief’s End</div>
+              <div class="game-title">Uncharted 4: Путь вора</div>
+            </article>
+            <article class="game-card" data-game="Uncharted: The Lost Legacy">
+              <image-slot id="game-ull" src="assets/covers/ull.webp" shape="rect" radius="16" placeholder="Обложка Uncharted: Утраченное наследие"></image-slot>
+              <div class="game-cover">Uncharted: The Lost Legacy</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Uncharted: Утраченное наследие</div>
+            </article>
+            <article class="game-card" data-game="Detroit: Become Human">
+              <image-slot id="game-detroit" src="assets/covers/detroit.webp" shape="rect" radius="16" placeholder="Обложка Detroit: Стать человеком"></image-slot>
+              <div class="game-cover">Detroit: Become Human</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Detroit: Стать человеком</div>
             </article>
             <article class="game-card" data-game="Horizon Zero Dawn">
-              <image-slot id="game-hzd" shape="rect" radius="16" placeholder="Обложка Horizon Zero Dawn"></image-slot>
+              <image-slot id="game-hzd" src="assets/covers/hzd.webp" shape="rect" radius="16" placeholder="Обложка Horizon Zero Dawn"></image-slot>
               <div class="game-cover">Horizon Zero Dawn</div>
               <div class="game-shade"></div>
               <div class="game-title">Horizon Zero Dawn</div>
             </article>
-            <article class="game-card" data-game="Ghost of Tsushima">
-              <image-slot id="game-got" shape="rect" radius="16" placeholder="Обложка Ghost of Tsushima"></image-slot>
-              <div class="game-cover">Ghost of Tsushima</div>
+            <article class="game-card" data-game="Resident Evil 3">
+              <image-slot id="game-re3" src="assets/covers/re3.webp" shape="rect" radius="16" placeholder="Обложка Resident Evil 3"></image-slot>
+              <div class="game-cover">Resident Evil 3</div>
               <div class="game-shade"></div>
-              <div class="game-title">Ghost of Tsushima</div>
+              <div class="game-title">Resident Evil 3</div>
+            </article>
+            <article class="game-card" data-game="Rise of the Tomb Raider">
+              <image-slot id="game-tombraider" src="assets/covers/tombraider.webp" shape="rect" radius="16" placeholder="Обложка Rise of the Tomb Raider"></image-slot>
+              <div class="game-cover">Rise of the Tomb Raider</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Rise of the Tomb Raider</div>
+            </article>
+            <article class="game-card" data-game="Far Cry New Dawn">
+              <image-slot id="game-farcrynd" src="assets/covers/farcrynd.webp" shape="rect" radius="16" placeholder="Обложка Far Cry New Dawn"></image-slot>
+              <div class="game-cover">Far Cry New Dawn</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Far Cry New Dawn</div>
+            </article>
+            <article class="game-card" data-game="Tom Clancy's The Division 2">
+              <image-slot id="game-division2" src="assets/covers/division2.webp" shape="rect" radius="16" placeholder="Обложка The Division 2"></image-slot>
+              <div class="game-cover">The Division 2</div>
+              <div class="game-shade"></div>
+              <div class="game-title">The Division 2</div>
+            </article>
+            <article class="game-card" data-game="Grand Theft Auto: The Trilogy">
+              <image-slot id="game-gtatrilogy" src="assets/covers/gtatrilogy.webp" shape="rect" radius="16" placeholder="Обложка GTA: The Trilogy"></image-slot>
+              <div class="game-cover">GTA: The Trilogy</div>
+              <div class="game-shade"></div>
+              <div class="game-title">GTA: The Trilogy</div>
+            </article>
+            <article class="game-card" data-game="Dark Souls Trilogy">
+              <image-slot id="game-darksouls" src="assets/covers/darksouls.webp" shape="rect" radius="16" placeholder="Обложка Dark Souls Trilogy"></image-slot>
+              <div class="game-cover">Dark Souls Trilogy</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Dark Souls Trilogy</div>
+            </article>
+            <article class="game-card" data-game="Mortal Kombat X">
+              <image-slot id="game-mkx" src="assets/covers/mkx.webp" shape="rect" radius="16" placeholder="Обложка Mortal Kombat X"></image-slot>
+              <div class="game-cover">Mortal Kombat X</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Mortal Kombat X</div>
+            </article>
+            <article class="game-card" data-game="It Takes Two">
+              <image-slot id="game-ittakestwo" src="assets/covers/ittakestwo.webp" shape="rect" radius="16" placeholder="Обложка It Takes Two"></image-slot>
+              <div class="game-cover">It Takes Two</div>
+              <div class="game-shade"></div>
+              <div class="game-title">It Takes Two</div>
+            </article>
+            <article class="game-card" data-game="Gran Turismo Sport">
+              <image-slot id="game-gtsport" src="assets/covers/gtsport.webp" shape="rect" radius="16" placeholder="Обложка Gran Turismo Sport"></image-slot>
+              <div class="game-cover">Gran Turismo Sport</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Gran Turismo Sport</div>
+            </article>
+            <article class="game-card" data-game="Need for Speed">
+              <image-slot id="game-nfs" src="assets/covers/nfs.webp" shape="rect" radius="16" placeholder="Обложка Need for Speed"></image-slot>
+              <div class="game-cover">Need for Speed</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Need for Speed</div>
+            </article>
+            <article class="game-card" data-game="EA Sports UFC 4">
+              <image-slot id="game-ufc4" src="assets/covers/ufc4.webp" shape="rect" radius="16" placeholder="Обложка UFC 4"></image-slot>
+              <div class="game-cover">UFC 4</div>
+              <div class="game-shade"></div>
+              <div class="game-title">EA Sports UFC 4</div>
+            </article>
+            <article class="game-card" data-game="EA Sports UFC 2">
+              <image-slot id="game-ufc2" src="assets/covers/ufc2.webp" shape="rect" radius="16" placeholder="Обложка UFC 2"></image-slot>
+              <div class="game-cover">UFC 2</div>
+              <div class="game-shade"></div>
+              <div class="game-title">EA Sports UFC 2</div>
+            </article>
+            <article class="game-card" data-game="FIFA 20">
+              <image-slot id="game-fifa20" src="assets/covers/fifa20.webp" shape="rect" radius="16" placeholder="Обложка FIFA 20"></image-slot>
+              <div class="game-cover">FIFA 20</div>
+              <div class="game-shade"></div>
+              <div class="game-title">FIFA 20</div>
+            </article>
+            <article class="game-card" data-game="FIFA 19">
+              <image-slot id="game-fifa19" src="assets/covers/fifa19.webp" shape="rect" radius="16" placeholder="Обложка FIFA 19"></image-slot>
+              <div class="game-cover">FIFA 19</div>
+              <div class="game-shade"></div>
+              <div class="game-title">FIFA 19</div>
+            </article>
+            <article class="game-card" data-game="LEGO Harry Potter Collection">
+              <image-slot id="game-legohp" src="assets/covers/legohp.webp" shape="rect" radius="16" placeholder="Обложка LEGO Harry Potter Collection"></image-slot>
+              <div class="game-cover">LEGO Harry Potter Collection</div>
+              <div class="game-shade"></div>
+              <div class="game-title">LEGO Harry Potter Collection</div>
+            </article>
+            <article class="game-card" data-game="LEGO The Hobbit">
+              <image-slot id="game-legohobbit" src="assets/covers/legohobbit.webp" shape="rect" radius="16" placeholder="Обложка LEGO The Hobbit"></image-slot>
+              <div class="game-cover">LEGO The Hobbit</div>
+              <div class="game-shade"></div>
+              <div class="game-title">LEGO The Hobbit</div>
+            </article>
+            <article class="game-card" data-game="The Witcher 3: Wild Hunt">
+              <image-slot id="game-witcher3" src="assets/covers/witcher3.webp" shape="rect" radius="16" placeholder="Обложка Ведьмак 3"></image-slot>
+              <div class="game-cover">The Witcher 3</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Ведьмак 3: Дикая Охота</div>
+            </article>
+            <article class="game-card" data-game="The Last of Us Part II">
+              <image-slot id="game-tlou2" src="assets/covers/tlou2.webp" shape="rect" radius="16" placeholder="Обложка The Last of Us Part II"></image-slot>
+              <div class="game-cover">The Last of Us Part II</div>
+              <div class="game-shade"></div>
+              <div class="game-title">The Last of Us Part II</div>
+            </article>
+            <article class="game-card" data-game="Red Dead Redemption 2">
+              <image-slot id="game-rdr2" src="assets/covers/rdr2.webp" shape="rect" radius="16" placeholder="Обложка Red Dead Redemption 2"></image-slot>
+              <div class="game-cover">Red Dead Redemption 2</div>
+              <div class="game-shade"></div>
+              <div class="game-title">Red Dead Redemption 2</div>
             </article>
             <article class="game-card" data-game="Bloodborne">
-              <image-slot id="game-bloodborne" shape="rect" radius="16" placeholder="Обложка Bloodborne"></image-slot>
+              <image-slot id="game-bloodborne" src="assets/covers/bloodborne.webp" shape="rect" radius="16" placeholder="Обложка Bloodborne"></image-slot>
               <div class="game-cover">Bloodborne</div>
               <div class="game-shade"></div>
               <div class="game-title">Bloodborne</div>
             </article>
-            <article class="game-card" data-game="Days Gone">
-              <image-slot id="game-daysgone" shape="rect" radius="16" placeholder="Обложка Days Gone"></image-slot>
-              <div class="game-cover">Days Gone</div>
+            <article class="game-card" data-game="Diablo III: Reaper of Souls">
+              <image-slot id="game-diablo3" src="assets/covers/diablo3.webp" shape="rect" radius="16" placeholder="Обложка Diablo III"></image-slot>
+              <div class="game-cover">Diablo III</div>
               <div class="game-shade"></div>
-              <div class="game-title">Days Gone</div>
+              <div class="game-title">Diablo III: Reaper of Souls</div>
             </article>
-            <article class="game-card" data-game="Detroit: Become Human">
-              <image-slot id="game-detroit" shape="rect" radius="16" placeholder="Обложка Detroit: Become Human"></image-slot>
-              <div class="game-cover">Detroit: Become Human</div>
+            <article class="game-card" data-game="Minecraft">
+              <image-slot id="game-minecraft" src="assets/covers/minecraft.webp" shape="rect" radius="16" placeholder="Обложка Minecraft"></image-slot>
+              <div class="game-cover">Minecraft</div>
               <div class="game-shade"></div>
-              <div class="game-title">Detroit: Become Human</div>
+              <div class="game-title">Minecraft</div>
             </article>
-            <article class="game-card" data-game="Death Stranding">
-              <image-slot id="game-deathstranding" shape="rect" radius="16" placeholder="Обложка Death Stranding"></image-slot>
-              <div class="game-cover">Death Stranding</div>
+            <article class="game-card" data-game="Dreams">
+              <image-slot id="game-dreams" src="assets/covers/dreams.webp" shape="rect" radius="16" placeholder="Обложка Dreams (Грёзы)"></image-slot>
+              <div class="game-cover">Dreams</div>
               <div class="game-shade"></div>
-              <div class="game-title">Death Stranding</div>
-            </article>
-            <article class="game-card" data-game="Resident Evil 2 Remake">
-              <image-slot id="game-re2" shape="rect" radius="16" placeholder="Обложка Resident Evil 2"></image-slot>
-              <div class="game-cover">Resident Evil 2</div>
-              <div class="game-shade"></div>
-              <div class="game-title">Resident Evil 2 Remake</div>
-            </article>
-            <article class="game-card" data-game="Tekken 7">
-              <image-slot id="game-tekken7" shape="rect" radius="16" placeholder="Обложка Tekken 7"></image-slot>
-              <div class="game-cover">Tekken 7</div>
-              <div class="game-shade"></div>
-              <div class="game-title">Tekken 7</div>
-            </article>
-            <article class="game-card" data-game="Persona 5 Royal">
-              <image-slot id="game-persona5" shape="rect" radius="16" placeholder="Обложка Persona 5"></image-slot>
-              <div class="game-cover">Persona 5 Royal</div>
-              <div class="game-shade"></div>
-              <div class="game-title">Persona 5 Royal</div>
-            </article>
-            <article class="game-card" data-game="Cyberpunk 2077">
-              <image-slot id="game-cyberpunk" shape="rect" radius="16" placeholder="Обложка Cyberpunk 2077"></image-slot>
-              <div class="game-cover">Cyberpunk 2077</div>
-              <div class="game-shade"></div>
-              <div class="game-title">Cyberpunk 2077</div>
-            </article>
-            <article class="game-card" data-game="NieR: Automata">
-              <image-slot id="game-nier" shape="rect" radius="16" placeholder="Обложка NieR Automata"></image-slot>
-              <div class="game-cover">NieR: Automata</div>
-              <div class="game-shade"></div>
-              <div class="game-title">NieR: Automata</div>
-            </article>
-            <article class="game-card" data-game="Call of Duty: Modern Warfare">
-              <image-slot id="game-codmw" shape="rect" radius="16" placeholder="Обложка Call of Duty: Modern Warfare"></image-slot>
-              <div class="game-cover">Call of Duty</div>
-              <div class="game-shade"></div>
-              <div class="game-title">Call of Duty: Modern Warfare</div>
+              <div class="game-title">Dreams (Грёзы)</div>
             </article>
           </div>
         </div>
 
         <div class="cf-counter" aria-live="polite">
-          <span class="cf-counter-current" data-cf-current>1</span>
-          <span>из</span>
-          <span class="cf-counter-total" data-cf-total>20</span>
+          <span class="cf-counter-name" data-cf-name>God of War</span>
+          <span class="cf-counter-pos">
+            <span class="cf-counter-current" data-cf-current>1</span>
+            <span>из</span>
+            <span class="cf-counter-total" data-cf-total>29</span>
+          </span>
         </div>
       </div>
     </div>
@@ -2225,7 +2510,6 @@
         </div>
         <div class="cta-body">
           <div class="cta-title">Забронировать PS4 Slim</div>
-          <div class="cta-sub">Напишите срок аренды и количество джойстиков</div>
         </div>
         <a class="btn" href="#" data-open-contact>Контакты</a>
       </div>
@@ -2233,6 +2517,11 @@
   </section>
 
 </main>
+
+<!-- Floating quick-contact button (phones) → opens the contact modal -->
+<a class="fab" id="contactFab" href="#" data-open-contact aria-label="Связаться">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 9h8M8 13h5"/><path d="M12 21a9 9 0 1 0-9-9v7l3-2.2A9 9 0 0 0 12 21z"/></svg>
+</a>
 
 <!-- AVITO TRUST -->
   <section class="trust-section" id="trust" aria-labelledby="trustTitle">
@@ -2245,7 +2534,7 @@
         <div class="trust-panel" aria-label="Сигналы доверия перед арендой">
           <div class="trust-check">
             <span class="trust-icon" aria-hidden="true">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h7l5 5v13H7z"/><path d="M14 3v5h5"/><path d="M10 13h6M10 17h6"/></svg>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M6 3h7l5 5v13H6z"/><path d="M13 3v5h5"/><path d="M9 13h6M9 17h6"/></svg>
             </span>
             <span>
               <span class="trust-check-title">Работаем по договору</span>
@@ -2308,7 +2597,7 @@
             </span>
           </div>
           <div class="trust-actions">
-            <a class="btn btn-outline" href="https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae/all?gdlkerfdnwq=101&page_from=from_item_card_icon&iid=7905038967&sellerId=dd51b05e892e9b957b56d5c1d045d667" target="_blank" rel="noopener">Открыть профиль</a>
+            <a class="btn btn-outline" href="https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae/all?gdlkerfdnwq=101&page_from=from_item_card_icon&iid=7905038967&sellerId=dd51b05e892e9b957b56d5c1d045d667" target="_blank" rel="noopener"><span class="lbl-full">Открыть профиль</span><span class="lbl-short">Профиль</span></a>
             <a class="btn btn-primary" href="#" data-open-contact>Контакты</a>
           </div>
         </div>
@@ -2328,12 +2617,11 @@
           <button class="faq-trigger" type="button" aria-expanded="true">
             <span class="faq-question">Сколько стоит аренда PS4 Slim в Тамбове?</span>
             <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+              <svg viewBox="0 0 200 200"><path class="faq-morph" d="M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z"/></svg>
             </span>
           </button>
           <div class="faq-panel">
-            <div class="faq-answer"><p>Аренда PS4 Slim стоит от 500 ₽ за 1 день. 3 дня — 1300 ₽, 7 дней — 2500 ₽, 14 дней — 4500 ₽.</p></div>
+            <div class="faq-answer"><p>Аренда PS4 Slim стоит до 500 ₽ в день. 1 день — 500 ₽, 3 дня — 1300 ₽, 7 дней — 2500 ₽, 14 дней — 4500 ₽.</p></div>
           </div>
         </article>
 
@@ -2341,8 +2629,7 @@
           <button class="faq-trigger" type="button" aria-expanded="false">
             <span class="faq-question">Что входит в комплект аренды?</span>
             <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+              <svg viewBox="0 0 200 200"><path class="faq-morph" d="M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z"/></svg>
             </span>
           </button>
           <div class="faq-panel">
@@ -2354,8 +2641,7 @@
           <button class="faq-trigger" type="button" aria-expanded="false">
             <span class="faq-question">Нужен ли залог за приставку?</span>
             <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+              <svg viewBox="0 0 200 200"><path class="faq-morph" d="M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z"/></svg>
             </span>
           </button>
           <div class="faq-panel">
@@ -2367,8 +2653,7 @@
           <button class="faq-trigger" type="button" aria-expanded="false">
             <span class="faq-question">Можно ли заказать доставку по Тамбову?</span>
             <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+              <svg viewBox="0 0 200 200"><path class="faq-morph" d="M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z"/></svg>
             </span>
           </button>
           <div class="faq-panel">
@@ -2380,8 +2665,7 @@
           <button class="faq-trigger" type="button" aria-expanded="false">
             <span class="faq-question">На сколько дней можно взять PlayStation?</span>
             <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+              <svg viewBox="0 0 200 200"><path class="faq-morph" d="M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z"/></svg>
             </span>
           </button>
           <div class="faq-panel">
@@ -2393,8 +2677,7 @@
           <button class="faq-trigger" type="button" aria-expanded="false">
             <span class="faq-question">Нужен ли паспорт для аренды PS4?</span>
             <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+              <svg viewBox="0 0 200 200"><path class="faq-morph" d="M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z"/></svg>
             </span>
           </button>
           <div class="faq-panel">
@@ -2406,8 +2689,7 @@
           <button class="faq-trigger" type="button" aria-expanded="false">
             <span class="faq-question">Поможете подключить приставку и выбрать игры?</span>
             <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+              <svg viewBox="0 0 200 200"><path class="faq-morph" d="M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z"/></svg>
             </span>
           </button>
           <div class="faq-panel">
@@ -2419,8 +2701,7 @@
           <button class="faq-trigger" type="button" aria-expanded="false">
             <span class="faq-question">Какие условия возврата приставки?</span>
             <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+              <svg viewBox="0 0 200 200"><path class="faq-morph" d="M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z"/></svg>
             </span>
           </button>
           <div class="faq-panel">
@@ -2432,8 +2713,7 @@
           <button class="faq-trigger" type="button" aria-expanded="false">
             <span class="faq-question">Какие игры можно взять вместе с приставкой?</span>
             <span class="faq-action" aria-hidden="true">
-              <svg class="faq-triangle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5.5 20 18.5H4L12 5.5Z"/></svg>
-              <svg class="faq-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="7"/></svg>
+              <svg viewBox="0 0 200 200"><path class="faq-morph" d="M 100,20 C 100,20 180,160 180,160 C 180,160 100,160 100,160 C 100,160 20,160 20,160 C 20,160 100,20 100,20 Z"/></svg>
             </span>
           </button>
           <div class="faq-panel">
@@ -2444,7 +2724,7 @@
         <article class="faq-item faq-item-contact">
           <div class="faq-trigger-contact">
             <span class="faq-question">Не нашли свой вопрос?</span>
-            <a class="btn btn-primary faq-contact-btn" href="#" data-open-contact>Задать вопрос</a>
+            <a class="btn btn-primary faq-contact-btn" href="#" data-open-contact><span class="lbl-full">Задать вопрос</span><span class="lbl-short">Задать</span></a>
           </div>
         </article>
       </div>
@@ -2572,6 +2852,35 @@
   })();
 
   (function(){
+    const fab = document.getElementById('contactFab');
+    const faq = document.getElementById('faq');
+    if (!fab || !faq || !('IntersectionObserver' in window)) return;
+    // Hide the floating button whenever the FAQ section is in view — its own
+    // «Задать» button lives at the bottom and the FAB would cover it.
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => fab.classList.toggle('is-hidden', e.isIntersecting));
+    }, { threshold: 0 });
+    io.observe(faq);
+  })();
+
+  (function(){
+    const btn = document.querySelector('.theme-toggle');
+    if (!btn) return;
+    const root = document.documentElement;
+    let switchTimer;
+    btn.addEventListener('click', () => {
+      const next = root.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      // Enable a uniform 0.3s cross-fade for the swap, then remove it so normal
+      // hover transitions aren't affected.
+      root.classList.add('theme-switching');
+      root.setAttribute('data-theme', next);
+      try { localStorage.setItem('theme', next); } catch(e){}
+      clearTimeout(switchTimer);
+      switchTimer = setTimeout(() => root.classList.remove('theme-switching'), 350);
+    });
+  })();
+
+  (function(){
     const overlay = document.createElement('div');
     overlay.className = 'anchor-focus-overlay';
     overlay.setAttribute('aria-hidden', 'true');
@@ -2632,6 +2941,22 @@
       setTimeout(addInteractionDismiss, 120);
     };
 
+    // Center the target in the visible band under the fixed header so the eye
+    // lands on it. If the target is taller than that band, centering would push
+    // its heading off the top — so fall back to "top just under the header".
+    const header = document.querySelector('.header');
+    const scrollAnchorIntoView = el => {
+      const rect = el.getBoundingClientRect();
+      const headerH = header ? header.offsetHeight : 0;
+      const gap = 24;                     // breathing room for the tall-target case
+      const band = window.innerHeight - headerH;
+      const offset = rect.height <= band - gap * 2
+        ? headerH + (band - rect.height) / 2   // fits → vertically centered
+        : headerH + gap;                       // too tall → top under the header
+      const top = window.scrollY + rect.top - offset;
+      window.scrollTo({ top: Math.max(0, top), behavior:'smooth' });
+    };
+
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', event => {
         const hash = link.getAttribute('href');
@@ -2641,7 +2966,7 @@
         if (!target) return;
 
         event.preventDefault();
-        target.scrollIntoView({ behavior:'smooth', block:'start' });
+        scrollAnchorIntoView(target);
         history.pushState(null, '', hash);
         setTimeout(() => focusAnchorTarget(target), 360);
       });
@@ -2662,18 +2987,9 @@
       if (!trigger) return;
 
       trigger.addEventListener('click', () => {
-        const isOpen = item.classList.contains('open');
-
-        items.forEach(other => {
-          other.classList.remove('open');
-          const otherTrigger = other.querySelector('.faq-trigger');
-          if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
-        });
-
-        if (!isOpen) {
-          item.classList.add('open');
-          trigger.setAttribute('aria-expanded', 'true');
-        }
+        const willOpen = !item.classList.contains('open');
+        item.classList.toggle('open', willOpen);
+        trigger.setAttribute('aria-expanded', String(willOpen));
       });
     });
   })();
@@ -2690,6 +3006,7 @@
     const prev = wrap.querySelector('[data-cf-prev]');
     const next = wrap.querySelector('[data-cf-next]');
     const curEl = wrap.querySelector('[data-cf-current]');
+    const nameEl = wrap.querySelector('[data-cf-name]');
     const totEl = wrap.querySelector('[data-cf-total]');
     if (totEl) totEl.textContent = N;
 
@@ -2773,6 +3090,10 @@
         activeCard = card;
         if (card) card.classList.add('is-active');
         if (curEl) curEl.textContent = String(activeIndex + 1);
+        if (nameEl && card) {
+          const t = card.querySelector('.game-title');
+          nameEl.textContent = (t && t.textContent) || card.dataset.game || '';
+        }
       }
     }
 
