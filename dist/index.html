@@ -22,7 +22,7 @@
 <meta property="og:locale" content="ru_RU">
 <meta property="og:title" content="Аренда PS4 Slim в Тамбове до 500 ₽ в день">
 <meta property="og:description" content="PlayStation 4 Slim напрокат: 2 геймпада, кабели и игры по запросу в комплекте. Помощь с подключением, договор, залог, доставка по договоренности.">
-<meta property="og:image" content="assets/ps4-hero.png">
+<meta property="og:image" content="assets/hero-light.webp">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -791,8 +791,10 @@
   @media (max-width: 980px){
     .header-inner{position:relative}
     .hero-grid{grid-template-columns:1fr;gap:20px}
-    .product-stage{order:-1;min-height:340px}
-    .product-image{height:340px}
+    /* Smaller screens: show the whole photo (full width + full height, no crop) */
+    .product-stage{order:-1;min-height:0}
+    .product-image{height:auto;aspect-ratio:1100/734}
+    .hero-photo{object-fit:contain}
     .offer-grid{grid-template-columns:1fr}
     .price-grid{grid-template-columns:repeat(2,1fr)}
     .info-strip{grid-template-columns:1fr 1fr}
@@ -876,8 +878,6 @@
     .hero-list li{font-size:var(--text-base);gap:12px}
     .amount{font-size:42px}
     .price-suffix{font-size:var(--text-xl)}
-    .product-stage{min-height:260px}
-    .product-image{height:260px}
     .stage-deco{inset:0}
     .stage-deco svg{right:-20px;width:120%;height:100%}
 
@@ -1174,6 +1174,25 @@
     .coverflow-wrap{padding:0 12px}
     .coverflow{
       --cf-fade:clamp(18px,7vw,28px);
+    }
+  }
+
+  /* =========================================================================
+     4.0 EXPERIMENT — desktop hero: photo at full block height, anchored to the
+     left of its column at natural proportions; the right part overflows past
+     the screen edge (clipped). Mobile (<=980px) keeps the existing layout.
+     ========================================================================= */
+  @media (min-width:981px){
+    .hero{overflow:hidden}                 /* clip the right overflow at the screen edge */
+    .hero-grid{align-items:stretch}        /* photo column spans the full block height */
+    .product-stage{position:relative;min-height:0;overflow:visible;align-self:stretch}
+    .product-image{position:absolute;inset:0;width:auto;height:auto}   /* drop base 438px so it fills full block height */
+    .hero-photo{
+      position:absolute;top:0;left:0;right:auto;bottom:auto;   /* override base inset:0 */
+      height:100%;width:auto;max-width:none;                    /* full height, natural width */
+      object-fit:cover;
+      border-radius:var(--radius-xl);
+      box-shadow:0 24px 60px rgba(7,17,40,.22);
     }
   }
 </style>
@@ -1904,7 +1923,7 @@
       "@type": "Product",
       "@id": "#ps4-slim-rent",
       "name": "Аренда PlayStation 4 Slim",
-      "image": "assets/ps4-hero.png",
+      "image": "assets/hero-light.webp",
       "description": "Прокат PS4 Slim в Тамбове для дома, вечеринок, корпоративов, выходных и прохождения конкретных игр. В комплекте 2 геймпада, кабели для подключения и предустановленные игры по запросу.",
       "brand": {
         "@type": "Brand",
