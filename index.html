@@ -18,12 +18,25 @@
 <meta name="description" content="Аренда PlayStation 4 Slim в Тамбове до 500 ₽ в день. В комплекте PS4, 2 геймпада, кабели и игры по запросу. Поможем подключить консоль, возможна доставка.">
 <meta name="keywords" content="аренда PS4 Тамбов, аренда PlayStation Тамбов, PS4 Slim напрокат, прокат приставки Тамбов, аренда приставки, аренда джойстика, игры PS4 Тамбов, PS4 с играми, прокат игровых приставок Тамбов, PS4 на дом">
 <meta name="robots" content="index,follow,max-image-preview:large">
+<meta name="theme-color" content="#0754d9">
+<meta name="color-scheme" content="light dark">
+<meta name="format-detection" content="telephone=no">
+<link rel="canonical" href="https://ps-arenda.ru/">
 <meta property="og:type" content="website">
 <meta property="og:locale" content="ru_RU">
+<meta property="og:site_name" content="PS Arenda">
+<meta property="og:url" content="https://ps-arenda.ru/">
 <meta property="og:title" content="Аренда PS4 Slim в Тамбове до 500 ₽ в день">
 <meta property="og:description" content="PlayStation 4 Slim напрокат: 2 геймпада, кабели и игры по запросу в комплекте. Помощь с подключением, договор, залог, доставка по договоренности.">
-<meta property="og:image" content="assets/hero-light.webp">
+<meta property="og:image" content="https://ps-arenda.ru/assets/hero-light.webp">
+<meta property="og:image:alt" content="PlayStation 4 Slim и два геймпада для аренды в Тамбове">
 <meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Аренда PS4 Slim в Тамбове до 500 ₽ в день">
+<meta name="twitter:description" content="PS4 Slim напрокат в Тамбове: 2 геймпада, кабели и игры по запросу. Помощь с подключением, договор, залог, возможна доставка.">
+<meta name="twitter:image" content="https://ps-arenda.ru/assets/hero-light.webp">
+<meta name="twitter:image:alt" content="PlayStation 4 Slim и два геймпада для аренды в Тамбове">
+<link rel="icon" type="image/svg+xml" href="assets/icon-ps4.svg">
+<link rel="shortcut icon" type="image/svg+xml" href="assets/icon-ps4.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
@@ -376,15 +389,23 @@
   }
   .stage-deco{display:none}
   .stage-deco svg{position:absolute;right:-60px;top:0;width:760px;height:520px;opacity:.85}
-  .product-image{position:relative;z-index:1;width:100%;height:438px}
+  .product-image{
+    position:relative;z-index:1;width:100%;height:438px;
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    background:transparent;
+    box-shadow:var(--shadow);
+    isolation:isolate;
+    clip-path:inset(0 round var(--radius-lg));
+  }
   /* Two stacked photos of the same scene (lights on / off) — the active one is
      chosen by theme; the page View Transition cross-fades them on switch. */
   .hero-photo{
-    position:absolute;inset:0;
-    width:100%;height:100%;
+    position:absolute;inset:-1px;
+    width:calc(100% + 2px);height:calc(100% + 2px);
     object-fit:cover;
-    border-radius:var(--radius-lg);
-    box-shadow:var(--shadow);
+    border-radius:inherit;
+    box-shadow:none;
     display:block;
   }
   .hero-photo--dark{opacity:0}
@@ -1186,13 +1207,18 @@
     .hero{overflow:hidden}                 /* clip the right overflow at the screen edge */
     .hero-grid{align-items:stretch}        /* photo column spans the full block height */
     .product-stage{position:relative;min-height:0;overflow:visible;align-self:stretch}
-    .product-image{position:absolute;inset:0;width:auto;height:auto}   /* drop base 438px so it fills full block height */
-    .hero-photo{
-      position:absolute;top:0;left:0;right:auto;bottom:auto;   /* override base inset:0 */
-      height:100%;width:auto;max-width:none;                    /* full height, natural width */
-      object-fit:cover;
+    .product-image{
+      position:absolute;inset:0;width:auto;height:auto;   /* drop base 438px so it fills full block height */
       border-radius:var(--radius-xl);
       box-shadow:0 24px 60px rgba(7,17,40,.22);
+      clip-path:inset(0 round var(--radius-xl));
+    }
+    .hero-photo{
+      position:absolute;top:-1px;left:-1px;right:auto;bottom:auto;   /* override base inset */
+      height:calc(100% + 2px);width:auto;max-width:none;             /* full height, natural width */
+      object-fit:cover;
+      border-radius:inherit;
+      box-shadow:none;
     }
   }
 </style>
@@ -1270,8 +1296,17 @@
   let loaded = false;
   let loadP = null;
 
+  function canUseSidecar() {
+    return !!(window.omelette && window.omelette.writeFile);
+  }
+
   function load() {
     if (loadP) return loadP;
+    if (!canUseSidecar()) {
+      loaded = true;
+      loadP = Promise.resolve().then(() => { subs.forEach((fn) => fn()); });
+      return loadP;
+    }
     loadP = fetch(STATE_FILE)
       .then((r) => (r.ok ? r.json() : null))
       .then((j) => {
@@ -1360,7 +1395,7 @@
   const stylesheet =
     ':host{display:inline-block;position:relative;vertical-align:top;' +
     '  font:13px/1.3 system-ui,-apple-system,sans-serif;color:rgba(0,0,0,.55);width:240px;height:160px}' +
-    '.frame{position:absolute;inset:0;overflow:hidden;background:rgba(0,0,0,.04)}' +
+    '.frame{position:absolute;inset:0;overflow:hidden;background:transparent}' +
     // .frame img (clipped) and .spill (unclipped ghost + handles) share the
     // same left/top/width/height in frame-%, computed by _applyView(), so the
     // inside-mask crop and the outside-mask spill stay pixel-aligned.
@@ -1780,9 +1815,9 @@
       let radius = '';
       if (shape === 'circle') radius = '50%';
       else if (shape === 'pill') radius = '9999px';
-      else if (shape === 'rounded') {
+      else if (shape === 'rounded' || shape === 'rect') {
         const n = parseFloat(this.getAttribute('radius'));
-        radius = (Number.isFinite(n) ? n : 12) + 'px';
+        radius = (Number.isFinite(n) ? n : (shape === 'rect' ? 0 : 12)) + 'px';
       }
       this._frame.style.borderRadius = mask ? '' : radius;
       this._frame.style.clipPath = mask || '';
@@ -1845,9 +1880,38 @@
   "@context": "https://schema.org",
   "@graph": [
     {
+      "@type": "WebSite",
+      "@id": "https://ps-arenda.ru/#website",
+      "url": "https://ps-arenda.ru/",
+      "name": "PS Arenda",
+      "inLanguage": "ru-RU",
+      "publisher": {
+        "@id": "#business"
+      }
+    },
+    {
+      "@type": "WebPage",
+      "@id": "https://ps-arenda.ru/#webpage",
+      "url": "https://ps-arenda.ru/",
+      "name": "Аренда PS4 Slim в Тамбове",
+      "description": "Аренда PlayStation 4 Slim в Тамбове до 500 ₽ в день с двумя геймпадами, кабелями, играми по запросу и помощью с подключением.",
+      "inLanguage": "ru-RU",
+      "isPartOf": {
+        "@id": "https://ps-arenda.ru/#website"
+      },
+      "about": {
+        "@id": "#ps4-rental-service"
+      },
+      "primaryImageOfPage": {
+        "@type": "ImageObject",
+        "url": "https://ps-arenda.ru/assets/hero-light.webp"
+      }
+    },
+    {
       "@type": "LocalBusiness",
       "@id": "#business",
       "name": "Аренда PlayStation Тамбов",
+      "url": "https://ps-arenda.ru/",
       "description": "Аренда PlayStation 4 Slim в Тамбове до 500 ₽ в день. В комплекте приставка, 2 геймпада, кабели и игры по запросу. Помощь с подключением, оформление по договору, залог 5000 ₽.",
       "areaServed": {
         "@type": "City",
@@ -1864,12 +1928,24 @@
         "https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae?src=sharing",
         "https://www.avito.ru/tambov/predlozheniya_uslug/playstation_4_slim_arenda_prokat_ps4_tambov_7905038967"
       ],
-      "priceRange": "500-4500 RUB"
+      "priceRange": "500-4500 RUB",
+      "contactPoint": [
+        {
+          "@type": "ContactPoint",
+          "telephone": "+7-999-680-21-99",
+          "contactType": "customer service",
+          "areaServed": "RU",
+          "availableLanguage": [
+            "ru"
+          ]
+        }
+      ]
     },
     {
       "@type": "Service",
       "@id": "#ps4-rental-service",
       "name": "Аренда PS4 Slim в Тамбове",
+      "url": "https://ps-arenda.ru/#rent",
       "serviceType": "Прокат игровых приставок",
       "description": "Локальная услуга аренды Sony PlayStation 4 Slim в Тамбове с двумя геймпадами, кабелями, играми по запросу, помощью с подключением и возможной доставкой.",
       "provider": {
@@ -1891,7 +1967,23 @@
           "price": "500",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "businessFunction": "https://schema.org/LeaseOut"
+          "businessFunction": "https://schema.org/LeaseOut",
+          "@id": "#offer-ps4-1-day",
+          "url": "https://ps-arenda.ru/#prices",
+          "seller": {
+            "@id": "#business"
+          },
+          "itemOffered": {
+            "@id": "#ps4-slim-rent"
+          },
+          "availableAtOrFrom": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Тамбов",
+              "addressCountry": "RU"
+            }
+          }
         },
         {
           "@type": "Offer",
@@ -1899,7 +1991,23 @@
           "price": "1300",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "businessFunction": "https://schema.org/LeaseOut"
+          "businessFunction": "https://schema.org/LeaseOut",
+          "@id": "#offer-ps4-3-days",
+          "url": "https://ps-arenda.ru/#prices",
+          "seller": {
+            "@id": "#business"
+          },
+          "itemOffered": {
+            "@id": "#ps4-slim-rent"
+          },
+          "availableAtOrFrom": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Тамбов",
+              "addressCountry": "RU"
+            }
+          }
         },
         {
           "@type": "Offer",
@@ -1907,7 +2015,23 @@
           "price": "2500",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "businessFunction": "https://schema.org/LeaseOut"
+          "businessFunction": "https://schema.org/LeaseOut",
+          "@id": "#offer-ps4-7-days",
+          "url": "https://ps-arenda.ru/#prices",
+          "seller": {
+            "@id": "#business"
+          },
+          "itemOffered": {
+            "@id": "#ps4-slim-rent"
+          },
+          "availableAtOrFrom": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Тамбов",
+              "addressCountry": "RU"
+            }
+          }
         },
         {
           "@type": "Offer",
@@ -1915,15 +2039,53 @@
           "price": "4500",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "businessFunction": "https://schema.org/LeaseOut"
+          "businessFunction": "https://schema.org/LeaseOut",
+          "@id": "#offer-ps4-14-days",
+          "url": "https://ps-arenda.ru/#prices",
+          "seller": {
+            "@id": "#business"
+          },
+          "itemOffered": {
+            "@id": "#ps4-slim-rent"
+          },
+          "availableAtOrFrom": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Тамбов",
+              "addressCountry": "RU"
+            }
+          }
         }
-      ]
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://ps-arenda.ru/#webpage"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Тарифы аренды PS4 Slim",
+        "itemListElement": [
+          {
+            "@id": "#offer-ps4-1-day"
+          },
+          {
+            "@id": "#offer-ps4-3-days"
+          },
+          {
+            "@id": "#offer-ps4-7-days"
+          },
+          {
+            "@id": "#offer-ps4-14-days"
+          }
+        ]
+      }
     },
     {
       "@type": "Product",
       "@id": "#ps4-slim-rent",
       "name": "Аренда PlayStation 4 Slim",
-      "image": "assets/hero-light.webp",
+      "url": "https://ps-arenda.ru/",
+      "image": "https://ps-arenda.ru/assets/hero-light.webp",
       "description": "Прокат PS4 Slim в Тамбове для дома, вечеринок, корпоративов, выходных и прохождения конкретных игр. В комплекте 2 геймпада, кабели для подключения и предустановленные игры по запросу.",
       "brand": {
         "@type": "Brand",
@@ -1936,7 +2098,23 @@
           "price": "500",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "businessFunction": "https://schema.org/LeaseOut"
+          "businessFunction": "https://schema.org/LeaseOut",
+          "@id": "#offer-ps4-1-day",
+          "url": "https://ps-arenda.ru/#prices",
+          "seller": {
+            "@id": "#business"
+          },
+          "itemOffered": {
+            "@id": "#ps4-slim-rent"
+          },
+          "availableAtOrFrom": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Тамбов",
+              "addressCountry": "RU"
+            }
+          }
         },
         {
           "@type": "Offer",
@@ -1944,7 +2122,23 @@
           "price": "1300",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "businessFunction": "https://schema.org/LeaseOut"
+          "businessFunction": "https://schema.org/LeaseOut",
+          "@id": "#offer-ps4-3-days",
+          "url": "https://ps-arenda.ru/#prices",
+          "seller": {
+            "@id": "#business"
+          },
+          "itemOffered": {
+            "@id": "#ps4-slim-rent"
+          },
+          "availableAtOrFrom": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Тамбов",
+              "addressCountry": "RU"
+            }
+          }
         },
         {
           "@type": "Offer",
@@ -1952,7 +2146,23 @@
           "price": "2500",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "businessFunction": "https://schema.org/LeaseOut"
+          "businessFunction": "https://schema.org/LeaseOut",
+          "@id": "#offer-ps4-7-days",
+          "url": "https://ps-arenda.ru/#prices",
+          "seller": {
+            "@id": "#business"
+          },
+          "itemOffered": {
+            "@id": "#ps4-slim-rent"
+          },
+          "availableAtOrFrom": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Тамбов",
+              "addressCountry": "RU"
+            }
+          }
         },
         {
           "@type": "Offer",
@@ -1960,9 +2170,28 @@
           "price": "4500",
           "priceCurrency": "RUB",
           "availability": "https://schema.org/InStock",
-          "businessFunction": "https://schema.org/LeaseOut"
+          "businessFunction": "https://schema.org/LeaseOut",
+          "@id": "#offer-ps4-14-days",
+          "url": "https://ps-arenda.ru/#prices",
+          "seller": {
+            "@id": "#business"
+          },
+          "itemOffered": {
+            "@id": "#ps4-slim-rent"
+          },
+          "availableAtOrFrom": {
+            "@type": "Place",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Тамбов",
+              "addressCountry": "RU"
+            }
+          }
         }
-      ]
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://ps-arenda.ru/#webpage"
+      }
     },
     {
       "@type": "FAQPage",
@@ -2040,7 +2269,10 @@
             "text": "Можно заранее договориться о подборе и предустановке игр под ваш формат: FIFA 25, UFC 4, Mortal Kombat, Spider-Man, Red Dead Redemption 2, гонки, кооператив или сюжетные проекты."
           }
         }
-      ]
+      ],
+      "mainEntityOfPage": {
+        "@id": "https://ps-arenda.ru/#webpage"
+      }
     }
   ]
 }
@@ -2920,8 +3152,23 @@
     let cleanup = null;
     let targetReleaseTimer = null;
     let targetReleaseTarget = null;
+    let urlCleanTimer = null;
 
-    const clearFocus = () => {
+    const cleanAnchorUrl = () => {
+      if (!window.location.hash) return;
+      history.replaceState(null, '', window.location.pathname + window.location.search);
+    };
+
+    const scheduleAnchorUrlClean = () => {
+      if (urlCleanTimer) clearTimeout(urlCleanTimer);
+      urlCleanTimer = setTimeout(() => {
+        cleanAnchorUrl();
+        urlCleanTimer = null;
+      }, 560);
+    };
+
+    const clearFocus = (options = {}) => {
+      const shouldCleanUrl = options.cleanUrl !== false;
       overlay.classList.remove('active');
       if (activeTarget) {
         const targetToRelease = activeTarget;
@@ -2947,6 +3194,7 @@
         cleanup();
         cleanup = null;
       }
+      if (shouldCleanUrl) scheduleAnchorUrlClean();
     };
 
     const addInteractionDismiss = () => {
@@ -2957,7 +3205,11 @@
     };
 
     const focusAnchorTarget = target => {
-      clearFocus();
+      if (urlCleanTimer) {
+        clearTimeout(urlCleanTimer);
+        urlCleanTimer = null;
+      }
+      clearFocus({ cleanUrl:false });
       if (targetReleaseTimer && targetReleaseTarget === target) {
         clearTimeout(targetReleaseTimer);
         targetReleaseTimer = null;
