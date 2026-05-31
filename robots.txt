@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://ps-arenda.ru/sitemap.xml
