@@ -1055,6 +1055,11 @@
     max-width:1000px;
     margin:0 auto;
     padding:0 70px;
+    /* BFC: stops the coverflow's negative top margin from collapsing through and
+       pulling the wrap up over the subtitle (which made the subtitle unselectable).
+       The coverflow still pokes up out of the wrap visually, but it's
+       pointer-events:none, so the text underneath stays clickable. */
+    display:flow-root;
   }
   .coverflow{
     --cf-height:500px;
@@ -1071,6 +1076,13 @@
     isolation:isolate;
     touch-action:pan-y;
     cursor:grab;
+    /* The coverflow is position:relative, so it paints ABOVE its static
+       siblings (heading above, counter below) and its transparent top/bottom
+       padding covered them, stealing mouse-downs (text couldn't be selected —
+       felt like a swipe). pointer-events:none lets clicks fall through the empty
+       padding to the text; the cards re-enable events on themselves (.is-visible)
+       so dragging still works. */
+    pointer-events:none;
     -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--cf-fade),#000 calc(100% - var(--cf-fade)),transparent 100%);
     mask-image:linear-gradient(90deg,transparent 0,#000 var(--cf-fade),#000 calc(100% - var(--cf-fade)),transparent 100%);
   }
@@ -1083,6 +1095,7 @@
     position:absolute;
     inset:0;
     --cf-gap:24px;
+    pointer-events:none;   /* empty track area falls through; cards opt back in */
   }
   .game-card{
     --glow:0;
@@ -1139,7 +1152,9 @@
   .game-card .game-title{position:absolute;left:0;right:0;bottom:0;z-index:3;color:#fff;padding:14px 12px 12px;font-size:var(--text-sm);font-weight:700;text-align:center;letter-spacing:-.005em;line-height:1.2;text-shadow:0 1px 3px rgba(0,0,0,.5);pointer-events:none}
 
   .cf-nav{
-    position:absolute;top:50%;transform:translateY(-50%);
+    /* Anchored to the card line: wrap-top + (cf-mid − cf-pad-top) = +156px.
+       (top:50% no longer centres on the cards now the wrap is a flow-root.) */
+    position:absolute;top:156px;transform:translateY(-50%);
     width:48px;height:48px;border-radius:50%;
     background:#fff;color:var(--blue);
     border:1px solid var(--line);
@@ -1156,7 +1171,8 @@
 
   .cf-counter{
     display:flex;flex-direction:column;align-items:center;gap:4px;
-    margin-top:-46px;text-align:center;
+    margin-top:-84px;text-align:center;   /* pull the name up so the gap below the
+                                              carousel matches the small gap above it */
   }
   .cf-counter-name{
     font-size:var(--text-xl);font-weight:800;color:var(--text);
@@ -1211,17 +1227,28 @@
     .hero-grid{align-items:stretch}        /* photo column spans the full block height */
     .product-stage{position:relative;min-height:0;overflow:visible;align-self:stretch}
     .product-image{
-      position:absolute;inset:0;width:auto;height:auto;   /* drop base 438px so it fills full block height */
-      border-radius:var(--radius-xl);
-      box-shadow:0 24px 60px rgba(7,17,40,.22);
-      clip-path:inset(0 round var(--radius-xl));
-    }
-    .hero-photo{
-      position:absolute;top:-1px;left:-1px;right:auto;bottom:auto;   /* override base inset */
-      height:calc(100% + 2px);width:auto;max-width:none;             /* full height, natural width */
-      object-fit:cover;
-      border-radius:inherit;
+      position:absolute;inset:0;width:auto;height:auto;   /* column box; the photo bleeds out of it to the right */
+      border-radius:0;
       box-shadow:none;
+      clip-path:none;
+      overflow:visible;                    /* let the photo run past the right column edge */
+    }
+    /* The photo clips itself with border-radius (left corners only) — there is no
+       container clip-path under it, so the grey fringe from double-rounding is gone.
+       The right edge is left unrounded and runs off-screen (clipped by .hero's
+       overflow:hidden), so the photo isn't capped on the right. The card shadow
+       uses drop-shadow, which follows the rounded alpha shape without the grey
+       corner artefact that box-shadow + border-radius produces on an <img>. */
+    .hero-photo{
+      position:absolute;top:0;left:0;right:auto;bottom:0;            /* override base inset */
+      height:100%;width:auto;max-width:none;                        /* full height, natural width */
+      object-fit:cover;
+      border-radius:var(--radius-xl) 0 0 var(--radius-xl);
+      /* No shadow on desktop: the photo runs full block height and bleeds off the
+         right edge, so any card shadow reads as a divider line against the next
+         section. (Mobile keeps the normal card shadow via the base .product-image.) */
+      box-shadow:none;
+      filter:none;
     }
   }
 </style>
@@ -2319,7 +2346,7 @@
       <a href="#faq">Вопросы</a>
     </nav>
     <div class="header-cta">
-      <a class="btn btn-primary" href="#" data-open-contact>Контакты</a>
+      <a class="btn btn-primary" href="#" data-open-contact>Забронировать</a>
     </div>
     <button class="theme-toggle" type="button" aria-label="Сменить тему" title="Сменить тему">
       <svg class="theme-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8Z"/></svg>
@@ -2785,7 +2812,7 @@
         <div class="cta-body">
           <div class="cta-title">Забронировать PS4 Slim</div>
         </div>
-        <a class="btn" href="#" data-open-contact>Контакты</a>
+        <a class="btn" href="#" data-open-contact>Забронировать</a>
       </div>
     </div>
   </section>
@@ -3552,13 +3579,19 @@
       });
     });
 
+    let captureEl = null;
     root.addEventListener('pointerdown', event => {
       if (event.pointerType === 'mouse' && event.button !== 0) return;
+      // Only a card starts a drag. The coverflow's empty padding is
+      // pointer-events:none, so presses there fall through to the page text.
+      const card = event.target.closest('.game-card');
+      if (!card) return;
       pointerDown = true;
       pointerId = event.pointerId;
       startX = event.clientX;
       startY = event.clientY;
-      if (root.setPointerCapture) root.setPointerCapture(event.pointerId);
+      captureEl = card;
+      if (card.setPointerCapture) card.setPointerCapture(event.pointerId);
     });
 
     root.addEventListener('pointermove', event => {
@@ -3575,9 +3608,10 @@
 
     function endPointer(event){
       if (event && pointerId !== null && event.pointerId !== pointerId) return;
-      if (pointerId !== null && root.hasPointerCapture && root.hasPointerCapture(pointerId)) {
-        try { root.releasePointerCapture(pointerId); } catch(_){}
+      if (captureEl && pointerId !== null && captureEl.hasPointerCapture && captureEl.hasPointerCapture(pointerId)) {
+        try { captureEl.releasePointerCapture(pointerId); } catch(_){}
       }
+      captureEl = null;
       pointerId = null;
       if (dragging) endDrag(event ? event.clientX : null);
       pointerDown = false;
@@ -3586,11 +3620,13 @@
     root.addEventListener('pointerup', endPointer);
     root.addEventListener('pointercancel', endPointer);
 
-    root.addEventListener('mouseenter', () => {
+    // Hover-pause lives on the wrap, not the coverflow: the coverflow is now
+    // pointer-events:none, so mouseenter/leave wouldn't fire on it.
+    wrap.addEventListener('mouseenter', () => {
       paused = true;
       clearAutoplay();
     });
-    root.addEventListener('mouseleave', () => {
+    wrap.addEventListener('mouseleave', () => {
       if (!dragging && !pauseTimer) {
         paused = document.hidden;
         if (!paused) scheduleAutoplay();
