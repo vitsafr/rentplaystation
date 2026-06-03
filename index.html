@@ -231,6 +231,7 @@
   }
   .logo svg{width:100%;height:100%;display:block}   /* symbols fill the box & touch the edges */
   .brand-name{font-size:var(--text-3xl);font-weight:800;letter-spacing:-.015em;color:var(--text)}
+  .brand-ps-short{display:none}   /* show full "PlayStation" by default */
   .nav{display:flex;gap:var(--btn-gap);margin-left:18px}
   .nav a{font-size:var(--text-md);color:var(--text-3);font-weight:600}
   .nav a:hover{color:var(--blue)}
@@ -883,7 +884,10 @@
     /* Header tighter */
     .header-inner{height:var(--header-h);gap:var(--btn-gap)}
     .brand{min-width:0;flex:1 1 auto}
-    .brand-name{font-size:var(--text-md);line-height:1.15;letter-spacing:-.01em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    /* Wrap to a 2nd line when the name doesn't fit on one (instead of ellipsis).
+       Stays one line when it fits; clamps to 2 lines as a safety on very narrow
+       screens. The header height is fixed, so two lines centre within it. */
+    .brand-name{font-size:var(--text-md);line-height:1.15;letter-spacing:-.01em;white-space:normal;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:2;line-clamp:2;overflow:hidden}
     .logo{width:44px;height:44px;flex:none}   /* keep parity with the 44px header buttons */
     .header-cta{flex:none}
     .header-cta .btn{height:44px;min-height:44px;padding:0 14px}
@@ -965,6 +969,14 @@
     /* Header — abbreviate CTA on tiny screens */
     .header-cta{display:none}
     .brand-name{font-size:var(--text-md)}
+  }
+  /* Swap PlayStation→PS only where the full name would be clipped:
+       • ≤360px — very narrow screens (full "Аренда PlayStation" stops fitting ~338px);
+       • 481–520px — the "Забронировать" button is back and squeezes the brand.
+     Between 361–480px (button hidden) and ≥521px the full name fits, so it stays. */
+  @media (max-width:360px), (min-width:481px) and (max-width:520px){
+    .brand-ps-full{display:none}
+    .brand-ps-short{display:inline}
   }
 
   /* ---------- Contact Modal ---------- */
@@ -2339,7 +2351,11 @@
           <path d="M18 33.5 L30 46 M30 33.5 L18 46"/>        <!-- cross — touches bottom -->
         </svg>
       </span>
-      <span class="brand-name">Аренда PlayStation Тамбов</span>
+      <!-- nbsp keeps "Аренда PlayStation" together so the only wrap point is before
+           "Тамбов": one line when it fits, otherwise exactly two (never three).
+           In the narrow band where the "Забронировать" button squeezes the brand,
+           PlayStation is swapped for "PS" (see .brand-ps-* rules) so it isn't clipped. -->
+      <span class="brand-name">Аренда&nbsp;<span class="brand-ps-full">PlayStation</span><span class="brand-ps-short">PS</span> Тамбов</span>
     </a>
     <nav class="nav">
       <a href="#rent">Аренда</a>
