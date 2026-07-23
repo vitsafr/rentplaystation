@@ -730,7 +730,10 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
   function animatePhases(p){
     phases.forEach(function(el, i){
       var s = BOUNDS[i], e = BOUNDS[i+1],
-          t = (p - s) / (e - s);            /* локальный прогресс фазы */
+          t = (p - s) / (e - s),            /* локальный прогресс фазы */
+          /* первая видна сразу при загрузке; последняя не уходит вперёд */
+          isFirst = i === 0,
+          isLast  = i === phases.length - 1;
 
       /* фаза далеко за пределами своего окна — гасим и выходим */
       if(t < -.4 || t > 1.4){
@@ -738,14 +741,17 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
         return;
       }
       el.style.opacity = '1';
-      el.style.pointerEvents = (t > .12 && t < .92) ? 'auto' : 'none';
+      /* клики включены, пока фаза реально видна: у первой — с самой загрузки,
+         у последней — до конца секции (она не исчезает вперёд) */
+      el.style.pointerEvents =
+        ((isFirst || t > .12) && (isLast || t < .92)) ? 'auto' : 'none';
 
       var kids = el._kids || (el._kids = [].slice.call(el.children));
       kids.forEach(function(kid, j){
         var d    = j * STAGGER,                                   /* сдвиг строки */
-            /* фаза 0 видна сразу при загрузке (p=0) — ей анимируем только уход */
-            tIn  = i === 0 ? 1 : easeOut(clamp01((t - d) / IN_FRAC)),
-            tOut = easeOut(clamp01((t - d - OUT_FRAC) / (1 - OUT_FRAC))); /* 0→1 на выходе */
+            tIn  = isFirst ? 1 : easeOut(clamp01((t - d) / IN_FRAC)),
+            /* у последней фазы ухода вперёд нет — назад она гаснет через реверс tIn */
+            tOut = isLast ? 0 : easeOut(clamp01((t - d - OUT_FRAC) / (1 - OUT_FRAC)));
         kid.style.opacity   = (tIn * (1 - tOut)).toFixed(3);
         kid.style.transform = 'translate3d(0,' +
           (SPREAD * (1 - tIn) - SPREAD * tOut).toFixed(1) + 'px,0)';
