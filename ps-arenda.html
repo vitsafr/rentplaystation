@@ -357,8 +357,8 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
     <!-- Фаза 1 -->
     <div class="cine__phase on" data-phase="0">
       <span class="kicker"><i></i>Прокат PlayStation в Тамбове</span>
-      <h1>Собери свой <em>матч-вечер</em></h1>
-      <p>PlayStation 4 с двумя геймпадами и сотней игр — у тебя дома уже сегодня. Листай вниз, мяч уже в игре.</p>
+      <h1>PlayStation <em>у тебя дома</em></h1>
+      <p>Приставка, два геймпада и сотня игр — привезём и подключим уже сегодня. Листай вниз — покажем весь комплект.</p>
       <div class="cine__cta">
         <a class="btn btn--big" href="tel:+79996802199" data-goal="call_hero">Позвонить: +7 999 680-21-99</a>
         <a class="btn btn--ghost btn--big" href="#tariffs">Смотреть цены</a>
@@ -369,7 +369,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
     <div class="cine__phase" data-phase="1">
       <span class="kicker"><i></i>Что в комплекте</span>
       <div class="h1">PS4 + 2 геймпада + <em>100 игр</em></div>
-      <p>Приставка, два геймпада, все кабели. Игры ставим по вашему списку: FIFA, Mortal Kombat, GTA — скажите, во что хотите играть.</p>
+      <p>Приставка, два геймпада, все кабели. Игры ставим по вашему списку — от гонок и файтингов до больших приключений. Скажите, во что хотите играть.</p>
     </div>
 
     <!-- Фаза 3 -->
@@ -381,9 +381,9 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
 
     <!-- Фаза 4 -->
     <div class="cine__phase" data-phase="3">
-      <span class="kicker"><i></i>Гол! Твой ход</span>
-      <div class="h1">Забей первым — <em>позвони</em></div>
-      <p>Один звонок — и вечером вы уже празднуете голы у себя в гостиной.</p>
+      <span class="kicker"><i></i>Готовы привезти</span>
+      <div class="h1">Один звонок — <em>и играете</em></div>
+      <p>Позвоните — соберём комплект под вас и подключим сегодня. Вечер с приставкой начинается прямо тут.</p>
       <div class="cine__cta">
         <a class="btn btn--big" href="tel:+79996802199" data-goal="call_hero2">+7 999 680-21-99</a>
       </div>
@@ -486,7 +486,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
 <section id="how">
   <div class="wrap">
     <div class="sec-kicker rv">Как это работает</div>
-    <h2 class="rv">От звонка до гола —<br>один вечер</h2>
+    <h2 class="rv">От звонка до игры —<br>один вечер</h2>
     <div class="steps">
       <div class="step rv">
         <h3>Позвонили</h3>
@@ -572,7 +572,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
 <section class="contact" id="contacts">
   <div class="wrap">
     <div class="sec-kicker rv" style="justify-content:center">Контакты</div>
-    <h2 class="rv">Мяч на твоей<br>стороне</h2>
+    <h2 class="rv">Ваш ход —<br>звоните</h2>
     <a class="phone-big rv" href="tel:+79996802199" data-goal="call_footer">+7 999 680-21-99</a>
     <p class="sub rv">Позвоните — договоримся за пару минут. Вопросы удобнее текстом? Мы на связи:</p>
     <div class="chans rv">
@@ -638,7 +638,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
      198 WebP-кадров → canvas по прогрессу pin-секции.
      Кадр 0 рисуем сразу после загрузки (никакой белой вспышки).
      ============================================================ */
-  var FRAMES = 198,
+  var FRAMES = 61,
       PATH = function(i){ return 'assets/frames/f_' + String(i+1).padStart(3,'0') + '.webp'; },
       cine = document.getElementById('cine'),
       canvas = document.getElementById('film'),
@@ -650,6 +650,8 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
       loadedMax = -1,     /* до какого кадра непрерывно загружено */
       current = 0,        /* сглаженный кадр (lerp) */
       target = 0,
+      lastDrawn = -1,     /* последний отрисованный кадр */
+      seqPlaying = false, /* идёт свайп-воспроизведение */
       dpr = Math.min(devicePixelRatio || 1, 2);
 
   function resize(){
@@ -687,9 +689,8 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
   }
   load(0);
 
-  /* парочку параллельных цепочек для скорости */
-  setTimeout(function(){ if(!imgs[60]){ var j=60; (function ch(){ if(j>=130)return; var im=new Image(); im.onload=function(){ imgs[j]=im; j++; ch(); }; im.onerror=function(){ j++; ch(); }; im.src=PATH(j); })(); } }, 800);
-  setTimeout(function(){ if(!imgs[130]){ var k=130; (function ch(){ if(k>=FRAMES)return; var im=new Image(); im.onload=function(){ imgs[k]=im; k++; ch(); }; im.onerror=function(){ k++; ch(); }; im.src=PATH(k); })(); } }, 1200);
+  /* параллельная цепочка со второй половины для скорости */
+  setTimeout(function(){ if(!imgs[31]){ var j=31; (function ch(){ if(j>=FRAMES)return; var im=new Image(); im.onload=function(){ imgs[j]=im; j++; ch(); }; im.onerror=function(){ j++; ch(); }; im.src=PATH(j); })(); } }, 700);
 
   function progress(){
     var r = cine.getBoundingClientRect(),
@@ -700,9 +701,10 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
   function tick(){
     var p = progress();
     target = p * (FRAMES - 1);
-    /* сглаживание скраба */
-    current += (target - current) * 0.22;
-    if(Math.abs(target - current) > 0.4) draw(Math.round(current));
+    /* сглаживание скраба; при свайп-воспроизведении — точное следование */
+    current += (target - current) * (seqPlaying ? 1 : 0.22);
+    var ni = Math.round(current);
+    if(ni !== lastDrawn){ draw(ni); lastDrawn = ni; }
     bar.style.width = (p*100) + '%';
     hint.style.opacity = p > 0.04 ? 0 : 1;
 
@@ -721,6 +723,73 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
     addEventListener('resize', resize);
     resize();
     requestAnimationFrame(tick);
+  }
+
+  /* ============================================================
+     СВАЙП-КИНО (тач-устройства): смах внутри pin-секции играет
+     кадры с естественной скоростью (PLAY_FPS) и довозит к
+     следующему/предыдущему фазовому экрану. Касание во время
+     воспроизведения — стоп. На краях секции отдаём нативный скролл.
+     ============================================================ */
+  if(!reduced && ('ontouchstart' in window || navigator.maxTouchPoints > 0)){
+    var PLAY_FPS = 10,                        /* скорость съёмки кадров = «нормальная» */
+        CENTERS  = [0.11, 0.36, 0.64, 0.89], /* центры 4 фаз в прогрессе секции */
+        playRAF  = 0,
+        touchY   = null;
+
+    function pinned(){
+      var r = cine.getBoundingClientRect();
+      return r.top <= 1 && r.bottom >= innerHeight - 1;
+    }
+    function scrollForP(p){
+      var r = cine.getBoundingClientRect();
+      return (scrollY + r.top) + p * (r.height - innerHeight);
+    }
+    function stopPlay(){ seqPlaying = false; cancelAnimationFrame(playRAF); }
+
+    function playTo(pTarget){
+      var p0 = progress(),
+          n  = Math.abs(pTarget - p0) * (FRAMES - 1);
+      if(n < 1) return;
+      var dur = n / PLAY_FPS * 1000,
+          t0  = performance.now();
+      seqPlaying = true;
+      (function step(now){
+        if(!seqPlaying) return;
+        var k = Math.min(1, (now - t0) / dur);
+        /* мгновенный скролл в обход html{scroll-behavior:smooth} */
+        var y = scrollForP(p0 + (pTarget - p0) * k);
+        try{ scrollTo({top:y, behavior:'instant'}); }
+        catch(_){ document.scrollingElement.scrollTop = y; }
+        if(k < 1) playRAF = requestAnimationFrame(step);
+        else seqPlaying = false;
+      })(t0);
+    }
+
+    cine.addEventListener('touchstart', function(e){
+      stopPlay();
+      touchY = e.touches[0].clientY;
+    }, {passive:true});
+
+    cine.addEventListener('touchmove', function(e){
+      if(!pinned() || touchY === null) return;
+      var p = progress(),
+          dy = touchY - e.touches[0].clientY;    /* >0 — смах вверх (вперёд) */
+      /* на краях выпускаем нативный скролл за пределы секции */
+      if((p <= 0 && dy < 0) || (p >= 1 && dy > 0)) return;
+      e.preventDefault();
+    }, {passive:false});
+
+    cine.addEventListener('touchend', function(e){
+      if(touchY === null || !pinned()) return;
+      var dy = touchY - e.changedTouches[0].clientY;
+      touchY = null;
+      if(Math.abs(dy) < 40) return;              /* случайное касание */
+      var p  = progress(),
+          ph = p < 0.22 ? 0 : p < 0.5 ? 1 : p < 0.78 ? 2 : 3;
+      if(dy > 0) playTo(ph >= 3 ? 1 : CENTERS[ph + 1]);
+      else       playTo(ph <= 0 ? 0 : CENTERS[ph - 1]);
+    }, {passive:true});
   }
 
   /* ---------- Метрика: цели по data-goal ---------- */
