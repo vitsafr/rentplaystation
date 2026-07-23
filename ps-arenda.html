@@ -651,7 +651,6 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
       current = 0,        /* сглаженный кадр (lerp) */
       target = 0,
       lastDrawn = -1,     /* последний отрисованный кадр */
-      seqPlaying = false, /* идёт свайп-воспроизведение */
       dpr = Math.min(devicePixelRatio || 1, 2);
 
   function resize(){
@@ -701,8 +700,8 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
   function tick(){
     var p = progress();
     target = p * (FRAMES - 1);
-    /* сглаживание скраба; при свайп-воспроизведении — точное следование */
-    current += (target - current) * (seqPlaying ? 1 : 0.22);
+    /* сглаживание скраба — от обычного скролла, одинаково на всех устройствах */
+    current += (target - current) * 0.22;
     var ni = Math.round(current);
     if(ni !== lastDrawn){ draw(ni); lastDrawn = ni; }
     bar.style.width = (p*100) + '%';
@@ -723,73 +722,6 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
     addEventListener('resize', resize);
     resize();
     requestAnimationFrame(tick);
-  }
-
-  /* ============================================================
-     СВАЙП-КИНО (тач-устройства): смах внутри pin-секции играет
-     кадры с естественной скоростью (PLAY_FPS) и довозит к
-     следующему/предыдущему фазовому экрану. Касание во время
-     воспроизведения — стоп. На краях секции отдаём нативный скролл.
-     ============================================================ */
-  if(!reduced && ('ontouchstart' in window || navigator.maxTouchPoints > 0)){
-    var PLAY_FPS = 10,                        /* скорость съёмки кадров = «нормальная» */
-        CENTERS  = [0.11, 0.36, 0.64, 0.89], /* центры 4 фаз в прогрессе секции */
-        playRAF  = 0,
-        touchY   = null;
-
-    function pinned(){
-      var r = cine.getBoundingClientRect();
-      return r.top <= 1 && r.bottom >= innerHeight - 1;
-    }
-    function scrollForP(p){
-      var r = cine.getBoundingClientRect();
-      return (scrollY + r.top) + p * (r.height - innerHeight);
-    }
-    function stopPlay(){ seqPlaying = false; cancelAnimationFrame(playRAF); }
-
-    function playTo(pTarget){
-      var p0 = progress(),
-          n  = Math.abs(pTarget - p0) * (FRAMES - 1);
-      if(n < 1) return;
-      var dur = n / PLAY_FPS * 1000,
-          t0  = performance.now();
-      seqPlaying = true;
-      (function step(now){
-        if(!seqPlaying) return;
-        var k = Math.min(1, (now - t0) / dur);
-        /* мгновенный скролл в обход html{scroll-behavior:smooth} */
-        var y = scrollForP(p0 + (pTarget - p0) * k);
-        try{ scrollTo({top:y, behavior:'instant'}); }
-        catch(_){ document.scrollingElement.scrollTop = y; }
-        if(k < 1) playRAF = requestAnimationFrame(step);
-        else seqPlaying = false;
-      })(t0);
-    }
-
-    cine.addEventListener('touchstart', function(e){
-      stopPlay();
-      touchY = e.touches[0].clientY;
-    }, {passive:true});
-
-    cine.addEventListener('touchmove', function(e){
-      if(!pinned() || touchY === null) return;
-      var p = progress(),
-          dy = touchY - e.touches[0].clientY;    /* >0 — смах вверх (вперёд) */
-      /* на краях выпускаем нативный скролл за пределы секции */
-      if((p <= 0 && dy < 0) || (p >= 1 && dy > 0)) return;
-      e.preventDefault();
-    }, {passive:false});
-
-    cine.addEventListener('touchend', function(e){
-      if(touchY === null || !pinned()) return;
-      var dy = touchY - e.changedTouches[0].clientY;
-      touchY = null;
-      if(Math.abs(dy) < 40) return;              /* случайное касание */
-      var p  = progress(),
-          ph = p < 0.22 ? 0 : p < 0.5 ? 1 : p < 0.78 ? 2 : 3;
-      if(dy > 0) playTo(ph >= 3 ? 1 : CENTERS[ph + 1]);
-      else       playTo(ph <= 0 ? 0 : CENTERS[ph - 1]);
-    }, {passive:true});
   }
 
   /* ---------- Метрика: цели по data-goal ---------- */
