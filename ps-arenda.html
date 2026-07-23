@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 
-<title>Аренда PS4 в Тамбове — 400 ₽/сутки, 2 геймпада и 100+ игр | PS Аренда</title>
-<meta name="description" content="Прокат PlayStation 4 в Тамбове: 400 ₽ в сутки (от 2 дней), в комплекте 2 геймпада, кабели и 100+ игр по запросу. Самовывоз бесплатно, доставка 200 ₽. Договор. Звоните: +7 999 680-21-99.">
+<title>Аренда PS4 в Тамбове — 400 ₽/сутки, 2 геймпада и 30 игр | PS Аренда</title>
+<meta name="description" content="Прокат PlayStation 4 в Тамбове: 400 ₽ в сутки (от 2 дней), в комплекте 2 геймпада, кабели и 30 игр на выбор. Самовывоз бесплатно, доставка 200 ₽. Договор. Звоните: +7 999 680-21-99.">
 <meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1">
 <link rel="canonical" href="https://ps-arenda.ru/">
 <meta name="geo.region" content="RU-TAM">
@@ -19,7 +19,7 @@
 <meta property="og:site_name" content="PS Аренда">
 <meta property="og:url" content="https://ps-arenda.ru/">
 <meta property="og:title" content="Аренда PS4 в Тамбове — 400 ₽/сутки. Играй уже сегодня">
-<meta property="og:description" content="PS4 + 2 геймпада + 100 игр. Самовывоз бесплатно, доставка 200 ₽. Договор, всё честно.">
+<meta property="og:description" content="PS4 + 2 геймпада + 30 игр на выбор. Самовывоз бесплатно, доставка 200 ₽. Договор, всё честно.">
 <meta property="og:image" content="https://ps-arenda.ru/assets/hero-light.webp">
 
 <link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
@@ -87,7 +87,7 @@ header{
 }
 header.scrolled{background:rgba(10,10,10,.82);backdrop-filter:blur(14px);border-color:var(--line)}
 .hd{display:flex;align-items:center;gap:28px;padding:16px 0}
-.logo{display:flex;align-items:center;gap:10px;font-family:'Unbounded';font-weight:700;font-size:15px;letter-spacing:.04em}
+.logo{display:flex;align-items:center;gap:10px;font-family:'Unbounded';font-weight:700;font-size:15px;letter-spacing:.04em;white-space:nowrap}
 .logo svg{width:30px;height:30px}
 nav{display:flex;gap:26px;margin-left:auto}
 nav a{font-size:14px;font-weight:600;color:var(--t2);transition:color .25s var(--ease-ui)}
@@ -137,8 +137,12 @@ nav a:hover{color:var(--t1)}
 .cine__phase h1,.cine__phase .h1{
   /* кегль ограничен и шириной, и высотой вьюпорта — 3 строки всегда влезают */
   font-size:min(clamp(56px,11.5vw,164px),15.5vh);
+  /* одинаковая жирность и интерлиньяж для h1 и div.h1 во всех фазах */
+  font-weight:800;line-height:.94;
   letter-spacing:-.035em;text-transform:uppercase;
   max-width:12ch;
+  /* страховка: длинное слово переносится, а не выезжает за экран */
+  overflow-wrap:break-word;
 }
 .cine__phase h1 em,.cine__phase .h1 em{font-style:normal;color:var(--accent-2)}
 .cine__phase p{margin-top:26px;max-width:46ch;font-size:clamp(16px,1.6vw,19px);color:var(--t2)}
@@ -301,7 +305,13 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
   .hd-btn__mob{display:inline}
 }
 @media(max-width:600px){
-  .cine__phase h1,.cine__phase .h1{font-size:min(clamp(44px,13.5vw,72px),9.5vh)}
+  /* кегль подобран под самое длинное неразрывное слово — PLAYSTATION */
+  .cine__phase h1,.cine__phase .h1{
+    font-size:min(clamp(34px,10vw,72px),9.5vh);
+    letter-spacing:-.045em;
+    max-width:100%;
+  }
+  .cine__phase{padding-left:18px;padding-right:18px}
   .cine{height:420vh}
   /* звонок уже в шапке — в hero оставляем только цены */
   .cine__cta .btn:not(.btn--ghost){display:none}
@@ -328,11 +338,13 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
 <header id="hd">
   <div class="wrap hd">
     <a class="logo" href="#" aria-label="PS Аренда — на главную">
-      <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-        <rect x="1" y="1" width="9" height="9" rx="2" stroke="#fafaf9" stroke-width="1.6"/>
-        <circle cx="18.5" cy="5.5" r="4.5" stroke="#3d84ff" stroke-width="1.6"/>
-        <path d="M14 14l9 9M23 14l-9 9" stroke="#fafaf9" stroke-width="1.6" stroke-linecap="round"/>
-        <path d="M5.5 14v9M1 18.5h9" stroke="#3d84ff" stroke-width="1.6" stroke-linecap="round"/>
+      <!-- фирменный знак — геометрия из assets/favicon.svg, две краски под тёмный фон -->
+      <svg viewBox="0 0 48 48" fill="none" stroke-width="2.4"
+           stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M24 2.5 L30 15 L18 15 Z" stroke="#3d84ff"/>
+        <rect x="2.5" y="17.75" width="12.5" height="12.5" rx="1.8" stroke="#fafaf9"/>
+        <circle cx="39.25" cy="24" r="6.5" stroke="#3d84ff"/>
+        <path d="M18 33.5 L30 46 M30 33.5 L18 46" stroke="#fafaf9"/>
       </svg>
       PS АРЕНДА
     </a>
@@ -358,7 +370,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
     <div class="cine__phase on" data-phase="0">
       <span class="kicker"><i></i>Прокат PlayStation в Тамбове</span>
       <h1>PlayStation <em>у тебя дома</em></h1>
-      <p>Приставка, два геймпада и сотня игр — привезём и подключим уже сегодня. Листай вниз — покажем весь комплект.</p>
+      <p>Приставка, два геймпада и три десятка игр — привезём и подключим уже сегодня. Листай вниз — покажем весь комплект.</p>
       <div class="cine__cta">
         <a class="btn btn--big" href="tel:+79996802199" data-goal="call_hero">Позвонить: +7 999 680-21-99</a>
         <a class="btn btn--ghost btn--big" href="#tariffs">Смотреть цены</a>
@@ -368,7 +380,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
     <!-- Фаза 2 -->
     <div class="cine__phase" data-phase="1">
       <span class="kicker"><i></i>Что в комплекте</span>
-      <div class="h1">PS4 + 2 геймпада + <em>100 игр</em></div>
+      <div class="h1">PS4 + 2 геймпада + <em>30 игр на выбор</em></div>
       <p>Приставка, два геймпада, все кабели. Игры ставим по вашему списку — от гонок и файтингов до больших приключений. Скажите, во что хотите играть.</p>
     </div>
 
@@ -382,7 +394,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
     <!-- Фаза 4 -->
     <div class="cine__phase" data-phase="3">
       <span class="kicker"><i></i>Готовы привезти</span>
-      <div class="h1">Один звонок — <em>и играете</em></div>
+      <div class="h1">Один звонок — <em>и вы в игре</em></div>
       <p>Позвоните — соберём комплект под вас и подключим сегодня. Вечер с приставкой начинается прямо тут.</p>
       <div class="cine__cta">
         <a class="btn btn--big" href="tel:+79996802199" data-goal="call_hero2">+7 999 680-21-99</a>
@@ -408,7 +420,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
         <ul>
           <li>Приставка PS4 + 2 геймпада</li>
           <li>Все кабели для подключения</li>
-          <li>Игры по вашему списку — 100+</li>
+          <li>Игры по вашему списку — 30 на выбор</li>
           <li>Поможем подключить и настроить</li>
         </ul>
         <div class="note">Аренда от 2 суток · выходные (2 дня) — всего 800 ₽</div>
@@ -457,7 +469,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
   <div class="wrap">
     <div class="sec-kicker rv">Каталог игр</div>
     <h2 class="rv">Во что будем<br>играть?</h2>
-    <p class="sec-sub rv">Больше 100 игр по запросу — назовите любимые при звонке, поставим до вашего приезда.</p>
+    <p class="sec-sub rv">Около 30 игр в библиотеке — назовите любимые при звонке, поставим до вашего приезда.</p>
   </div>
   <div class="games-band rv">
     <div class="games-row" id="grow1">
@@ -595,7 +607,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
   "@context": "https://schema.org",
   "@graph": [
     {"@type":"WebSite","@id":"https://ps-arenda.ru/#website","url":"https://ps-arenda.ru/","name":"PS Аренда","inLanguage":"ru-RU","publisher":{"@id":"#business"}},
-    {"@type":"LocalBusiness","@id":"#business","name":"Аренда PlayStation Тамбов","url":"https://ps-arenda.ru/","description":"Аренда PlayStation 4 в Тамбове: 400 ₽ в сутки (от 2 суток), 2 геймпада, кабели и 100+ игр по запросу. Доп. комплект геймпадов 100 ₽/сутки. Самовывоз бесплатно, доставка 200 ₽. Договор, залог 5000 ₽.","areaServed":{"@type":"City","name":"Тамбов"},"address":{"@type":"PostalAddress","addressLocality":"Тамбов","addressCountry":"RU"},"telephone":"+7-999-680-21-99","sameAs":["https://t.me/Tambwolf1","https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae?src=sharing"],"priceRange":"400-3000 RUB"},
+    {"@type":"LocalBusiness","@id":"#business","name":"Аренда PlayStation Тамбов","url":"https://ps-arenda.ru/","description":"Аренда PlayStation 4 в Тамбове: 400 ₽ в сутки (от 2 суток), 2 геймпада, кабели и около 30 игр на выбор. Доп. комплект геймпадов 100 ₽/сутки. Самовывоз бесплатно, доставка 200 ₽. Договор, залог 5000 ₽.","areaServed":{"@type":"City","name":"Тамбов"},"address":{"@type":"PostalAddress","addressLocality":"Тамбов","addressCountry":"RU"},"telephone":"+7-999-680-21-99","sameAs":["https://t.me/Tambwolf1","https://www.avito.ru/brands/4aea62515a2aca9ebd7ba1bae132f2ae?src=sharing"],"priceRange":"400-3000 RUB"},
     {"@type":"Service","@id":"#rental","name":"Аренда PS4 в Тамбове","serviceType":"Прокат игровых приставок","provider":{"@id":"#business"},"areaServed":{"@type":"City","name":"Тамбов"},"termsOfService":"Аренда от 2 суток по договору. Паспорт 18+, залог 5000 ₽ (возвращается).","offers":[
       {"@type":"Offer","name":"Аренда PS4 (сутки, минимум 2)","price":"400","priceCurrency":"RUB","availability":"https://schema.org/InStock","businessFunction":"https://schema.org/LeaseOut","seller":{"@id":"#business"}},
       {"@type":"Offer","name":"Доп. комплект: 2 геймпада (сутки)","price":"100","priceCurrency":"RUB","availability":"https://schema.org/InStock","businessFunction":"https://schema.org/LeaseOut","seller":{"@id":"#business"}},
@@ -603,7 +615,7 @@ footer{border-top:1px solid var(--line);padding:34px 0;color:var(--t3);font-size
     ]},
     {"@type":"FAQPage","@id":"#faqpage","mainEntity":[
       {"@type":"Question","name":"Сколько стоит аренда PS4 в Тамбове?","acceptedAnswer":{"@type":"Answer","text":"400 ₽ в сутки, минимальный срок аренды — 2 суток. Дополнительный комплект из двух геймпадов — 100 ₽ в сутки."}},
-      {"@type":"Question","name":"Что входит в комплект аренды?","acceptedAnswer":{"@type":"Answer","text":"PlayStation 4, 2 геймпада, все кабели и игры по запросу — более 100 игр."}},
+      {"@type":"Question","name":"Что входит в комплект аренды?","acceptedAnswer":{"@type":"Answer","text":"PlayStation 4, 2 геймпада, все кабели и игры по запросу — около 30 игр на выбор."}},
       {"@type":"Question","name":"Нужен ли залог?","acceptedAnswer":{"@type":"Answer","text":"Да, залог 5000 ₽ при оформлении договора, возвращается полностью при возврате комплекта. Нужен паспорт гражданина 18+."}},
       {"@type":"Question","name":"Есть ли доставка по Тамбову?","acceptedAnswer":{"@type":"Answer","text":"Да, доставка по Тамбову — 200 ₽. Самовывоз бесплатный."}}
     ]}
